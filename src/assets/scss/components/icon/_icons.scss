@@ -1,0 +1,33 @@
+/*-------------------------------------------------------------
+9.11 Icons
+-------------------------------------------------------------*/
+//Font Awesome Icons
+
+.card-wrapper {
+	.mat-list-item {
+		&:hover{
+			.icon-name {
+				color: $primary;
+				transition: all 0.3s ease-in-out;
+			}
+			.icon {
+				transform: scale(1.5);
+				color: $primary;
+				transition: all 0.3s ease-in-out;
+			}	
+		}
+	}
+	
+}
+.card-icon {
+	.icon {
+		font-size: 1rem;
+    	padding: 1rem;
+    	display: inline-block;
+    	transition: all 0.3s ease-in-out;
+    	&:hover {
+    		background-color:$primary;
+    		color:$text-color;
+    	}
+	}
+}

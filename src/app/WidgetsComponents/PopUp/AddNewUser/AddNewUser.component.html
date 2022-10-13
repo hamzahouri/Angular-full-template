@@ -1,0 +1,21 @@
+<form [formGroup]="form">
+	<h2 mat-dialog-title>{{data.heading}}</h2>
+	
+	<mat-dialog-content>
+	   <div>
+		 	<mat-form-field>
+			   <input matInput placeholder="{{data.name}}" formControlName="userName">
+		 	</mat-form-field> 
+		 	<mat-form-field>
+			   <input matInput placeholder="{{data.email}}" formControlName="email">
+		 	</mat-form-field>
+		</div>
+	</mat-dialog-content>
+
+	<mat-dialog-actions>
+		<button mat-raised-button (click)="dialogRef.close()" color="primary">CLOSE</button>
+		<button mat-raised-button (click)="addData()"color="warn">ADD</button>
+	</mat-dialog-actions>
+</form>
+
+

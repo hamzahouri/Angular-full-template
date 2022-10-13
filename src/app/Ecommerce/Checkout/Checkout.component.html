@@ -1,0 +1,138 @@
+<div class="app-card-title mb-4">
+	<anglo-title-component title="Checkout"></anglo-title-component>
+</div>
+<mat-card class="m-0 p-0">
+<div class="checkout-wrapper ecommerce-wrapper" fxLayout="row wrap">
+	<div class="border-r-1 app-card"  fxFlex.xs="100" fxFlex.sm="100" fxFlex.lg="60" fxFlex.xl="60">
+		<mat-card class="p-0 full-hght box-shadow-disable">
+		<div class="px-3 pb-3">
+			<div class="card-title px-2 py-4 mb-0">
+				<h2>{{'Billing Details'|translate}}</h2>
+			</div>	
+			<mat-card-content>
+				<form [formGroup]="billingForm">
+					<div fxLayout="row wrap">
+						<div class="px-2"  fxFlex.xs="100" fxFlex.sm="100" fxFlex.lg="50" fxFlex.xl="50">
+						  	<mat-form-field class="full-wid">
+								<mat-icon matPrefix class="mr-2">person</mat-icon>
+						 		<input matInput type="text" class="form-control" placeholder="First Name">
+							</mat-form-field>
+						</div>
+						<div class="px-2"  fxFlex.xs="100" fxFlex.sm="100" fxFlex.lg="50" fxFlex.xl="50">
+							<mat-form-field class="full-wid">
+								<mat-icon matPrefix class="mr-2">person</mat-icon>
+								<input matInput type="text" class="form-control"  placeholder="Last Name">
+							</mat-form-field>
+						</div>	
+					</div>
+					<div fxLayout="row wrap">
+						<div class="px-2"  fxFlex.xs="100" fxFlex.sm="100" fxFlex.lg="50" fxFlex.xl="50">
+							<mat-form-field class="full-wid">
+								<mat-icon matPrefix class="mr-2">mail</mat-icon>
+								<input matInput type="email" class="form-control" placeholder="Email">
+							</mat-form-field>
+						</div>	
+						<div class="px-2"  fxFlex.xs="100" fxFlex.sm="100" fxFlex.lg="50" fxFlex.xl="50">
+							<mat-form-field class="full-wid">
+								<mat-icon matPrefix class="mr-2">phone</mat-icon>
+								<input matInput type="text" class="form-control" placeholder="Mobile No">
+							</mat-form-field>
+						</div>
+					</div>			
+					<div fxLayout="row wrap">
+						<div class="px-2"  fxFlex.xs="100" fxFlex.sm="100" fxFlex.lg="100" fxFlex.xl="100">	
+							<mat-form-field class="full-wid" >
+								<mat-icon matPrefix class="mr-2">home</mat-icon>
+								<input matInput type="text" class="form-control" placeholder="Address 1">
+							</mat-form-field>
+						</div>
+					</div>	
+					<div fxLayout="row wrap">
+						<div class="px-2"  fxFlex.xs="100" fxFlex.sm="100" fxFlex.lg="100" fxFlex.xl="100">
+							<mat-form-field class="full-wid">
+								<mat-icon matPrefix class="mr-2">home</mat-icon>
+								<input matInput type="text"  class="form-control" placeholder="Address 2">
+							</mat-form-field>
+						</div>	
+					</div>
+					<div fxLayout="row wrap">
+						<div class="px-2"  fxFlex.xs="100" fxFlex.sm="100" fxFlex.lg="33.33" fxFlex.xl="33.33">
+							<mat-form-field class="full-wid">
+								<mat-icon matPrefix class="mr-2">public</mat-icon>
+								<mat-select formControlName="country" class="form-control">	
+									<mat-option value="" disabled selected hidden>Country</mat-option>	
+									<mat-option value="country" *ngFor="let country of countries">{{country.country}}</mat-option>
+								</mat-select>
+							</mat-form-field>
+						</div>
+						<div class="px-2"  fxFlex.xs="100" fxFlex.sm="100" fxFlex.lg="33.33" fxFlex.xl="33.33">	
+							<mat-form-field  class="full-wid">
+								<mat-icon matPrefix class="mr-2">location_city</mat-icon>
+								<input matInput type="text" class="form-control" placeholder="State" formControlName="state">
+							</mat-form-field>
+						</div>
+						
+						<div class="px-2"  fxFlex.xs="100" fxFlex.sm="100" fxFlex.lg="33.33" fxFlex.xl="33.33">	
+							<mat-form-field class="full-wid">
+								<mat-icon matPrefix class="mr-2">domain</mat-icon>
+								<input matInput type="text" class="form-control" placeholder="City" formControlName="city">	
+							</mat-form-field>
+						</div>
+					</div>
+					<div class="px-2 mb-4">			
+						<div class="mb-3 mt-3">
+					 		<mat-checkbox><span class="grey-text">Shipping address is the same as billing add.</span></mat-checkbox>
+					 	</div>
+					 	<div>	
+			         	<span class="fs-12 anglo-block warn-color">All fields marked with an asterisk (*) are required</span>
+			         </div>
+			      </div>  
+				</form>
+			</mat-card-content>
+			</div>
+		</mat-card>
+	</div>	
+	<div fxFlex.xs="100" fxFlex.sm="100" fxFlex.lg="40" fxFlex.xl="40">
+		<mat-card class="box-shadow-disable" *ngIf="coreService.localStorageCart && coreService.cartLength>0">
+			<mat-card-content>
+				<div class="table-responsive overflow-hidden">
+					<table mat-table [dataSource]="coreService.localStorageCart">
+						<ng-container matColumnDef="image">
+						   <th mat-header-cell *matHeaderCellDef>Prdouct</th>
+						   <td class="px-1" mat-cell *matCellDef="let element"><img class="pr-3" src="{{element.image}}" width="63" height="63"></td>
+						</ng-container>
+					   <ng-container matColumnDef="name">
+						   <th mat-header-cell *matHeaderCellDef></th>
+						   <td mat-cell *matCellDef="let element">{{element.name}} </td>
+						</ng-container>
+						<ng-container matColumnDef="quantity">
+						   <th class="pr-2" mat-header-cell *matHeaderCellDef>Quantity</th>
+						   <td mat-cell *matCellDef="let element">{{element.quantity}} </td>
+						</ng-container>
+						<ng-container matColumnDef="total">
+						   <th class="pl-2" mat-header-cell *matHeaderCellDef>Total</th>
+						   <td mat-cell *matCellDef="let element"> 
+						   	<span>{{onQuantityClick(element) |currency}}
+						   	</span> 
+						   </td>
+						</ng-container>
+						<tr mat-header-row *matHeaderRowDef="displayedColumnsData"></tr>
+						<tr mat-row *matRowDef="let row; columns: displayedColumnsData;"></tr>
+					</table>
+				</div>	
+				<div class="p-3" fxLayoutAlign="space-between center">
+					<div>
+						<h4 class="mb-0">Total</h4>
+					</div>
+					<div>
+						<h4 class="mb-0">{{calculate()|currency}}</h4>
+					</div>
+				</div>	
+			</mat-card-content>
+			<mat-card-actions class="text-right m-0">
+				<button  mat-raised-button color="primary">PLACE ORDER</button>
+			</mat-card-actions>
+		</mat-card>
+	</div>
+</div>		
+</mat-card>

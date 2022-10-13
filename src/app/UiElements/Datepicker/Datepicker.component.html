@@ -1,0 +1,66 @@
+<div class="app-card-title mb-3">
+  <anglo-title-component title="Datepicker"></anglo-title-component>
+</div>
+<div class="grid-wrapper"  fxLayout="row wrap">
+	<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+		<mat-card>
+			<div class="card-title p-2">
+				<h3 class="text-capitalize">{{'Datepicker MM/DD/YY'|translate}}</h3>
+			</div>
+			<div class="card-content p-2">
+				<mat-form-field>
+					<input type="hidden" [matDatepicker]="picker" [(ngModel)]='pickerOneValue'>
+					<input matInput [ngModel]="pickerOneValue | date:'MM/dd/yyyy'" placeholder="Choose a date">
+					<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+					<mat-datepicker #picker></mat-datepicker>
+				</mat-form-field>
+			</div>
+		</mat-card>
+	</div>
+	<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+		<mat-card>
+			<div class="card-title p-2">
+				<h3 class="text-capitalize">{{'Datepicker DD/MM/YY'|translate}}</h3>
+			</div>
+			<div class="card-content p-2">
+				<mat-form-field>
+					<input type="hidden" [matDatepicker]="picker1" [(ngModel)]='pickerTwoValue'>
+					<input matInput [ngModel]="pickerTwoValue | date:'dd/MM/yyyy'" placeholder="Choose a date">
+					<mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+					<mat-datepicker #picker1></mat-datepicker>
+				</mat-form-field>
+			</div>
+		</mat-card>
+	</div>
+</div>
+<div class="grid-wrapper" fxLayout="row wrap">
+	<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+		<mat-card>
+			<div class="card-title p-2">
+				<h3>{{'Datepicker YY/MM/DD'|translate}}</h3>
+			</div>
+			<div class="card-content p-2">
+				<mat-form-field>
+					<input type="hidden" [matDatepicker]="picker2" [(ngModel)]='pickerThreeValue'>
+					<input matInput [ngModel]="pickerThreeValue | date:'yyyy/MM/dd'" placeholder="Choose a date">
+					<mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+					<mat-datepicker #picker2></mat-datepicker>
+				</mat-form-field>
+			</div>
+		</mat-card>
+	</div>
+	<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+		<mat-card>
+			<div class="card-title p-2">
+				<h3>{{'Datepicker- In Dialog'|translate}}</h3>
+			</div>
+			<div class="card-content p-2">
+				<mat-form-field>
+					<input matInput [matDatepicker]="picker3" placeholder="Choose a date">
+					<mat-datepicker-toggle [for]="picker3" matSuffix></mat-datepicker-toggle>
+					<mat-datepicker #picker3 touchUi="true"></mat-datepicker>
+				</mat-form-field>
+			</div>
+		</mat-card>
+	</div>
+</div>

@@ -1,0 +1,48 @@
+<mat-card class="p-0">
+	<div *ngIf = "categorySaleVisible" id="{{id}}" class={{className}}>
+		<div class="mb-0 p-3" fxLayoutAlign="space-between center">
+			<div class="card-title">
+				<h3 class="mb-0 text-capitalize">{{titleName | translate}}</h3>
+			</div>
+			<div class="a-icon">
+				<TopsideMenu (isCloseEvent) = "getCloseValue($event)" (isFullScreen)= "showFullScreen(id)" (isShowSpinner)="spinnerShow(id)"></TopsideMenu>
+			</div>
+		</div>
+		<mat-card-content class="m-0">
+			<div class="px-3 card-content" *ngFor="let CategorySale of CategorySaleData">
+				<div *ngIf="!CategorySale.number">
+					<div class="mb-4 content" fxLayoutAlign="start center">
+						<p class="title fs-12 grey-text mr-3" fxLayoutAlign="start end">{{CategorySale.name}}</p>
+						<div class="full-wid">
+							<span class="anglo-block grey-text font-sz text-right">{{CategorySale.value}}%</span>
+							<div>
+								<mat-progress-bar mode="determinate" value="{{CategorySale.value}}"></mat-progress-bar>
+							</div>	
+						</div>
+					</div>	
+				</div>
+				<div *ngIf="CategorySale.number">
+					<div>
+						<span>{{CategorySale.number}}</span>
+					</div>
+					<div>
+						<span>{{CategorySale.name}}</span>
+						<mat-progress-bar mode="determinate" value="{{CategorySale.value}}"></mat-progress-bar>
+					</div>
+				</div>
+			</div>
+		</mat-card-content>
+		<mat-card-actions class="m-0 p-0">
+			<div class="grey-text text-left p-3 fs-12" fxLayoutAlign="end center">
+				<mat-icon class="update-list">replay</mat-icon>
+				<span>Updated 10 min ago</span>
+			</div>	
+		</mat-card-actions>
+		<div class="card-spinner" [ngClass] = "{'reload' : categorySaleShowSpinner}" fxLayoutAlign="center center">
+			<mat-spinner *ngIf="categorySaleShowSpinner" mode="indeterminate" diameter="39"></mat-spinner>
+		</div>
+		<div class="card-spinner" [ngClass] = "{'reload' : trafficChannelShowSpinner}" fxLayoutAlign="center center">
+			<mat-spinner *ngIf="trafficChannelShowSpinner" mode="indeterminate" diameter="39"></mat-spinner>
+		</div>
+	</div>
+</mat-card>

@@ -1,0 +1,54 @@
+<div class="app-card-title mb-3">
+   <anglo-title-component title="Menu"></anglo-title-component>
+</div>
+<div class="grid-wrapper" fxLayout="row wrap">
+	<div class="app-card" fxFlex.xs="100" fxFlex.sm="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33">
+		<mat-card>
+			<div class="card-title p-2">
+				<h3>{{'Activator'|translate}}</h3>
+			</div>
+			<div class="card-content p-2">
+				<button class="m-2" mat-raised-button [matMenuTriggerFor]="menu1" color="primary">DROPDOWN</button>
+				<mat-menu #menu1="matMenu">
+					<button mat-menu-item>Refresh</button>
+					<button mat-menu-item>Settings</button>
+					<button mat-menu-item>Help</button>
+					<button mat-menu-item>Sign Out</button>
+				</mat-menu>
+			</div>
+		</mat-card>	
+	</div>
+	<div class="app-card" fxFlex.xs="100" fxFlex.sm="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33">
+		<mat-card>
+			<div class="card-title p-2">
+				<h3>{{'Hover'|translate}}</h3>
+			</div>
+			<div class="card-content p-2">
+				<button mat-raised-button class="m-2" [matMenuTriggerFor]="menu2" color="warn">DROPDOWN</button>
+				<mat-menu #menu2="matMenu" yPosition="above">
+					<button mat-menu-item>Refresh</button>
+					<button mat-menu-item>Settings</button>
+					<button mat-menu-item>Help</button>
+					<button mat-menu-item>Sign Out</button>
+				</mat-menu>
+			</div>
+		</mat-card>	
+	</div>
+	<div class="app-card" fxFlex.xs="100" fxFlex.sm="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33">
+		<mat-card>
+			<div class="card-title p-2">
+				<h3>{{'Menus'|translate}}</h3>
+			</div>
+			<div class="card-content p-2">
+				<button mat-raised-button class="m-2" [matMenuTriggerFor]="menu3"><mat-icon>more_vert</mat-icon></button>
+				<mat-menu #menu3="matMenu">
+					<button mat-menu-item>Refresh</button>
+					<button mat-menu-item>Settings</button>
+					<button mat-menu-item>Help</button>
+					<button mat-menu-item>Sign Out</button>
+				</mat-menu>
+			</div>
+		</mat-card>	
+	</div>
+</div>	
+

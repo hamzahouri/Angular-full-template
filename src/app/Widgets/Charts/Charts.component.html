@@ -1,0 +1,325 @@
+<div class="app-card-title mb-3">
+	<anglo-title-component title="Charts"></anglo-title-component>
+</div>
+<div class="charts-wrapper grid-wrapper" fxLayout="row wrap">
+	<!-- Daily Sales -->
+	<div class="app-card" fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33">
+		<mat-card *ngIf="isVisibleChildComponent.singleSalesChartVisible" id ="dailySales">
+			<mat-card-title>
+				<div class="p-2" fxLayoutAlign="space-between center">
+					<div class="card-title">
+						<h3>{{'Daily Sales'|translate}}</h3>
+					</div>
+					<div class="a-icon">	
+						<TopsideMenu (isCloseEvent) = "getCloseValue($event, 'sales')" (isFullScreen)= "showFullScreen('dailySales')" (isShowSpinner)="spinnerShow('dailySales')"></TopsideMenu>
+					</div>	
+				</div>	
+			</mat-card-title>
+			<mat-card-content class="p-2">
+				<div fxLayoutAlign="start start">
+					<mat-icon class="mr-3 primary-color">arrow_upward</mat-icon>
+					<div>
+						<h2 class="mb-0">12,255 Today</h2>
+						<span class="grey-text fs-14">10% increase from yesterday</span>
+					</div>
+				</div>	
+				<div class="height-180">
+					<anglo-daily-sale-chart [color]="dailyChartColors" [data]="dailyChartData" [label]="dailyChartLabel"></anglo-daily-sale-chart>
+				</div>
+			</mat-card-content>
+			<mat-card-actions class="m-0 p-0">
+				<div class="pt-1 grey-text text-left fs-12 update-content" fxlayoutalign="end center">
+					<mat-icon class="update-list mat-icon material-icons">replay</mat-icon>
+					<span>Updated 10 min ago</span>
+				</div>	
+			</mat-card-actions>
+			<div class="card-spinner" [ngClass] = "{'reload' : isReloadChildComponent.dailySaleShowSpinner}" fxLayoutAlign="center center">
+				<mat-spinner *ngIf="isReloadChildComponent.dailySaleShowSpinner" mode="indeterminate" diameter="39"></mat-spinner>
+			</div>	
+		</mat-card>
+	</div>	
+
+	<!-- Traffic Channel -->
+	<div class="app-card" fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33">
+		<mat-card  *ngIf="isVisibleChildComponent.trafficChannelVisible" id = "trafficChannel">
+			<mat-card-title>
+				<div class="p-2" fxLayoutAlign="space-between center">
+					<div class="card-title">
+						<h3>{{'Traffic Channel'|translate}}</h3>
+					</div>
+					<div class="a-icon">
+						<TopsideMenu (isCloseEvent) = "getCloseValue($event,'trafficChannel')" (isFullScreen)= "showFullScreen('trafficChannel')" (isShowSpinner)="spinnerShow('trafficChannel')"></TopsideMenu>
+					</div>
+				</div>		
+			</mat-card-title>
+			<mat-card-content>
+			<div class="p-2 height-200 mb-4">
+				<anglo-horizontal-bar [color]="trafficChartColors" [data]="trafficChartData" [label]="trafficChartLabel"></anglo-horizontal-bar>
+			</div>
+			</mat-card-content>
+			<mat-card-actions class="m-0 p-0">
+				<div class="p-2" fxLayoutAlign="space-between center">
+					<div class="grey-text text-left fs-12 update-content" fxlayoutalign="end center">
+						<mat-icon class="update-list mat-icon material-icons">replay</mat-icon>
+						<span>Updated 10 min ago</span>
+					</div>
+					<div>
+						<button mat-raised-button mat-button-sm color="primary">GO TO CAMPAIGN</button>
+					</div>	
+				</div>	
+			</mat-card-actions>
+			<div class="card-spinner" [ngClass] = "{'reload' : isReloadChildComponent.trafficShowSpinner}" fxLayoutAlign="center center">
+				<mat-spinner *ngIf="isReloadChildComponent.trafficShowSpinner" mode="indeterminate" diameter="39"></mat-spinner>
+			</div>	
+		</mat-card>
+	</div>	
+
+	<!-- Campaign Performance --> 
+	<div class="app-card campaign-performance" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33">
+		<mat-card *ngIf="isVisibleChildComponent.campaignVisible" id="campignPerformace">
+			<mat-card-title>
+				<div class="p-2" fxLayoutAlign="space-between center">
+					<div class="card-title">
+						<h3>{{'Campaign Performance'|translate}}</h3>
+					</div>
+					<div class="a-icon">	
+						<TopsideMenu (isCloseEvent) = "getCloseValue($event,'campaign')"  (isFullScreen)= "showFullScreen('campignPerformace')" (isShowSpinner)="spinnerShow('campignPerformace')"></TopsideMenu>
+					</div>
+				</div>		
+			</mat-card-title>
+			<mat-card-content class="mb-2">
+				<div class="p-2 height-200">
+					 <anglo-grouped-verical-bar-chart [color]="campaignChartColors" [data]="campaignChartData" [label]="campaignChartLabel">
+					 </anglo-grouped-verical-bar-chart>
+				</div>	
+			</mat-card-content>
+			<mat-card-actions class="m-0 p-0">
+				<mat-form-field>
+		  			<mat-select placeholder="Select">
+			   		<mat-option *ngFor="let day of days" [value]="day.value">
+			      		{{day.viewValue}}
+			    		</mat-option>
+		  			</mat-select>
+				</mat-form-field>
+			</mat-card-actions>
+			<div class="card-spinner" [ngClass] = "{'reload' : isReloadChildComponent.campignShowSpinner}" fxLayoutAlign="center center">
+				<mat-spinner *ngIf="isReloadChildComponent.campignShowSpinner" mode="indeterminate" diameter="39"></mat-spinner>
+			</div>	
+		</mat-card>
+	</div>
+</div>	
+
+<div class="charts-wrapper grid-wrapper" fxLayout="row wrap">
+	
+	<!-- visit-and-sales-statistics -->	
+	<div class="app-card" fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+		<mat-card *ngIf="isVisibleChildComponent.visitStatisticsVisible" id = "visitSale">
+			<mat-card-title>
+				<div class="p-2" fxLayoutAlign="space-between center">
+					<div class="card-title">
+						<h3>{{'Visit & Sales Statistics'|translate}}</h3>
+					</div>
+					<div class="a-icon">
+						<TopsideMenu (isCloseEvent) = "getCloseValue($event,'visitStatistics')"
+							(isFullScreen)= "showFullScreen('visitSale')" (isShowSpinner)="spinnerShow('visitSale')" >
+						</TopsideMenu>
+					</div>
+				</div>		
+			</mat-card-title>
+			<mat-card-content>
+				<div class="widget p-2">
+					<div class="ladgend-wrapper mb-3" fxLayoutAlign="start center">
+						<p class="mb-0 mr-2">
+							<span class="ladgend ladgend-success mr-1"></span>
+							<span class="fs-12">Sales</span>
+						</p>
+						<p class="mb-0">
+							<span class="ladgend ladgend-warning mr-1"></span>
+							<span class="fs-12">Visits</span>
+						</p>	
+					</div>
+					<div class="anglo-visit-sale">
+						<anglo-visit-sale-chart [color]="visitChartColors" [data]="visitChartData" [label]="visitChartLabel"></anglo-visit-sale-chart>
+					</div>
+				</div>	
+			</mat-card-content>
+			<div class="card-spinner" [ngClass] = "{'reload' : isReloadChildComponent.visitSaleShowSpinner}" fxLayoutAlign="center center">
+				<mat-spinner *ngIf="isReloadChildComponent.visitSaleShowSpinner" mode="indeterminate" diameter="39"></mat-spinner>
+			</div>	
+		</mat-card>	
+	</div>	
+
+	<!-- Total Earnings -->
+	<div class="app-card" fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+		<mat-card *ngIf="isVisibleChildComponent.totalEarningsVisible" id = "totalEarning">
+			<mat-card-title>
+				<div class="p-2" fxLayoutAlign="space-between center">
+					<div class="card-title">
+						<h3>{{'Total Earnings'|translate}}</h3>
+					</div>
+					<div class="a-icon">	
+						<TopsideMenu (isCloseEvent) = "getCloseValue($event,'totalEarnings')" (isFullScreen)= "showFullScreen('totalEarning')" (isShowSpinner)="spinnerShow('totalEarning')"></TopsideMenu>
+					</div>
+				</div>		
+			</mat-card-title>
+			<mat-card-content>
+				<div class="widget p-2">
+					<div class="ladgend-wrapper mb-3" fxLayoutAlign="start center">
+						<p class="mb-0 mr-2 ladgend-content">
+							<span class="ladgend ladgend-success mr-1"></span>
+							<span class="fs-12">Open Rate</span>
+						</p>
+						<p class="mb-0 ladgend-content">
+							<span class="ladgend ladgend-pink mr-1"></span>
+							<span class="fs-12">Recurring Payments</span>
+						</p>	
+					</div>
+					<div class="anglo-visit-sale">
+						<anglo-visit-sale-chart [color]="earningChartColors" [data]="earningChartData" [label]="earningChartLabel"></anglo-visit-sale-chart>
+					</div>
+				</div>		
+			</mat-card-content>
+			<div class="card-spinner" [ngClass] = "{'reload' : isReloadChildComponent.totalEarnShowSpinner}" fxLayoutAlign="center center">
+				<mat-spinner *ngIf="isReloadChildComponent.totalEarnShowSpinner" mode="indeterminate" diameter="39"></mat-spinner>
+			</div>	
+		</mat-card>	
+	</div>
+</div>	
+
+<div class="charts-wrapper grid-wrapper" fxLayout="row wrap">
+	<!-- Useful Widget -->		
+	<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="60" fxFlex.lg="60" fxFlex.xl="60">
+		<mat-card class="p-0">
+			<mat-card-content>
+				<div class="dash-card-wrap text-align" fxLayout="row wrap">
+					<div class="dash-card-light p-3 text-align border-r-1" fxFlex.xs="100" fxFlex.sm="33.33" fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33">
+						<div class="full-wid full-hght full-chart">
+							<p>Average Steps</p>
+							<h2 class="primary-color">3261</h2>
+							<div class="radial-progress-container inline-block">
+								<div class="radial-progress-inner" fxLayoutAlign="center center">
+									<h2><mat-icon class="ti-arrow-up">arrow_upward</mat-icon></h2>
+								</div>
+								<anglo-circle-progress class="inline-block anglo-circle-progress" percent="60" outerStrokeColor="#1E3C72" circleClassName="average-steps"></anglo-circle-progress>
+							</div>	
+							<h2 class="primary-color">5000</h2>
+							<p>Today's Step</p>
+						</div>
+					</div>
+					<div class="dash-card-light p-3 text-align border-r-1" fxFlex.xs="100" fxFlex.sm="33.33" fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33">
+						<div class="card-content">		
+							<p>Today's Distance</p>
+							<h2 class="accent-color">7.6 Km</h2>
+							<div class="radial-progress-container inline-block">
+								<div class="radial-progress-inner" fxLayoutAlign="center center">
+									<h2><mat-icon class="ti-arrow-up">arrow_downward</mat-icon></h2>
+								</div>
+								<anglo-circle-progress class="inline-block anglo-circle-progress" percent="40" outerStrokeColor="#e65100" circleClassName="today-distance"></anglo-circle-progress>
+							</div>
+							<h2 class="accent-color">7.6 Km</h2>
+							<p>10 Km</p>
+						</div>
+					</div>	
+					<div class="p-3 dash-card-light text-align border-r-1" fxFlex.xs="100" fxFlex.sm="33.33" fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33">
+						<div>
+							<p>Calories</p>
+							<h2 class="warn-color">350</h2>
+							<div class="radial-progress-container inline-block">
+								<div class="radial-progress-inner" fxLayoutAlign="center center">
+									<h2><mat-icon class="ti-arrow-up">arrow_upward</mat-icon></h2>
+								</div>	
+								<anglo-circle-progress class="inline-block anglo-circle-progress" percent="90" outerStrokeColor="#43a047" circleClassName="calories"></anglo-circle-progress>
+							</div>	
+							<h2 class="warn-color">550</h2>
+							<p>Today's Goal</p>
+						</div>
+					</div>		
+				</div>	
+			</mat-card-content>	
+		</mat-card>
+	</div>
+	<!-- Weekly Summary -->
+	<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="40" fxFlex.lg="40" fxFlex.xl="40">
+		<mat-card  *ngIf="isVisibleChildComponent.weeklySummaryVisible" id="weeklySummary">
+			<mat-card-title>
+				<div class="p-2" fxLayoutAlign="space-between center">
+					<div class="card-title">
+						<h3>{{'Weekly Summary'|translate}}</h3>
+					</div>
+					<div class="a-icon">	
+						<TopsideMenu (isCloseEvent) = "getCloseValue($event,'weeklySummary')" (isFullScreen)= "showFullScreen('weeklySummary')" (isShowSpinner)="spinnerShow('weeklySummary')"></TopsideMenu>
+					</div>
+				</div>		
+			</mat-card-title>
+			<mat-card-content>
+			<div class="weekly-summary-chart p-2 height-220">
+				<anglo-weekly-summary [color]="weeklyChartColors" [data]="weeklyChartData" [label]="weeklyChartLabel"></anglo-weekly-summary>
+			</div>	
+			</mat-card-content>
+			<div class="card-spinner" [ngClass] = "{'reload' : isReloadChildComponent.weeklyShowSpinner}" fxLayoutAlign="center center">
+				<mat-spinner *ngIf="isReloadChildComponent.weeklyShowSpinner" mode="indeterminate" diameter="39"></mat-spinner>
+			</div>
+		</mat-card>
+	</div>			
+</div>
+<!-- product-sales-->
+<div class="charts-wrapper grid-wrapper" fxLayout="row wrap">
+	<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+		<mat-card  *ngIf="isVisibleChildComponent.productSalesSummaryVisible" id="productSale">
+			<mat-card-title>
+				<div class="p-2" fxLayoutAlign="space-between center">
+					<div class="card-title">
+						<h3>{{'Product Sales'|translate}}</h3>
+					</div>
+					<div class="a-icon">
+						<TopsideMenu (isCloseEvent) = "getCloseValue($event,'productSalesSummary')" (isFullScreen)= "showFullScreen('productSale')" (isShowSpinner)="spinnerShow('productSale')"></TopsideMenu>
+					</div>
+				</div>		
+			</mat-card-title>
+			<mat-card-content>
+				<div class="widget p-2">
+					<div class="ladgend-wrapper mb-3" fxLayoutAlign="start center">
+						<p class="mb-0 mr-2">
+							<span class="ladgend ladgend-success mr-1"></span>
+							<span>iPhone 8</span>
+						</p>
+						<p class="mb-0">
+							<span class="ladgend ladgend-warning mr-1"></span>
+							<span>Samsung X8</span>
+						</p>	
+					</div>
+					<div class="height-300">
+						<anglo-product-sale-chart [color]="productChartColors" [data]="productChartData" [label]="productChartLabel"></anglo-product-sale-chart>
+					</div>	
+				</div>	
+			</mat-card-content>
+			<div class="card-spinner" [ngClass] = "{'reload' : isReloadChildComponent.productSaleShowSpinner}" fxLayoutAlign="center center">
+				<mat-spinner *ngIf="isReloadChildComponent.productSaleShowSpinner" mode="indeterminate" diameter="39"></mat-spinner>
+			</div>	
+		</mat-card>
+	</div>
+	<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+		<mat-card *ngIf="isVisibleChildComponent.currentVisitorVisible" id="currentVisitor">
+			<mat-card-title>
+				<div class="p-2" fxLayoutAlign="space-between center">
+					<div class="card-title">
+						<h3>{{'Current Visitors'|translate}}</h3>
+					</div>
+					<div class="a-icon">
+						<TopsideMenu (isCloseEvent) = "getCloseValue($event,'currentVisitor')" (isFullScreen)= "showFullScreen('currentVisitor')" (isShowSpinner)="spinnerShow('currentVisitor')"></TopsideMenu>
+					</div>
+				</div>		
+			</mat-card-title>
+			<mat-card-content class="mb-0">
+				<div class="height-300">
+					<anglo-vector-map color="#1E3C72"></anglo-vector-map>
+				</div>	
+			</mat-card-content>
+			<div class="card-spinner" [ngClass] = "{'reload' : isReloadChildComponent.currentVisitorSpinner}" fxLayoutAlign="center center">
+				<mat-spinner *ngIf="isReloadChildComponent.currentVisitorSpinner" mode="indeterminate" diameter="39"></mat-spinner>
+			</div>	
+		</mat-card>		
+	</div>	
+</div>
+
+

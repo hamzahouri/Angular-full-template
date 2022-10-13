@@ -1,0 +1,48 @@
+/*-------------------------------------------------------------
+9.4 List
+-------------------------------------------------------------*/ 
+.list-wrapper {	
+	.title-header {
+		background-color: $primary;
+		height:4rem;
+	}
+	.card-content {
+		.list-action {
+			.mat-icon {
+				color: #ff9800;
+			}
+		}
+		.mat-list-item-content {
+			 padding:0rem 0.625rem;
+			.mat-icon {
+				line-height:2rem;
+			}
+			.mat-list-text {
+				padding-left:0px !important;
+			}	
+		}
+		.list-content {
+			cursor:pointer;
+			transition: all 0.5s ease-in-out;
+			&:hover {
+				background: rgba(0,0,0,.04);
+			}
+		}
+		.list-title-content {
+			.list-action {
+				visibility:hidden;
+			}
+		}	
+	}
+	.sub-header {
+		height:2rem;
+		display:block;
+	}
+	.app-card {
+		.mat-card-content {
+			box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),0 5px 8px 0 rgba(0,0,0,.14),0 1px 14px 0 rgba(0,0,0,.12)!important;
+		}
+	}	
+}
+
+

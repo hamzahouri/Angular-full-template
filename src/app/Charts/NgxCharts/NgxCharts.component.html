@@ -1,0 +1,425 @@
+.
+<div class="app-card-title mb-3">
+   <anglo-title-component title="Ngx Charts"></anglo-title-component>
+</div>
+<div class="ngx-chart-wrapper">
+   <div class="grid-wrapper" fxLayout="row wrap">
+      <div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+         <mat-card class="p-0">
+            <div class="card-title p-3 border-b-1">
+               <h3>{{'Vertical Bar Chart'|translate}}</h3>
+            </div>
+            <div class="card-content p-3">
+               <ngx-charts-bar-vertical class="w-100"
+               (window:resize)="onResize($event)"
+               [view]="view"
+               [scheme]="colorScheme"
+               [results]="single"
+               [gradient]="gradient"
+               [xAxis]="showXAxis"
+               [yAxis]="showYAxis"
+               [legend]="showLegend"
+               [showXAxisLabel]="showXAxisLabel"
+               [showYAxisLabel]="showYAxisLabel"
+               [xAxisLabel]="xAxisLabel"
+               [yAxisLabel]="yAxisLabel"
+               (select)="onSelect($event)">
+               </ngx-charts-bar-vertical>
+            </div>
+         </mat-card>
+      </div>
+      <div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+         <mat-card class="p-0">   
+            <div class="card-title p-3 border-b-1">
+               <h3>{{'Horizontal Bar Chart'|translate}}</h3>
+            </div>
+            <div class="card-content p-3">
+               <ngx-charts-bar-horizontal
+                  (window:resize)="onResize($event)"
+                  [view]="view"
+                  [scheme]="colorScheme"
+                  [results]="single"
+                  [gradient]="gradient"
+                  [xAxis]="showXAxis"
+                  [yAxis]="showYAxis"
+                  [legend]="showLegend"
+                  [showXAxisLabel]="showXAxisLabel"
+                  [showYAxisLabel]="showYAxisLabel"
+                  [xAxisLabel]="xAxisLabel"
+                  [yAxisLabel]="yAxisLabel"
+                  (select)="onSelect($event)">
+               </ngx-charts-bar-horizontal>
+            </div>
+         </mat-card>   
+      </div>
+   </div> 
+   <div class="grid-wrapper" fxLayout="row wrap">  
+      <div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+         <mat-card class="p-0">
+            <div class="card-title p-3 border-b-1">
+               <h3>{{'Grouped Vertical Bar Chart'|translate}}</h3>
+            </div>
+            <div class="card-content p-3">
+               <ngx-charts-bar-vertical-2d
+                  (window:resize)="onResize($event)"
+                  [view]="view"
+                  [scheme]="colorScheme"
+                  [results]="multi"
+                  [gradient]="gradient"
+                  [xAxis]="showXAxis"
+                  [yAxis]="showYAxis"
+                  [legend]="showLegend"
+                  [showXAxisLabel]="showXAxisLabel"
+                  [showYAxisLabel]="showYAxisLabel"
+                  [xAxisLabel]="xAxisLabel"
+                  [yAxisLabel]="yAxisLabel"
+                  (select)="onSelect($event)">
+               </ngx-charts-bar-vertical-2d>
+            </div>
+         </mat-card>   
+      </div>
+      <div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+         <mat-card class="p-0">
+            <div class="card-title p-3 border-b-1">
+               <h3>{{'Grouped Horizontal Bar Chart'|translate}}</h3>
+            </div>
+            <div class="card-content p-3">
+               <ngx-charts-bar-horizontal-2d
+                  (window:resize)="onResize($event)"
+                  [view]="view"
+                  [scheme]="colorScheme"
+                  [results]="multi"
+                  [gradient]="gradient"
+                  [xAxis]="showXAxis"
+                  [yAxis]="showYAxis"
+                  [legend]="showLegend"
+                  [showXAxisLabel]="showXAxisLabel"
+                  [showYAxisLabel]="showYAxisLabel"
+                  [xAxisLabel]="xAxisLabel"
+                  [yAxisLabel]="yAxisLabel"
+                  (select)="onSelect($event)">
+               </ngx-charts-bar-horizontal-2d>
+            </div>
+         </mat-card>
+      </div>
+   </div>
+   <div class="grid-wrapper" fxLayout="row wrap">  
+      <div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+         <mat-card class="p-0">
+            <div class="card-title p-3 border-b-1">
+               <h3>{{'Stacked Vertical Bar Chart'|translate}}</h3>
+            </div>
+            <div class="card-content p-3">
+               <ngx-charts-bar-vertical-stacked
+                  (window:resize)="onResize($event)"
+                  [view]="view"
+                  [scheme]="colorScheme"
+                  [results]="multi"
+                  [gradient]="gradient"
+                  [xAxis]="showXAxis"
+                  [yAxis]="showYAxis"
+                  [legend]="showLegend"
+                  [showXAxisLabel]="showXAxisLabel"
+                  [showYAxisLabel]="showYAxisLabel"
+                  [xAxisLabel]="xAxisLabel"
+                  [yAxisLabel]="yAxisLabel"
+                  (select)="onSelect($event)">
+               </ngx-charts-bar-vertical-stacked>
+            </div>
+         </mat-card>
+      </div><!-- Col Closed -->
+      <div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+         <mat-card class="p-0">
+            <div class="card-title p-3 border-b-1">
+               <h3>{{'Stacked Horizontal Bar Chart'|translate}}</h3>
+            </div>
+            <div class="card-content p-3">
+               <ngx-charts-bar-horizontal-stacked
+                  (window:resize)="onResize($event)"
+                  [view]="view"
+                  [scheme]="colorScheme"
+                  [results]="multi"
+                  [gradient]="gradient"
+                  [xAxis]="showXAxis"
+                  [yAxis]="showYAxis"
+                  [legend]="showLegend"
+                  [showXAxisLabel]="showXAxisLabel"
+                  [showYAxisLabel]="showYAxisLabel"
+                  [xAxisLabel]="xAxisLabel"
+                  [yAxisLabel]="yAxisLabel"
+                  (select)="onSelect($event)">
+               </ngx-charts-bar-horizontal-stacked>
+            </div>
+        </mat-card>
+      </div>
+   </div>
+   <div class="grid-wrapper" fxLayout="row wrap">  
+      <div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+         <mat-card class="p-0">
+            <div class="card-title p-3 border-b-1">
+               <h3>{{'Normalized Vertical Bar'|translate}}</h3>
+            </div>
+            <div class="card-content p-3">
+               <ngx-charts-bar-vertical-normalized
+                  (window:resize)="onResize($event)"
+                  [view]="view"
+                  [scheme]="colorScheme"
+                  [results]="multi"
+                  [gradient]="gradient"
+                  [xAxis]="showXAxis"
+                  [yAxis]="showYAxis"
+                  [legend]="showLegend"
+                  [showXAxisLabel]="showXAxisLabel"
+                  [showYAxisLabel]="showYAxisLabel"
+                  [xAxisLabel]="xAxisLabel"
+                  [yAxisLabel]="yAxisLabel"
+                  (select)="onSelect($event)">
+               </ngx-charts-bar-vertical-normalized>
+            </div>
+         </mat-card>
+      </div>
+       <div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+         <mat-card class="p-0">
+            <div class="card-title p-3 border-b-1">
+               <h3>{{'Normalized Horizontal Bar'|translate}}</h3>
+            </div>
+            <div class="card-content p-3">
+               <ngx-charts-bar-horizontal-normalized
+                  (window:resize)="onResize($event)"
+                  [view]="view"
+                  [scheme]="colorScheme"
+                  [results]="multi"
+                  [gradient]="gradient"
+                  [xAxis]="showXAxis"
+                  [yAxis]="showYAxis"
+                  [legend]="showLegend"
+                  [showXAxisLabel]="showXAxisLabel"
+                  [showYAxisLabel]="showYAxisLabel"
+                  [xAxisLabel]="xAxisLabel"
+                  [yAxisLabel]="yAxisLabel"
+                  (select)="onSelect($event)">
+               </ngx-charts-bar-horizontal-normalized>
+            </div>
+         </mat-card>
+      </div>
+   </div>
+   <div class="grid-wrapper" fxLayout="row wrap">  
+      <div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+         <mat-card class="p-0">
+            <div class="card-title p-3 border-b-1">
+               <h3>{{'Pie Chart'|translate}}</h3>
+            </div>
+            <div class="card-content p-3">
+               <ngx-charts-pie-chart
+                  (window:resize)="onResize($event)"
+                  [view]="view"
+                  [scheme]="colorScheme"
+                  [results]="single"
+                  [legend]="showLegend"
+                  [explodeSlices]="explodeSlices"
+                  [labels]="showLabels"
+                  [doughnut]="doughnut"
+                  [gradient]="gradient"
+                  (select)="onSelect($event)">
+               </ngx-charts-pie-chart>
+            </div>
+         </mat-card>
+      </div>
+      <div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+         <mat-card class="p-0">
+            <div class="card-title p-3 border-b-1">
+               <h3>{{'Advanced Pie Chart'|translate}}</h3>
+            </div>
+            <div class="card-content p-3">
+               <ngx-charts-advanced-pie-chart
+                  (window:resize)="onResize($event)"
+                  [view]="view"
+                  [scheme]="colorScheme"
+                  [results]="single"
+                  [gradient]="gradient"
+                  (select)="onSelect($event)">
+               </ngx-charts-advanced-pie-chart>
+            </div>
+         </mat-card>
+      </div>
+   </div>
+   <div class="grid-wrapper" fxLayout="row wrap">  
+      <div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+         <mat-card class="p-0">
+            <div class="card-title p-3 border-b-1">
+               <h3>{{'Pie Grid Chart'|translate}}</h3>
+            </div>
+            <div class="card-content p-3">
+               <ngx-charts-pie-grid
+                  (window:resize)="onResize($event)"
+                  [view]="view"
+                  [scheme]="colorScheme"
+                  [results]="single"
+                  (select)="onSelect($event)">
+               </ngx-charts-pie-grid>
+            </div>
+         </mat-card>
+      </div>
+      <div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+         <mat-card class="p-0">
+            <div class="card-title p-3 border-b-1">
+               <h3>{{'Line Chart'|translate}}</h3>
+            </div>
+            <div class="card-content p-3">
+               <ngx-charts-line-chart
+                  (window:resize)="onResize($event)"
+                  [view]="view"
+                  [scheme]="colorScheme"
+                  [results]="multi"
+                  [gradient]="gradient"
+                  [xAxis]="showXAxis"
+                  [yAxis]="showYAxis"
+                  [legend]="showLegend"
+                  [showXAxisLabel]="showXAxisLabel"
+                  [showYAxisLabel]="showYAxisLabel"
+                  [xAxisLabel]="xAxisLabel"
+                  [yAxisLabel]="yAxisLabel"
+                  [autoScale]="autoScale"
+                  (select)="onSelect($event)">
+               </ngx-charts-line-chart>
+            </div>
+         </mat-card>
+      </div>
+   </div>
+   <div class="grid-wrapper" fxLayout="row wrap">  
+      <div class="app-card"  fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+         <mat-card class="p-0">
+            <div class="card-title p-3 border-b-1">
+               <h3>{{'Area Chart'|translate}}</h3>
+            </div>
+            <div class="card-content p-3">
+               <ngx-charts-area-chart
+                  (window:resize)="onResize($event)"
+                  [view]="view"
+                  [scheme]="colorScheme"
+                  [results]="multi"
+                  [gradient]="gradient"
+                  [xAxis]="showXAxis"
+                  [yAxis]="showYAxis"
+                  [legend]="showLegend"
+                  [showXAxisLabel]="showXAxisLabel"
+                  [showYAxisLabel]="showYAxisLabel"
+                  [xAxisLabel]="xAxisLabel"
+                  [yAxisLabel]="yAxisLabel"
+                  [autoScale]="autoScale"
+                  (select)="onSelect($event)">
+               </ngx-charts-area-chart>
+            </div>
+         </mat-card>
+      </div>
+      <div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+         <mat-card class="p-0">
+            <div class="card-title p-3 border-b-1">
+               <h3>{{'Stacked Area Chart'|translate}}</h3>
+            </div>
+            <div class="card-content p-3">
+               <ngx-charts-area-chart-stacked
+                  (window:resize)="onResize($event)"
+                  [view]="view"
+                  [scheme]="colorScheme"
+                  [results]="multi"
+                  [gradient]="gradient"
+                  [xAxis]="showXAxis"
+                  [yAxis]="showYAxis"
+                  [legend]="showLegend"
+                  [showXAxisLabel]="showXAxisLabel"
+                  [showYAxisLabel]="showYAxisLabel"
+                  [xAxisLabel]="xAxisLabel"
+                  [yAxisLabel]="yAxisLabel"
+                  (select)="onSelect($event)">
+               </ngx-charts-area-chart-stacked>
+            </div>
+         </mat-card>
+      </div>
+   </div>
+   <div class="grid-wrapper" fxLayout="row wrap">  
+      <div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+         <mat-card class="p-0">
+            <div class="card-title p-3 border-b-1">
+               <h3>{{'Normalized Area Chart'|translate}}</h3>
+            </div>
+            <div class="card-content p-3">
+               <ngx-charts-area-chart-normalized
+                  (window:resize)="onResize($event)"
+                  [view]="view"
+                  [scheme]="colorScheme"
+                  [results]="multi"
+                  [gradient]="gradient"
+                  [xAxis]="showXAxis"
+                  [yAxis]="showYAxis"
+                  [legend]="showLegend"
+                  [showXAxisLabel]="showXAxisLabel"
+                  [showYAxisLabel]="showYAxisLabel"
+                  [xAxisLabel]="xAxisLabel"
+                  [yAxisLabel]="yAxisLabel"
+                  (select)="onSelect($event)">
+               </ngx-charts-area-chart-normalized>
+            </div>
+         </mat-card>
+      </div>
+      <div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+         <mat-card class="p-0">
+            <div class="card-title p-3 border-b-1">
+               <h3>{{'Heat Map Chart'|translate}}</h3>
+            </div>
+            <div class="card-content p-3">
+               <ngx-charts-heat-map
+                  (window:resize)="onResize($event)"
+                  [view]="view"
+                  [scheme]="colorScheme"
+                  [results]="multi"
+                  [legend]="showLegend"
+                  [gradient]="gradient"
+                  [xAxis]="showXAxis"
+                  [yAxis]="showYAxis"
+                  [showXAxisLabel]="showXAxisLabel"
+                  [showYAxisLabel]="showYAxisLabel"
+                  [xAxisLabel]="xAxisLabel"
+                  [yAxisLabel]="yAxisLabel"
+                  (select)="onSelect($event)">
+               </ngx-charts-heat-map>
+            </div>
+         </mat-card>
+      </div>
+   </div>   
+   <div class="grid-wrapper" fxLayout="row wrap">  
+      <div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+         <mat-card class="p-0">
+            <div class="card-title p-3 border-b-1">
+               <h3>{{'Tree Map Chart'|translate}}</h3>
+            </div>
+            <div class="card-content p-3">
+               <ngx-charts-tree-map
+                  (window:resize)="onResize($event)"
+                  [view]="view"
+                  [scheme]="colorScheme"
+                  [results]="single"
+                  (select)="onSelect($event)">
+               </ngx-charts-tree-map>
+            </div>
+         </mat-card>
+      </div>
+      <div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+         <mat-card class="p-0">
+            <div class="card-title p-3 border-b-1">
+               <h3>{{'Number Card Chart'|translate}}</h3>
+            </div>
+            <div class="card-content p-3">
+               <ngx-charts-number-card
+                  (window:resize)="onResize($event)"
+                  [view]="view"
+                  [scheme]="colorScheme"
+                  [results]="single"
+                  (select)="onSelect($event)">
+               </ngx-charts-number-card>
+            </div>
+         </mat-card>   
+      </div>
+   </div>
+</div>   
+

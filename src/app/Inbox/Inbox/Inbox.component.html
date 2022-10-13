@@ -1,0 +1,71 @@
+<div class="inbox-wrapper theme-light-color">
+	<div class="inbox-sidebar">	
+		<mat-sidenav-container class="m-0 full-hght">
+			<mat-sidenav #inboxSideNav [(opened)] ="sidenavOpen" [mode]="sidenavMode">	
+				<anglo-sidebar (isInboxType) ="getInboxType($event)"></anglo-sidebar>
+			</mat-sidenav>
+			<div class="full-hght full-wid inbox-content">	
+				<ng-container *ngIf="emailsService.state.selectedEmail === null else elseBlock">
+					<div class="inbox-page-list text-bg px-3" fxLayoutAlign="space-between center">
+						<div fxLayoutAlign="start center">
+							<div>
+								<button class="toggle-btn ham-menu-icon" mat-button (click)="inboxSideNav.toggle()"><mat-icon>menu</mat-icon></button>
+							</div>
+							<div fxLayoutAlign="start center">
+								<div class="mail-count-wrap">
+									<span class="mail-count fs-14">1-10 from 23</span>
+								</div>
+							</div>
+						</div>			
+						<div class="list-item">
+							<mat-list class="p-0">
+								<mat-list-item class="p-0">
+									<span class="a-tooltip ml-1">
+										<span  class="font-sz-md" 
+								        	matTooltip="Reload"
+								        	matTooltipPosition="above">
+								        	<a class="cursor-pointer" fxLayoutAlign="start center">
+											<mat-icon class="p-0 mx-1" matListIcon>autorenew</mat-icon></a>
+										</span>	
+									</span>	
+									<span class="a-tooltip ml-1">
+										<span  class="font-sz-md" 
+								        	matTooltip="Previous"
+								        	matTooltipPosition="above">
+								        	<a class="cursor-pointer" fxLayoutAlign="start center">	
+											<mat-icon class="p-0 mx-1" matListIcon>arrow_back</mat-icon></a>
+										</span>
+									</span>
+									<span class="a-tooltip ml-1">
+										<span  class="font-sz-md" 
+								        	matTooltip="Next"
+								        	matTooltipPosition="above">
+								        	<a class="cursor-pointer" fxLayoutAlign="start center">			
+											<mat-icon class="p-0 mx-1" matListIcon>arrow_forward</mat-icon></a>
+										</span>
+									</span>		
+								</mat-list-item>	
+							</mat-list>	
+						</div>
+					</div>
+					<div class="search-mail">	
+						<div class="input-slot text-bg px-2 border-rad-sm pt-1" fxLayoutAlign="space-between center">
+							<div class="input-text-field full-wid">
+								<mat-form-field class="full-wid" floatLabel="never">
+									<input matInput placeholder="Search Email">
+								</mat-form-field>
+							</div>
+							<div class="a-input-icon primary-color" fxLayoutAlign="center center">	
+								<mat-icon class="primary-color">search</mat-icon>
+							</div>	
+						</div>	
+					</div>	
+					<anglo-email-listing [type] = "emailType"></anglo-email-listing>
+				</ng-container>
+				<ng-template #elseBlock>
+					<anglo-email-detail></anglo-email-detail>
+				</ng-template>
+			</div>	
+		</mat-sidenav-container>
+	</div>
+</div>	

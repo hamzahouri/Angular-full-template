@@ -1,0 +1,128 @@
+<div class="inbox-head full-hght border-r-1">   
+   <div class="a-responsive-img">
+      <div class="a-img-thumb a-image">
+         <div class="media responsive-content" fxLayoutAlign="center center">
+            <div class="media full-wid p-3" fxLayoutAlign="center center">
+               <div class="media-left mr-4">
+                  <img class="radius-circle" src="assets/img/user-14.jpg" width="70" height="70">
+               </div>   
+               <div class="media-body">
+                  <h5 class="text-color mb-0">Gregory A.</h5>
+                  <span class="fs-12 text-color">gregory@example.com</span>
+               </div> 
+            </div>   
+         </div>     
+      </div>
+   </div>
+   <div class="inbox-sidebar-scroll theme-light-color">  
+      <perfect-scrollbar class="scroll-bar" [config]="config">
+         <div class="inbox-inner p-4 full-hght">   
+            <div class="full-wid mb-4">
+               <button class="full-wid" mat-raised-button color="warn" (click)="openComposeEmail()"><mat-icon class="mr-2">edit</mat-icon>{{'Compose Email'|translate}}</button>
+            </div>   
+            <div>
+               <mat-nav-list>
+                  <span class="fs-12 anglo-block px-3 mb-1 font-bold py-0">{{'Mailboxes'|translate}}</span>
+                  <mat-list-item class="p-0">
+                     <a class="py-2 px-3" mat-line (click)="openInbox('inbox')" fxLayoutAlign="start center">
+                        <div class="list-icon" fxLayoutAlign="start center">   
+                           <mat-icon class="mr-3">inbox</mat-icon>
+                           <span class="fs-14">Inbox</span>
+                        </div>  
+                     </a>
+                  </mat-list-item>
+                  <mat-list-item class="p-0">
+                      <a class="py-2 px-3" mat-line (click)="openDraft('draft')" fxLayoutAlign="start center">
+                        <div class="list-icon" fxLayoutAlign="start center">
+                           <mat-icon class="mr-3">drafts</mat-icon>
+                           <span class="fs-14">Draft</span>
+                        </div>   
+                     </a>
+                  </mat-list-item>
+                  <mat-list-item class="p-0">
+                     <a class="py-2 px-3" mat-line (click)="openStarred('starred')" fxLayoutAlign="start center">
+                        <div class="list-icon" fxLayoutAlign="start center">
+                           <mat-icon class="mr-3">star</mat-icon>
+                           <span class="fs-14">Starred</span>
+                        </div>  
+                     </a>
+                  </mat-list-item>
+                  <mat-list-item class="p-0">
+                     <a class="py-2 px-3" mat-line (click)="openSent('sent')" fxLayoutAlign="start center">
+                        <div class="list-icon" fxLayoutAlign="start center">
+                           <mat-icon class="mr-3">send</mat-icon>
+                           <span class="fs-14">Sent</span>
+                        </div>   
+                     </a>
+                  </mat-list-item>
+                  <mat-list-item class="p-0">
+                     <a class="py-2 px-3" mat-line (click)="openSpam('spam')" fxLayoutAlign="start center"> 
+                        <div class="list-icon" fxLayoutAlign="start center">
+                           <mat-icon class="mr-3">error</mat-icon>
+                           <span class="fs-14">Spam</span>
+                        </div>  
+                     </a>
+                  </mat-list-item>
+                  <mat-list-item class="p-0">
+                     <a class="py-2 px-3" mat-line (click)="openTrash('trash')" fxLayoutAlign="start center">
+                        <div class="list-icon" fxLayoutAlign="start center">
+                           <mat-icon class="mr-3">delete</mat-icon>
+                            <span class="fs-14">Trash</span>
+                        </div>
+                     </a>
+                  </mat-list-item>
+                  <span class="fs-12 anglo-block px-3 mt-4 mb-3 font-bold py-0">{{'Folders'|translate}}</span>
+                  <mat-list-item class="p-0">
+                     <a class="py-2 px-3" mat-line fxLayoutAlign="space-between center">
+                        <div class="list-icon" fxLayoutAlign="start center">
+                           <mat-icon class="mr-3">folder</mat-icon>
+                            <span class="fs-14">Work</span>
+                        </div>
+                        <div>
+                           <span class="primary-bg a-badge mr-2 circle p-0 radius-circle"></span>
+                        </div>
+                     </a>
+                  </mat-list-item>
+                  <mat-list-item class="p-0">
+                     <a class="py-2 px-3" mat-line fxLayoutAlign="space-between center">
+                        <div class="list-icon" fxLayoutAlign="start center">
+                           <mat-icon class="mr-3">folder_shared</mat-icon>
+                           <span class="fs-14">Personal</span>
+                        </div> 
+                        <div>
+                           <span class="warn-bg a-badge mr-2 circle p-0 radius-circle"></span>
+                        </div> 
+                     </a>
+                  </mat-list-item>
+                  <span class="fs-12 anglo-block px-3 mt-4 mb-3 font-bold py-0">{{'Settings'|translate}}</span>
+                  <mat-list-item class="p-0">
+                     <a class="py-2 px-3" mat-line fxLayoutAlign="start center">
+                        <div class="list-icon" fxLayoutAlign="start center">   
+                           <mat-icon class="mr-3">folder</mat-icon>
+                           <span class="fs-14">Manage Folders</span>
+                        </div>
+                     </a>
+                  </mat-list-item>
+                  <mat-list-item class="p-0">
+                     <a class="py-2 px-3" mat-line fxLayoutAlign="start center">
+                        <div class="list-icon" fxLayoutAlign="start center">   
+                           <mat-icon class="mr-3">contact_mail</mat-icon>
+                           <span class="fs-14">Contacts</span>
+                        </div>   
+                     </a>
+                  </mat-list-item>
+                  <mat-list-item class="p-0">
+                     <a class="py-2 px-3" mat-line fxLayoutAlign="start center">
+                        <div class="list-icon" fxLayoutAlign="start center">
+                           <mat-icon class="mr-3">settings</mat-icon>
+                           <span class="fs-14">Settings</span>
+                        </div>
+                     </a>
+                  </mat-list-item>
+               </mat-nav-list>
+            </div>
+         </div>
+      </perfect-scrollbar>       
+   </div>
+</div>  
+

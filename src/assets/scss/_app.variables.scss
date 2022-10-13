@@ -1,0 +1,182 @@
+/*---------------------------------------------------------------   
+2.0 App-Variable
+--------------------------------------------------------------- */
+// General
+//
+
+// Header 
+
+$header-bg-color:#f5f5f5;
+$header-bg-shadow:0 4px 15px 0 rgba(0,0,0,.09);
+$header-font-color:#000000;
+$header-color:#464d69;
+$header-text-size:100%;
+$header-box-shadow:0 4px 15px 0 rgba(0,0,0,.09);
+
+// body 
+
+$body-line-height:1.5;
+$body-font-weight:400 !default;
+$body-font-size:1rem;
+$body-font-family: 'Montserrat', sans-serif;
+
+// Sidebar
+
+$sidebar-width: 15.5rem !default;
+$sidebar-text-color:#FFFFFF;
+$sidebar-bg-color:#2e3344;
+$sidebar-font-size:14px;
+
+// content
+
+$content-bg-color:#f4f7fa;
+$content-text-size:100%;
+$content-color:#f4f7fa;
+
+// Heading 
+
+$h1-font-color:inherit;
+$h2-font-color:inherit;
+$h3-font-color:inherit;
+$h4-font-color:inherit;
+$h5-font-color:inherit;
+$h6-font-color:inherit;
+
+$headings-margin-bottom: (.5rem) !default;
+$headings-font-family: inherit !default;
+$headings-font-weight: 500 !default;
+$headings-line-height: 1.2 !default;
+$headings-color: inherit !default;
+
+// Heading Font Size 
+
+$font-size-h1: 1.75rem !default;//28px
+$font-size-h2: 1.5rem !default;//24px
+$font-size-h3: 1.375rem !default;//22px
+$font-size-h4: 1.125rem !default;//18px
+$font-size-h5: 1rem !default;//16px
+$font-size-h6: 0.875rem !default;//14px
+
+
+
+// Mat list 
+
+$mat-font-family: 'Montserrat', sans-serif;
+$mat-text-color: #FFFFFF;
+$mat-card-padding-left-right : 1.5rem;
+$mat-card-bg-color: #FFFFFF;
+$mat-card-height: 100%;
+$mat-card-box-shadow:0 1px 15px 1px rgba(69,65,78,.08) !important;
+$mat-shadow-none: none !important;
+$mat-border-none: 0px !important;
+
+
+// font-size and font-color
+
+$font-size-base: 1rem !default;
+$font-size-sm:.875rem !default;
+$font-weight-light: 300 !default;
+$font-weight-base: 400 !default;
+$font-weight-medium: 500 !default;
+$font-weight-bold: 600 !default;
+$font-color: #464d69;
+
+
+// chat module
+
+$chat-text-color:#727891;
+$chat-header-bg: $header-bg-color;
+$chat-header-shadow:$header-bg-shadow;
+$chat-body-radius:20px 20px 0 20px;
+$chat-block-bg:#dfeaff;
+$chat-block-box-shadow:0 1px 15px 1px rgba(69,65,78,.08);
+
+// html default
+
+$html-font-size: 16px;
+$html-font-family:$body-font-family;
+
+// Main Container 
+
+$container-bg:#f0f2f7;
+
+// secondary-color
+
+$secondary-bg:#fafafa;
+
+// content-hover 
+
+$content-hover: rgba(0, 0, 0, 0.04);
+
+// Radius
+
+$border-radius-base: 10px;
+
+$border-radius-sm: 2px;
+
+// text-color
+
+$text-color: #FFFFFF;
+
+// secondary-color
+
+$secondary-color: #fafafa;
+
+// grey-text
+
+$grey-text: #727891;
+
+
+// preloader-variable
+
+$loader-bg:#FFFFFF !important;
+$loader-color:#448aff !important;
+
+// content-shadow
+
+$content-shadow:0 3px 2px 0 rgba(0,0,0,.02); 
+
+// table varibale
+
+$table-font-color:#464d69;
+$table-font-weight: 600;
+$table-font-size: 14px;
+$table-bg-color: #eee !important;
+
+// sidebar background-classes
+
+$sidebar-style-1: $sidebar-bg-color !important;
+$sidebar-style-2: hsla(0,0%,100%,.9) !important;
+$sidebar-style-3: linear-gradient(180deg, #b91372, #33080d) !important;
+$sidebar-style-4: linear-gradient(180deg,#5d92f4,#09203f) !important;
+$sidebar-style-5: linear-gradient(0deg,#b02e0c,#ffb70f) !important;
+$sidebar-style-6: linear-gradient(180deg,#00d0bd,#007adf) !important ;
+$sidebar-style-7:	#ffb70f !important;
+
+
+// header background-classes 
+
+$header-style-1: #448aff !important;
+$header-style-2: #fafafa;
+$header-style-3: #ffb70f !important;
+$header-style-4: #00d014 !important;
+$header-style-5: #ff3739 !important;
+$header-style-6: #00d0bd !important;
+$header-style-7: #448aff !important;
+
+
+// grey-text
+
+$grey-text: #727891;
+
+// ladgend-color in charts
+
+$ladgend-success: linear-gradient(180deg,#00d0bd,#007adf);
+$ladgend-warning: linear-gradient(0deg,#b02e0c,#ffb70f);
+$ladgend-pink: linear-gradient(180deg,#b91372,#33080d);
+
+// dark mode classes
+$theme-light-color:#464d69;
+$theme-dark: #2e3344;
+$theme-dark-border: rgba(0,0,0,.2);
+$theme-text-color: #FFFFFF;

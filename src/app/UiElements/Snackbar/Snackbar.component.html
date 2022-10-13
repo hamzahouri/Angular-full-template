@@ -1,0 +1,83 @@
+<div class="app-card-title mb-3">
+   <anglo-title-component title="Snackbar"></anglo-title-component>
+</div>
+<div class="grid-wrapper snackbar-wrapper" fxLayout="row wrap">
+   <div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+      <mat-card>
+         <div class="card-title p-2">
+            <h3>{{'Snackbar'|translate}}</h3>
+         </div>
+         <div class="card-content p-2">
+            <p>The standard snackbar is useful for calling attention to some function that has just happened.</p>
+            <div class="content" fxLayoutAlign="space-between center">
+               <div class="input-selection-control">
+                  <mat-radio-group [(ngModel)]="horizontalPosition">
+                     <mat-radio-button class="mr-2 mb-2" value="left">Left
+                     </mat-radio-button>
+                     <mat-radio-button value="right mb-2">Right
+                     </mat-radio-button>
+                  </mat-radio-group>
+               </div>   
+               <div>
+                  <mat-form-field>
+                     <input matInput placeholder="Text" [(ngModel)]="message">
+                  </mat-form-field>
+               </div>
+            </div>
+            <div class="content" fxLayoutAlign="space-between center">
+               <div>
+                  <mat-radio-group [(ngModel)]="verticalPosition">
+                     <mat-radio-button class="mr-2 mb-2" value="top">Top
+                     </mat-radio-button>
+                     <mat-radio-button value="bottom">Bottom
+                     </mat-radio-button>
+                  </mat-radio-group>
+               </div>
+               <div>
+                  <mat-form-field class="mb-1">
+                     <input type="number" matInput placeholder="Timeout" [(ngModel)]="autoHide">
+                  </mat-form-field>
+                  <p><button mat-raised-button color="primary" (click)="openSnackBar()">SHOW SNACKBAR</button></p>
+               </div>
+            </div>
+         </div>    
+      </mat-card> 
+   </div>   
+   <div class="contextual-snackbar app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+      <mat-card>
+         <div class="card-title p-2">
+            <h3>{{'Contextual Snackbar'|translate}}</h3>
+         </div>
+         <div class="card-content p-2">
+            <p>You can also apply a color to the snackbar to better fit your implementation.</p>
+            <div class="anglo-input-slot mb-4 inline-block" *ngFor ="let colorList of radioButtonColorList; let i=index">
+               <mat-radio-button  class="mr-2" value="{{colorList}}" (change)="colorDisplay(i)">{{colorList}}
+               </mat-radio-button>
+            </div>
+            <div class="content" fxLayoutAlign="space-between">
+               <div class="input-selection-control">
+                  <div class="input-slot mb-3" *ngFor ="let item of checkboxList; let i = index">
+                     <mat-checkbox [checked]="selected === i" (change)="openMobileSnackbar($event.checked, i)">{{item}}</mat-checkbox>
+                  </div>
+                  <p><button mat-raised-button color="accent" (click)="openColorSnackBar()">SHOW SNACKBAR</button></p>   
+               </div>   
+               <div class="selection-control-btn">
+                  <div>
+                     <mat-form-field>
+                        <input  matInput placeholder="Text" [(ngModel)]="messageContextual">
+                     </mat-form-field> 
+                  </div>
+                  <div>   
+                     <mat-form-field>
+                        <input type="number" matInput placeholder="Timeout" [(ngModel)]="autoHideContextual">
+                     </mat-form-field>
+                  </div>
+               </div>
+            </div>
+         </div>   
+      </mat-card>
+   </div>
+</div>        
+
+
+

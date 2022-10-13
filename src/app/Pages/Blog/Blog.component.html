@@ -1,0 +1,74 @@
+<div class="app-card-title mb-3">
+   <anglo-title-component title = "Blog"></anglo-title-component>
+</div>
+<div class="blog-list-wrapper grid-wrapper" fxLayout="row wrap">
+   <div fxFlex.xs="100" fxFlex.sm="67" fxFlex.md="67" fxFlex.lg="67" fxFlex.xl="67">
+      <div class="grid-wrapper blog-list" fxLayout="row wrap">
+         <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+            <anglo-blog-layout [card]="blogWidget"></anglo-blog-layout>
+         </div>
+         <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+            <anglo-blog-layout [card]="blogWidget1"></anglo-blog-layout>
+         </div>
+         <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+            <anglo-blog-layout [card]="blogWidget2"></anglo-blog-layout>
+         </div>
+         <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+            <anglo-blog-layout [card]="blogWidget3"></anglo-blog-layout>
+         </div>
+         <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+            <anglo-blog-layout [card]="blogWidget4"></anglo-blog-layout>
+         </div>
+         <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+            <anglo-blog-layout [card]="blogWidget5"></anglo-blog-layout>
+         </div>
+      </div>
+   </div>
+   <div fxFlex.xs="100" fxFlex.sm="33" fxFlex.md="33" fxFlex.lg="33" fxFlex.xl="33">
+      <div class="app-card mb-4 category-widget">
+         <mat-card>
+            <div class="card-title mb-3">        
+               <h3>{{'Categories'|translate}}</h3>
+            </div>            
+            <mat-card-content class="pt-0">
+               <mat-list class="p-0" *ngFor="let category of categories">
+                  <mat-list-item class="px-1"><a class="cursor-pointer full-wid border-b-1" mat-list-item>{{category}}</a></mat-list-item>
+               </mat-list>
+            </mat-card-content>
+         </mat-card>
+      </div>
+      <div class="app-card mb-4 tags-wrapper">
+         <mat-card>
+            <div class="card-title mb-3">
+               <h3>{{'Tags'|translate}}</h3>
+            </div>
+            <mat-card-content>
+               <mat-list *ngFor="let tags of tags_widget">
+                  <mat-list-item class="p-0"><a class="tag-list cursor-pointer mr-2 mt-2 p-2 inline-block text-color primary-bg">{{tags}}</a></mat-list-item>
+               </mat-list>
+            </mat-card-content>
+         </mat-card>
+      </div>
+      <div class="app-card mb-4">
+         <mat-card>
+            <div class="card-title mb-3">
+               <h3>{{'Popular Blog'|translate}}</h3>
+            </div>
+            <mat-card-content>
+               <div class="mb-3" *ngFor="let blog of blog_widget" fxLayoutAlign="start start">
+                  <div class="mr-3">
+                     <img class="img-responsive" width="80" height="80" src="{{blog.img}}">
+                  </div>
+                  <div>
+                     <p class="mb-0">
+                        <a class="fs-12 cursor-pointer primary-color fw-semi-bold ">{{blog.heading}}</a>
+                     </p>
+                     <span class="fs-12 grey-text">Likes : {{blog.likes}},</span>
+                     <span class="fs-12 grey-text">Comments : {{blog.comments}}</span>
+                  </div>
+               </div>
+            </mat-card-content>
+         </mat-card>
+      </div>
+   </div>
+</div>

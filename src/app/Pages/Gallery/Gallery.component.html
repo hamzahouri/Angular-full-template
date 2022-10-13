@@ -1,0 +1,22 @@
+<div class="app-card-title mb-3">
+	<anglo-title-component title = "Gallery"></anglo-title-component>
+</div>
+<div class="grid-list-wrapper grid-wrapper" fxLayout="row wrap">
+	<div *ngFor="let gallery of gallery_page"  fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="25" fxFlex.lg="25" fxFlex.xl="25">
+		<mat-card class="p-0">
+			<mat-card-content>
+				<figure class="img-wrapper">
+					<div>
+						<img src="{{gallery.img}}">
+					</div>
+					<figcaption>
+						<h4 class="mb-0">{{gallery.inverness}}</h4>
+						<h2>{{gallery.mckenzie}}</h2>
+					</figcaption>
+					<a></a>	
+				</figure>
+			</mat-card-content>
+		</mat-card>
+	</div>
+</div>
+

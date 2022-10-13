@@ -1,0 +1,117 @@
+<div class="app-card-title mb-3">
+  <anglo-title-component title="Checkbox"></anglo-title-component>
+</div>
+<div class="grid-wrapper" fxLayout="row wrap">
+	<div class="app-card" fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+		<mat-card>
+			<div class="card-title p-2">
+		      <h3>{{'Slide Toggle'|translate}}</h3>
+		   </div>
+		   <div class="card-content p-2">
+				<mat-slide-toggle class="mr-2" checked="true" color="primary">
+				</mat-slide-toggle>
+				<label>Primary</label>
+				<mat-slide-toggle class="mx-2" checked="true" color="accent">
+				</mat-slide-toggle>
+				<label>Accent</label>
+				<mat-slide-toggle class="mx-2" checked="true" color="warn">
+				</mat-slide-toggle>
+				<label>Warn</label>
+		   </div>
+	   </mat-card>
+	</div>
+	<div class="app-card" fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+		<mat-card>
+			<div class="card-title p-2">
+		      <h3>{{'Checkboxes - Colors'|translate}}</h3>
+		   </div>
+		   <div class="card-content p-2">
+				<mat-checkbox class="mr-2" checked="true" color="primary"></mat-checkbox>
+				<label class="mr-2">Primary</label>
+				<mat-checkbox class="mr-2" checked="true" color="accent"></mat-checkbox>
+				<label class="mr-2">Accent</label>
+				<mat-checkbox class="mr-2" checked="true" color="warn"></mat-checkbox>
+				<label class="mr-2">Warn</label>
+		   </div>
+	   </mat-card>
+	</div>
+</div>
+<div class="grid-wrapper" fxLayout="row wrap">
+   <div class="app-card" fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+   	<mat-card>
+	   	<div class="card-title p-2">
+	   		<h3>{{'Checkboxes boolean'|translate}}</h3>
+	   	</div> 
+	   	<div class="card-content p-2">
+		   	<div class="a-input-selection mb-3">
+					<mat-checkbox [(ngModel)]="checked">Checkbox: {{checked}}</mat-checkbox>
+				</div>
+				<div class="a-input-selection mb-2">
+					<mat-checkbox [(ngModel)]="indeterminate">Indeterminate: {{indeterminate}}</mat-checkbox>
+				</div>
+			</div>	
+		</mat-card>	
+   </div>
+	<div class="app-card" fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+		<mat-card>
+			<div class="card-title p-2">
+		      <h3>{{'Checkbox Array'|translate}}</h3>
+		   </div>
+		   <div class="card-content p-2">
+		   	<div class="content-name mb-4">{{names |json}}</div>
+				<ng-container *ngFor="let value of checkboxArray">
+					<mat-checkbox class="mr-2" [checked]="value.status" [value]="value.name" (change)="getCheckboxValue($event.source.value)">{{value.name}}</mat-checkbox>
+				</ng-container>
+		   </div>
+	   </mat-card>
+	</div>
+</div>	
+<div class="grid-wrapper" fxLayout="row wrap">
+	<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+		<mat-card>
+			<div class="card-title p-2">
+		      <h3>{{'Checkboxes - States'|translate}}</h3>
+		   </div>
+		   <div class="card-content">
+				<div class="layout" fxLayout="row wrap">
+					<div class="p-2" fxFlex.xs="33.33" fxFlex.sm="33.33" fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33">
+						<label>on</label>
+					</div>
+					<div class="p-2" fxFlex.xs="33.33" fxFlex.sm="33.33" fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33">
+						<label>off</label>
+					</div>
+					<div class="p-2" fxFlex.xs="33.33" fxFlex.sm="33.33" fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33">
+						<label>indeterminate</label>
+					</div>
+				</div>
+				<div class="layout" fxLayout="row wrap">	
+					<div class="p-2" fxFlex.xs="33.33" fxFlex.sm="33.33" fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33">
+						<mat-checkbox checked="true"></mat-checkbox>
+					</div>
+					<div class="p-2" fxFlex.xs="33.33" fxFlex.sm="33.33" fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33">
+						<mat-checkbox></mat-checkbox>
+					</div>
+					<div class="p-2" fxFlex.xs="33.33" fxFlex.sm="33.33" fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33">
+						<mat-icon>indeterminate_check_box</mat-icon>
+					</div>
+				</div>
+				<div class="layout" fxLayout="row wrap">	
+					<div class="p-2" fxFlex.xs="33.33" fxFlex.sm="33.33" fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33">
+						<label>on disabled</label>
+					</div>
+					<div class="p-2" fxFlex.xs="33.33" fxFlex.sm="33.33" fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33">
+						<label>off disabled</label>
+					</div>
+				</div>	
+				<div class="layout" fxLayout="row wrap">	
+					<div class="p-2" fxFlex.xs="33.33" fxFlex.sm="33.33" fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33">
+						<mat-checkbox checked="true" disabled="true"></mat-checkbox>
+					</div>
+					<div class="p-2" fxFlex.xs="33.33" fxFlex.sm="33.33" fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33">
+						<mat-checkbox disabled="true"></mat-checkbox>
+					</div>
+		   	</div>
+		   </div>	
+	   </mat-card>
+	</div>
+</div>

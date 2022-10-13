@@ -1,0 +1,70 @@
+<div class="app-card-title mb-3">
+	<anglo-title-component title = "Shop"></anglo-title-component>
+</div>
+<ais-instantsearch [config]="config">
+	<div class="shop-grid-wrapper grid-wrapper" fxLayout="row wrap">
+		<div class="margin-none" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="75" fxFlex.lg="75" fxFlex.xl="75">
+			<ais-hits [transformItems]="transformHits">
+				<ng-template let-hits="hits">
+					<ng-container *ngIf="(hits && hits.length>0); else errorBlock">
+						<anglo-shop-grid [shopGridData]="hits" (addToCart)="addToCart($event)"></anglo-shop-grid>
+					</ng-container>
+					<ng-template #errorBlock>
+					No Product Found.
+					</ng-template>
+				</ng-template>
+			</ais-hits>
+		</div>
+		<div class="shop-wrapper" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="25" fxFlex.lg="25" fxFlex.xl="25">
+			<div class="mb-3 search-box">
+				<mat-card>
+					<ais-search-box placeholder="Search a product"></ais-search-box>
+			   </mat-card>
+		   </div>
+		   <div class="mb-3">
+			   <mat-card>
+				   <ais-panel header="CATEGORY">
+				    	<ais-refinement-list
+					      attribute="materials"
+					      operator="or"
+					      limit="10">
+				      </ais-refinement-list>
+				   </ais-panel>
+			   </mat-card>
+			</div>
+			<div class="mb-3">
+			   <mat-card>
+				   <ais-panel header="COLOR">
+					   <ais-refinement-list
+					      attribute="colors"
+					      operator="or"
+					      limit="10">
+					   </ais-refinement-list>
+				   </ais-panel>
+			   </mat-card>
+			</div>
+			<div class="mb-3 range">
+		    	<mat-card>
+				   <ais-panel header="PRICE">
+				     <ais-range-slider attribute="price" [pips]="true" [tooltips]="true" [min]="0"></ais-range-slider>
+				   </ais-panel>
+		   	</mat-card>
+		   </div>
+		   <div class="mb-3">
+			   <mat-card>
+				   <ais-panel header="RATING"></ais-panel>
+				   <ais-rating-menu attribute="rating" andUpLabel=""></ais-rating-menu>
+			   </mat-card>
+			</div>
+			<div class="mb-3">
+				<mat-card>
+				<ais-clear-refinements buttonLabel="Clear all filters"></ais-clear-refinements></mat-card>
+			</div>
+		</div>
+	</div>
+	<div class="pagination-wrap pt-3" fxLayoutAlign="start start">
+		<ais-pagination></ais-pagination>
+	</div>
+</ais-instantsearch>
+
+

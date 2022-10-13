@@ -1,0 +1,36 @@
+<div class="app-card-title mb-4">
+	<anglo-title-component title="Calendar"></anglo-title-component>
+</div>
+<div class="calendar-wrapper">
+	<div class="app-card-content primary-bg">
+		<mat-card>
+			<div class="calendar-header primary-bg text-color" fxLayoutAlign="center center">
+				<div class="mr-3 prev-month" 
+					mwlCalendarPreviousView
+					[view]="view"
+					[(viewDate)]="viewDate"
+					(viewDateChange)="activeDayIsOpen = false">
+					<button mat-icon-button><mat-icon>keyboard_arrow_left</mat-icon></button>
+				</div>
+					<span class="title">{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</span>
+				<div class="ml-3 next-month"
+					mwlCalendarNextView
+					[view]="view"
+					[(viewDate)]="viewDate"
+					(viewDateChange)="activeDayIsOpen = false">
+					<button mat-icon-button><mat-icon>keyboard_arrow_right</mat-icon></button>
+				</div>
+			</div>
+			<mwl-calendar-month-view
+				[viewDate]="viewDate"
+				[events]="events"
+				[refresh]="refresh"
+				[activeDayIsOpen]="activeDayIsOpen"
+				(dayClicked)="dayClicked($event.day)"
+				(eventClicked)="handleEvent('Clicked', $event.event)"
+				>
+			</mwl-calendar-month-view>
+		</mat-card>
+	</div>
+</div>	
+

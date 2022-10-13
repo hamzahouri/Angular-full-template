@@ -1,0 +1,29 @@
+<form [formGroup]="form">
+	<div class="title">
+		<h3 mat-dialog-title> New Email</h3>
+	</div>	
+	<mat-dialog-content>
+		<div class="full-wid">
+			<mat-form-field class="full-wid">
+		   	<textarea matInput placeholder="To" formControlName="to"></textarea>
+		   </mat-form-field>
+		</div>
+		<div class="full-wid">   
+		   <mat-form-field class="full-wid">
+		 		<input matInput placeholder="From" disabled value="anglo@examples.com">
+			</mat-form-field>
+		</div>
+		<div class="full-wid">			
+		   <mat-form-field class="full-wid"> 
+	   		<textarea matInput placeholder="Title" formControlName="title"></textarea>
+	   	</mat-form-field>
+	   </div>		
+		<quill-editor></quill-editor>
+	</mat-dialog-content>
+	<div class="text-right" fxLayoutAlign="end end">
+		<mat-dialog-actions>
+			<button mat-raised-button color="primary" mat-dialog-close>Close</button>
+			<button mat-raised-button color="warn" mat-dialog-close>Save</button>
+		</mat-dialog-actions>
+	</div>	
+</form>

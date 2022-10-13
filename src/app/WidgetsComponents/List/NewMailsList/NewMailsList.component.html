@@ -1,0 +1,57 @@
+<mat-card class="p-0" *ngIf = "supportTicketVisible" id="newEmail">
+	<div class="p-3" fxLayoutAlign="space-between center">
+		<div class="card-title">
+			<h3 class="mb-0 text-capitalize">{{title|translate}}</h3>
+		</div>
+		<div class="grey-text">	
+			<TopsideMenu (isCloseEvent) = "getCloseValue($event)" (isFullScreen)= "showFullScreen('newEmail')" (isShowSpinner)="spinnerShow('newEmail')"></TopsideMenu>
+		</div>	
+	</div>	
+	<mat-card-content [style.overflow]="'auto'" [style.height.px]="'400'">
+		<perfect-scrollbar class="scrollbar" [config]="config">
+			<ng-container *ngFor="let support of supportData; let i = index">
+				<div class="p-3">
+					<div class="mb-2" fxLayoutAlign="space-between center">
+						<div class="a-image" fxLayoutAlign="start center">
+							<div class="widget-image mr-3">
+								<img class="radius-circle" src="{{support.img}}" height="40" width="40">
+							</div>	
+							<div>
+								<h5 class="mb-0">{{support.name}}</h5>
+								<span class="font-sz grey-text">{{support.mail}}</span>
+							</div>
+						</div>
+						<div class="text-right">{{support.date | date: 'd/M/y'}}</div>
+					</div>	
+					<div class="data-content">	
+						<h6 class="mb-1">{{support.heading}}</h6>
+						<div class="mail-content" fxLayoutAlign="start start">
+							<p class="fs-14">{{support.data}}</p>
+							<div class="mail-action" fxLayoutAlign="end start">	
+								<button mat-icon-button mat-button-sm mat-mini-fab color="primary" (click)="onSee(support)"><mat-icon class="line-hgt">remove_red_eye</mat-icon></button>
+								<button mat-icon-button mat-button-sm  mat-mini-fab color="warn" (click)="openDeleteFileDialog(i)"><mat-icon class="line-hgt">delete</mat-icon></button>
+								<button mat-icon-button mat-button-sm  mat-mini-fab color="accent" (click)="onNewEmail(support)"><mat-icon class="line-hgt">reply</mat-icon></button>
+							</div>
+						</div>		
+					</div>	
+					<div *ngIf="support.isReply" fxLayoutAlign="start center">
+						<div class="mr-3 full-wid">
+							<mat-form-field class="full-wid">
+								<input matInput placeholder="Reply Message">
+							</mat-form-field>
+						</div>
+						<div>	
+							<button mat-raised-button color="primary" (click)="onReply(support)">REPLY</button>
+						</div>	
+					</div>
+				</div>	
+				<div class="border-b-1"></div>
+			</ng-container>
+		</perfect-scrollbar> 
+	</mat-card-content>
+	<div class="card-spinner" [ngClass] = "{'reload' : newEmailShowSpinner}" fxLayoutAlign="center center">
+		<mat-spinner *ngIf="newEmailShowSpinner" mode="indeterminate" diameter="39"></mat-spinner>
+	</div>
+</mat-card>
+
+

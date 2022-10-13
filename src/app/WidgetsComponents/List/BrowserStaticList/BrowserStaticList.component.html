@@ -1,0 +1,49 @@
+<mat-card class="p-0 full-hght" *ngIf = "browserVisible" id="browserStatic">
+	<div *ngIf="title">
+		<div class="p-3" fxLayoutAlign="space-between center">
+			<div class="card-title">
+				<h3 class="mb-0 text-capitalize">{{title|translate}}</h3>
+			</div>
+			<div class="a-icon">	
+				<TopsideMenu (isCloseEvent) = "getCloseValue($event)" (isFullScreen)= "showFullScreen('browserStatic')" (isShowSpinner)="spinnerShow('browserStatic')"></TopsideMenu>
+			</div>	
+	   </div>
+	</div>
+	<mat-card-content>
+		<div class="card-content" *ngFor="let data of headerData">
+			<div class="mb-2">
+				<div class="p-4 users" fxLayoutAlign="space-between center">
+					<div>
+						<h1 class="mb-0 text-color">{{data.numberCard}}</h1>
+						<p class=" mb-0 text-color fs-14">{{data.heading}}</p>
+					</div>
+					<div class="pr-3">
+						<mat-icon class="accent-color font-sz-md inline-block">{{data.icon}}</mat-icon>
+					</div>
+				</div>		
+			</div>	
+		</div>
+	
+		<table class="full-wid" mat-table [dataSource]="invoicesData">
+			<ng-container matColumnDef="img">
+				<td mat-cell *matCellDef="let element"><img src="{{element.img}}" height="20" width="20" fxLayoutAlign="start center"></td>
+			</ng-container>
+		
+			<ng-container matColumnDef="name">
+				<td mat-cell *matCellDef="let element"><h6 class="font-bold">{{element.name}}</h6></td>
+			</ng-container>			
+	
+			<ng-container matColumnDef="value">
+				<td mat-cell *matCellDef="let element">{{element.value}}</td>
+			</ng-container>
+			
+			<ng-container matColumnDef="percent">
+				<td class="pr-0 primary-color" mat-cell *matCellDef="let element"><div class="primary-color">{{element.percent}}</div></td>
+			</ng-container>
+			<tr mat-row *matRowDef="let row; columns: displayedColumnsData;"></tr>
+		</table>
+	</mat-card-content>
+	<div class="card-spinner" [ngClass] = "{'reload' : browserStaticShowSpinner}" fxLayoutAlign="center center">
+		<mat-spinner *ngIf="browserStaticShowSpinner" mode="indeterminate" diameter="39"></mat-spinner>
+	</div>	
+</mat-card>

@@ -1,0 +1,74 @@
+<div class="app-card-title mb-4">
+	<anglo-title-component title="Selectable"></anglo-title-component>
+</div>
+<div class="app-card selectable-wrapper">
+	<mat-card>
+		<div class="card-title mb-3 p-2">
+			<h3>{{'Selectable Rows'|translate}}</h3>
+		</div>
+		<div class="card-content p-2">
+			<div class="table-responsive overflow-hidden">	
+				<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+				   <ng-container matColumnDef="select">
+					   <th mat-header-cell *matHeaderCellDef>
+					      <mat-checkbox (change)="$event ? masterToggle() : null"
+					                    [checked]="selection.hasValue() && isAllSelected()"
+					                    [indeterminate]="selection.hasValue() && !isAllSelected()">
+					      </mat-checkbox>
+					   </th>
+				    	<td mat-cell *matCellDef="let row">
+					      <mat-checkbox (click)="$event.stopPropagation()"
+					                    (change)="$event ? selection.toggle(row) : null"
+					                    [checked]="selection.isSelected(row)">
+					      </mat-checkbox>
+				    	</td>
+				   </ng-container>
+					<ng-container matColumnDef="name">
+						<th mat-header-cell *matHeaderCellDef>Dessert (100g)</th>
+						<td mat-cell *matCellDef="let element"> {{element.name}} </td>
+					</ng-container>
+
+					<ng-container matColumnDef="calories">
+						<th mat-header-cell *matHeaderCellDef>Calories</th>
+						<td mat-cell *matCellDef="let element"> {{element.calories}} </td>
+					</ng-container>
+
+					<ng-container matColumnDef="fat">
+						<th mat-header-cell *matHeaderCellDef>Fat (g)</th>
+						<td mat-cell *matCellDef="let element"> {{element.fat}} </td>
+					</ng-container>
+
+					<ng-container matColumnDef="carbs">
+						<th mat-header-cell *matHeaderCellDef>Carbs (g)</th>
+						<td mat-cell *matCellDef="let element"> {{element.carbs}} </td>
+					</ng-container>
+
+					<ng-container matColumnDef="protein">
+						<th mat-header-cell *matHeaderCellDef>Protein (g)</th>
+						<td mat-cell *matCellDef="let element"> {{element.protein}} </td>
+					</ng-container>
+
+					<ng-container matColumnDef="sodium">
+						<th mat-header-cell *matHeaderCellDef>Sodium (mg)</th>
+						<td mat-cell *matCellDef="let element"> {{element.sodium}} </td>
+					</ng-container>
+
+					<ng-container matColumnDef="calcium">
+						<th mat-header-cell *matHeaderCellDef>Calcium (%)</th>
+						<td mat-cell *matCellDef="let element"> {{element.calcium}}% </td>
+					</ng-container>
+
+					<ng-container matColumnDef="iron">
+						<th mat-header-cell *matHeaderCellDef>Iron (%)</th>
+						<td mat-cell *matCellDef="let element"> {{element.iron}}% </td>
+					</ng-container>
+
+					<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+		  			<tr mat-row *matRowDef="let row; columns: displayedColumns;"
+		      		(click)="selection.toggle(row)"></tr>
+		 		</table>
+		 	</div>	
+	 		<mat-paginator [pageSizeOptions]="[5, 10, 25]" ></mat-paginator>
+		</div>
+	</mat-card>
+</div>

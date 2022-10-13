@@ -1,0 +1,110 @@
+<div class="app-card-title mb-3">
+	<anglo-title-component title="Tabs"></anglo-title-component>
+</div>
+<div class="tab-wrapper">
+	<div class="grid-wrapper" fxLayout="row wrap">	
+		<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="100"  fxFlex.lg="100" fxFlex.xl="100">
+			<mat-card>
+				<div class="card-title p-2">
+					<h3>{{'Centered Tabs'|translate}}</h3>
+				</div>
+				<div class="card-content p-2">
+					<p>Tabs can be centered by using the <code>mat-stretch-tabs</code>.</p>
+					<mat-tab-group mat-stretch-tabs backgroundColor="primary" color="primary">
+						<mat-tab label="ITEM ONE">
+							<div class="p-2">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+							</div>
+						</mat-tab>
+
+						<mat-tab label="ITEM SEVENTEEN">
+							<div class="p-2">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+							</div>
+						</mat-tab>
+
+						<mat-tab label="ITEM FIVE">
+							<div class="p-2">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+							</div>	
+						</mat-tab>
+					</mat-tab-group>
+				</div>
+			</mat-card>	
+		</div>
+	</div>
+	<div class="grid-wrapper card-margin" fxlayout="row wrap">	
+		<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="100" fxFlex.lg="100" fxFlex.xl="100">
+			<mat-card>
+				<div class="card-title p-2">
+					<h3>{{'Icons'|translate}}</h3>
+				</div>
+				<div class="card-content p-2">
+					<p>By using the <code>icons</code> prop you can add icons to each tab item</p>
+					<mat-tab-group mat-stretch-tabs backgroundColor="accent" color="primary">
+						<mat-tab>
+			   			<ng-template mat-tab-label>
+			     				<mat-icon class="example-tab-icon mr-2">phone</mat-icon>
+			      				<span>RECENTS</span>
+			    			</ng-template>
+			    			<div class="p-2">
+			    				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+			    			</div>
+			 			</mat-tab>
+
+			 			<mat-tab>
+			   			<ng-template mat-tab-label>
+			     				<mat-icon class="example-tab-icon mr-2">favorite</mat-icon>
+			      				<span>FAVORITES</span>
+			    			</ng-template>
+			    			<div class="p-2">
+			    				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+			    			</div>	
+			 			</mat-tab>
+
+			 			<mat-tab>
+			   			<ng-template mat-tab-label>
+			     				<mat-icon class="example-tab-icon mr-2">account_box</mat-icon>
+			      				<span>NEARBY</span>
+			    			</ng-template>
+			    			<div class="p-2">
+			    				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+			    			</div>	
+			 			</mat-tab>
+					</mat-tab-group>
+				</div>
+			</mat-card>
+		</div>
+	</div>
+	<div class="grid-wrapper card-margin" fxLayout="row wrap">
+		<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="100" fxFlex.lg="100" fxFlex.xl="100">
+			<mat-card>
+				<div class="card-title p-2">
+					<h3>{{'Toolbar Tabs'|translate}}</h3>
+				</div>
+				<div class="card-content p-2">
+					<p>The <code>mat-tabs</code> component is highly customizable to suit your needs. You can get and set the currently active tab by using the mat-model prop on the <code>mat-tabs</code> component.</p>
+					<mat-tab-group backgroundColor="warn" color="accent">
+						<mat-tab label="ITEM 1">
+							<div class="demo-tab-content p-2">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+							</div>
+						</mat-tab>
+
+						<mat-tab label="ITEM 2">
+							<div class="demo-tab-content p-2">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+							</div>
+						</mat-tab>
+
+						<mat-tab label="ITEM 3">
+							<div class="demo-tab-content p-2">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+							</div>
+						</mat-tab>
+					</mat-tab-group>
+				</div>
+			</mat-card>
+		</div>
+	</div>	
+</div>	

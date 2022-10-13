@@ -1,0 +1,145 @@
+/*-------------------------------------------------------------
+9.12 Tables
+-------------------------------------------------------------*/
+// Fullscreen Style
+.fullscreen-table-wrapper {
+   .fullscreen {
+      position: absolute;
+      height: auto;
+      top: 64px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+   } 
+}   
+// Selecttion-List  
+
+.selection-list-wrapper {   
+	.datatable-body-cell.sort-active.active { 
+   	background-color: $primary !important;   
+	}
+}
+
+// Slots Table 
+.table-slots-wrapper {
+
+   tr.example-detail-row {
+     height: 0;
+   }
+
+   tr.example-element-row:not(.example-expanded-row):hover {
+     background: $content-hover;
+   }
+
+   tr.example-element-row:not(.example-expanded-row):active {
+     background: $content-hover;
+   }
+
+   .example-element-row td {
+     border-bottom-width: 0;
+   }
+
+   .example-element-detail {
+     overflow: hidden;
+     display: flex;
+   }
+
+   .example-element-diagram {
+     min-width: 80px;
+     border: 2px solid black;
+     padding: 8px;
+     font-weight: lighter;
+     margin: 8px 0;
+     height: 104px;
+   }
+
+   .example-element-symbol {
+     font-weight: bold;
+     font-size: 40px;
+     line-height: normal;
+   }
+
+   .example-element-description {
+     padding: 16px;
+   }
+
+   .example-element-description-attribution {
+     opacity: 0.5;
+   }
+}
+ 
+// Selectable-Wrapper
+
+.selectable-wrapper {
+   tr:nth-child(odd) {
+      background-color:$content-hover;
+   }
+   tr:nth-child(even):hover {
+      background-color: $content-hover;
+      transition: all 0.5s ease-in-out;
+   }
+   .mat-header-cell {
+      font-weight:bold;
+      color: $font-color;
+      font-size:15px;
+   }
+   tr.mat-header-row {
+      background: none !important;
+   } 
+}
+
+
+// Search-Row-Wrapper
+
+.search-row-wrapper {
+   tr:nth-child(odd) {
+      background-color: $content-hover;
+   }
+   tr:nth-child(even):hover {
+      background-color: $content-hover;
+      transition: all 0.5s ease-in-out;
+   }
+      table {
+     width: 100%;
+   }
+   .mat-header-cell {
+      font-weight:bold;
+      color: #464d69;
+      font-size:15px;
+
+   }
+   tr.mat-header-row {
+      background: none !important;
+   }
+} 
+.standard-table-wrapper {
+
+    tr:nth-child(odd) {
+      background-color:$content-hover;
+   }
+   tr:nth-child(even):hover {
+      background-color:$content-hover;
+      transition: all 0.5s ease-in-out;
+   } 
+}
+
+// Basic Table
+
+
+   .table {
+      width: 100%;
+      max-width: 100%;
+      margin-bottom: 1.2rem;
+
+      td {
+         border:  1px solid #dee4e8;
+         padding: .75rem;
+         text-align:center;
+      }
+      th {
+         border: 1px solid #dee4e8;
+         padding: .75rem;
+      }
+   }
+

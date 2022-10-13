@@ -1,0 +1,45 @@
+<mat-card class="p-0" *ngIf = "notificationVisible" id="notificationCard">
+	<div class="p-3" fxLayoutAlign="space-between center">
+		<div class="card-title">
+			<h3 class="mb-0">{{title|translate}}</h3>
+		</div>
+		<div class="a-icon">	
+			<TopsideMenu (isCloseEvent) = "getCloseValue($event)" (isFullScreen)= "showFullScreen('notificationCard')" (isShowSpinner)="spinnerShow('notificationCard')"></TopsideMenu>	
+		</div>
+	</div>	
+	<mat-card-content class="m-0" [style.overflow]="'auto'" [style.height.px]="'350'">
+		<perfect-scrollbar class="scrollbar" [config]="config">
+			<div class="card-content">
+				<div class="border-b-1 p-3 a-list" *ngFor="let notification of notificationData" fxLayoutAlign="space-between center">
+					<div fxLayoutAlign="start center">
+						<div class="notification-icon {{notification.color}}">
+							<mat-icon class="a-icon radius-circle inline-block p-2">{{notification.iconName}}</mat-icon>
+						</div>
+						<div>
+							<span class="grey-text fs-12">
+								{{notification.sub_title}}
+							</span>
+							<h6 class="mb-0">{{notification.heading}}</h6>
+						</div>
+					</div>	
+					<div>	
+						<span class="fs-12 grey-text">{{notification.time}}</span>
+					</div>
+				</div>
+			</div>
+		</perfect-scrollbar>
+	</mat-card-content>
+	<mat-card-actions class="m-0 p-0">
+		<div class="p-3" fxLayout="row wrap" fxLayoutAlign="space-between center">
+			<div>
+				<button class="px-3" mat-button-sm mat-raised-button color="primary">View All</button>
+			</div>
+			<div class="grey-text fs-12" fxLayoutAlign="space-between center">
+				<mat-icon class="update-list">replay</mat-icon><span>Updated 10 min ago</span>
+			</div>
+		</div>
+	</mat-card-actions>
+	<div class="card-spinner" [ngClass] = "{'reload' : notificationShowSpinner}" fxLayoutAlign="center center">
+		<mat-spinner *ngIf="notificationShowSpinner" mode="indeterminate" diameter="39"></mat-spinner>
+	</div>	
+</mat-card>

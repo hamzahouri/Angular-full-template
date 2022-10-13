@@ -1,0 +1,87 @@
+<div class="app-card-title mb-3">
+	<anglo-title-component title="Toolbar"></anglo-title-component>
+</div>
+<div class="toolbar-wrapper">
+	<div class="grid-wrapper" fxLayout="row wrap">	
+		<div class="app-card default-toolbar" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="100"  fxFlex.lg="100" fxFlex.xl="100">
+			<mat-card>
+				<div class="card-title p-2">
+					<h3>{{'The Default Color Toolbar'|translate}}</h3>
+				</div>
+				<div class="card-content p-2">
+					<p>The <code class="warn-color"> mat-toolbar </code>component is pivotal to any gui, as it generally is the primary source of site navigation. The toolbar component works great in conjunction with a navigation drawer for hiding links and presenting an activator to open the sidebar on mobile.</p>
+					<mat-toolbar class="box-shadow-card">
+						<mat-toolbar-row>
+								<div>
+									<span>Title</span>
+								</div>
+								<span fxFlex></span>
+								<div class="anglo-ham-icon">
+					            <button class="toggle-btn" mat-icon-button>
+					               <mat-icon class="icon-color">menu</mat-icon>
+					            </button>
+					         </div>
+								<div class="example-spacer hidden-sm-and-down">
+									<button mat-button>LINK ONE</button>
+									<button mat-button>LINK TWO</button>
+									<button mat-button>LINK THREE</button>
+								</div>		
+						</mat-toolbar-row>
+					</mat-toolbar>
+				</div>
+			</mat-card>
+		</div>
+	</div>	
+	<div class="grid-wrapper" fxLayout="row wrap">	
+		<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="100"  fxFlex.lg="100" fxFlex.xl="100">
+			<mat-card>
+				<div class="card-title p-2">
+					<h3>{{'App Bar'|translate}}</h3>
+				</div>
+				<div class="card-content p-2">
+					<mat-toolbar class="box-shadow-card" color="primary">
+						<mat-toolbar-row>
+							<mat-icon class="mr-2">menu</mat-icon>
+							<span fxLayoutAlign="start center">Title</span>
+							<span fxFlex></span>
+							<span class="example-spacer"></span>
+							<button mat-icon-button><mat-icon>search</mat-icon></button>
+							<button mat-icon-button><mat-icon>apps</mat-icon></button>
+							<button mat-icon-button><mat-icon>refresh</mat-icon></button>
+							<button mat-icon-button><mat-icon>more_vert</mat-icon></button>
+						</mat-toolbar-row>
+					</mat-toolbar>
+				</div>
+			</mat-card>
+		</div>		
+	</div>
+	<div class="grid-wrapper" fxLayout="row wrap">	
+		<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="100"  fxFlex.lg="100" fxFlex.xl="100">
+			<mat-card>
+				<div class="card-title p-2">
+					<h3>{{'App Bar With Extension'|translate}}</h3>
+				</div>
+				<div class="card-content p-2">
+					<mat-toolbar class="box-shadow-card" color="accent">
+						<mat-toolbar-row fxLayoutAlign="space-between center" >
+							<div>
+								<mat-icon>menu</mat-icon>
+							</div>
+							<div>
+								<span class="example-spacer"></span>
+								<button mat-icon-button><mat-icon>search</mat-icon></button>
+								<button mat-icon-button><mat-icon>apps</mat-icon></button>
+								<button mat-icon-button><mat-icon>refresh</mat-icon></button>
+								<button mat-icon-button><mat-icon>more_vert</mat-icon></button>
+							</div>
+						</mat-toolbar-row>
+						<mat-toolbar-row>
+							<span>Toolbar</span>
+						</mat-toolbar-row>
+					</mat-toolbar>
+				</div>
+			</mat-card>
+		</div>	
+	</div>
+</div>	
+

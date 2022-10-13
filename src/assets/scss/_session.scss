@@ -1,0 +1,154 @@
+/*-------------------------------------------------------------
+7.0 session
+-------------------------------------------------------------*/
+.application-wrapper {
+	position:relative;
+	.session-wrapper {
+		background-color: #f4f7fa;
+		height: 100vh;
+		overflow-x: hidden;
+		overflow-y: auto;
+		.slick-slider {
+			width: 31.25rem !important;
+			text-align: center;
+			color: $text-color;
+		}
+		.session-right{
+			margin-left: 31.25rem;
+			background-color: #f4f7fa;
+			.session-content{
+				margin: 0 auto;
+    			max-width: 31.25rem;
+
+			}
+			.mat-form-field {
+				width:100%;
+			}
+			.btn{
+				width:100%;
+			}
+			.input-control {
+				width:100%;
+			}
+		}
+		.session-left {
+			background-image: url(/assets/img/login.jpg);
+			background-size: cover;
+			bottom: 0;
+			height: 100%;
+			overflow: hidden;
+			position: absolute;
+			text-align: center;
+			top: 0;
+			min-height:600px;
+			margin-top: 96px;
+		}
+		.session-content{
+			.slick-dots li button:before{
+				color: $text-color !important;
+			}
+		}
+		.session-icon{
+			.icon{
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				line-height: 30px;
+				color: $text-color !important;
+				border-radius: 3px;
+				padding:0px;
+				margin:0px 10px;
+			}	
+			.facebook {
+				background-color: $primary;
+			}
+			.google {
+				background-color: $accent;
+			}
+			.twitter {
+				background-color: $warn;
+			}
+			.github{
+				background-color: $warn;
+			}
+		}	
+	}
+	.slider-content { 
+		p {
+			font-size: 1.125rem;
+	    	font-weight: 600;
+	    	line-height: 1.6;
+		}
+		.slider-image {
+			border: 3px solid white;
+		}
+	}
+	.form-wrapper {
+		position:relative;
+		.length-wrapper {
+			position: absolute;
+			right: 0%;
+			bottom: -5px;
+			font-size: 19px;
+          h5{
+             font-size: 12px;
+          }
+		}
+	}
+}
+.session-table{
+	padding-top:5rem;
+}
+// lock screen 
+
+.application-wrap {
+   position:relative;
+
+	.lock-screen-wrapper {
+		background-image: url(/assets/img/lock-bg.png);
+		background-position: 50%;
+	   background-repeat: no-repeat;
+	   background-size: cover;
+		height: 100vh;
+
+overflow: auto;
+
+    overflow-x: auto;
+    overflow-y: auto;
+
+position: relative;
+	}
+	.lock-screen-block{
+	
+	   overflow: auto;
+	   padding: 4rem 1rem;
+	   
+	}
+	.a-input-field {
+		.mat-form-field {
+			width:100%;
+		}
+	}
+}
+
+@media (max-width: 1199px) {
+	.application-wrapper .session-wrapper .session-right .session-content{
+	   max-width: 25rem;
+	}
+}
+@media (max-width: 959px) {
+	.application-wrapper .session-wrapper .session-right .session-content {
+	   max-width: 75%;
+	}
+	.session-wrapper .session-left {
+	   display: none !important;
+	}
+	.session-wrapper .session-right {
+	   margin-left: 0 !important;
+	}
+	.session-wrapper .session-right .session-table {
+		display:block;
+		padding-bottom: 3rem;
+	}
+}
+

@@ -1,0 +1,31 @@
+<div class="text-capitalize sidebar-list-wrapper">
+   <mat-nav-list fxLayout="column" menuToggleDirective class="navigation">
+      <mat-list-item  *ngFor="let menuitem of item.getAll()">
+         <a class="sidebar-title px-3" href="javascript:void(0)" *ngIf="menuitem.type === 'sub'">
+            <span class="mb-0">{{ menuitem.name | translate }}</span>
+         </a>
+
+         <mat-nav-list *ngIf="menuitem.type === 'sub'">
+            <mat-list-item  menuToggleLink *ngFor = "let childItems of menuitem.children; let i = index"  [ngClass]="{'open':childItems.isOpen}">
+               <a class="anglo-relative" menuToggle routerLinkActive="active-link"  [routerLink]="['/', childItems.state]" *ngIf="childItems.type=='link'">
+                  <mat-icon class="child-item">{{ childItems.icon }}</mat-icon>
+                  <span class="list-name">{{ childItems.name | translate }}</span>
+               </a>
+               <a id=child-item-{{i}} class="anglo-relative nav-item" menuToggle href="javascript:;" *ngIf="childItems.type=='subChild'">
+                  <mat-icon class="menu-caret">chevron_right</mat-icon>
+                  <mat-icon class="nav-icon">{{ childItems.icon }}</mat-icon>
+                  <span class="list-name">{{ childItems.name | translate }}</span>
+               </a>
+               <mat-nav-list class="sub-menu" *ngIf="childItems.type === 'subChild'">
+                  <mat-list-item *ngFor="let subchilditem of childItems.children" routerLinkActive="open">
+                     <a class="anglo-relative" [routerLink]="['/', childItems.state, subchilditem.state ]" routerLinkActive="active-link">
+                        <span class="list-name">{{ subchilditem.name | translate }}</span>
+                     </a>
+                  </mat-list-item>
+               </mat-nav-list>
+            </mat-list-item>
+         </mat-nav-list>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+   </mat-nav-list>
+</div>

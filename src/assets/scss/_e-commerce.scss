@@ -1,0 +1,225 @@
+/*-------------------------------------------------------------
+5.0 E-commerce
+-------------------------------------------------------------*/
+// E-commerce-Wrapper
+.ecommerce-wrapper {
+	tr:hover{
+    	background: #eee;
+    	transition: all 0.3s ease-in-out;
+	}
+} 
+
+// Cart Wrapper
+.cart-wrapper {
+	table { 
+		width:100%;
+	   td {
+	    	padding:1rem;
+		}
+		td.mat-cell:last-of-type {
+			padding-right: 0px;
+		}
+	}
+	.form-group{
+		.mat-form-field-wrapper{
+			width:520px;
+		}
+	}
+	.input-slot {
+		.mat-form-field-appearance-legacy .mat-form-field-underline {
+	    	height: 0px !important;
+		}
+		.mat-form-field-wrapper {
+   		padding-bottom: 0.8rem !important;
+		}
+	}
+
+}
+
+// Cards Wrapper 
+
+.cards-wrapper {
+	table{
+		width:100%;
+	}
+	table.a-table tr:nth-child(2n) {
+    background-color: $table-bg-color;
+	}
+}
+
+// Checkout Wrapper
+.checkout-wrapper {
+	.mat-form-field-prefix {
+		height:20px;
+	}
+	table tbody tr td {
+		padding:1rem !important;
+	}
+}
+.shop-grid-wrapper {
+	.overlay-wrap {
+		position:relative;
+		.overlay-content {
+			background-color: #9bc8ff;
+    		border-color: #9bc8ff;
+    		transition: all 0.3s ease-in-out;
+    		width:100%;
+    		height:auto;
+    		opacity: 0;
+    		transform: scale(.7);
+			bottom: 0;
+		   	left: 0;
+		  	position: absolute;
+		    right: 0;
+		    top: 0;
+		   .a-btn {
+		   	transform: translateY(-100%);
+		   	transition: all .3s ease-in-out .05s;
+		   	&:hover{
+		   		background-color:#f5f5f5;
+		   	  }
+		   }
+		}
+	}
+	// shop style
+		.search-box{
+			.ais-SearchBox {
+				overflow:hidden; 
+				button{
+					display: none;
+				}	
+				input {
+				    width: 90%;
+				    border-top: 0;
+				    border-right: 0;
+				    border-left: 0;
+				    border-bottom: 1px solid #d5d5d5;
+				    padding: 0.625rem 0 !important;
+				    font-size: 1rem;
+				}
+			}	
+		}
+		.ais-RefinementList-count {
+		   background: #dfeaff;
+		   border-radius: 8px;
+    		color: #464d69;
+    		font-size: 12px;
+    		padding: .1rem .4rem;
+		} 
+		
+	
+      .ais-RatingMenu-starIcon {
+         display: block;
+         width: 27px;
+         height: 27px;
+         fill: $success;
+      }
+      .ais-Panel-header{
+         font-weight: 600;
+         margin-bottom: 1rem;
+      }
+	.product-item {
+		transition: all 0.3s ease-in-out;
+		&:hover {
+		 	.overlay-content {
+				opacity: .9;
+		    	transform: scale(1);
+		    	transition: all 0.3s ease-in-out;
+	   	}
+   	   .a-btn {
+   	  	   transform: translateY(0);
+   	   }
+	   }	
+   }
+   .ais-Panel {
+   	.ais-RefinementList-item {
+   		padding:0.5rem 0;
+   	}
+   	.ais-RefinementList-label { 
+   	   display: flex;
+    		align-items: center;
+    		width: 100%;
+    	}	
+    	.ais-RefinementList-checkbox {
+    		margin-right:0.5rem;
+    	}
+    	.ais-RefinementList-labelText {
+    		width:80%;
+    		font-size:.875rem;
+    	}
+   }
+
+   .ais-RatingMenu-link >*+* {
+   	margin-left: .5rem !important;
+	}
+	.ais-ClearRefinements {	
+		.ais-ClearRefinements-button {
+			padding:0.625rem;
+			width:100%;
+			font-size:14px;
+			background-color: $primary;
+			color: $text-color;
+			border-radius:0.625rem;
+		}
+	} 
+	.ais-SearchBox-input {
+		padding:.7rem 1.7rem;
+	}
+	.noUi-connect {
+       background: $primary;
+       width: auto;
+	}	   
+}
+.pagination-wrap{
+	.ais-Pagination{
+		.ais-Pagination-link {
+	    	width: 33px;
+          height: 33px;
+          line-height:33px;
+	    	display: block;
+	    	text-align: center;
+	    	border-radius: 4px;
+		} 
+	}
+	.ais-Pagination-item--selected {
+    	background: $primary;
+    	color: #fff;
+	}
+	.ais-Pagination-list li {
+	   display: inline-block;
+	   font-size: 1.3rem;
+	   border-radius: 3px;
+	}	
+}	
+@media (max-width: 1280px){	
+.sidebar-panel .content-name, .sidebar-panel .sidebar-user-name{
+width:100px !important;
+}
+}
+@media (max-width: 600px){	
+	.form-group{
+		.mat-form-field-wrapper{
+			width:100% !important;
+		}
+	}
+}	
+
+.ais-RangeSlider {
+	padding: 2rem 1rem 4rem 1rem;
+	overflow: hidden;
+}
+.noUi-horizontal .noUi-tooltip {
+display:none;
+}
+
+html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
+	right: 0px !important;
+	left: -17px !important;
+}
+
+@media(max-width:768px){
+   .ais-RangeSlider{
+      padding-left: 2rem;
+      padding-right: 2rem;
+   }
+}

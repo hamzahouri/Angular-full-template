@@ -1,0 +1,68 @@
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// **Be sure that you only ever include this mixin once!**
+@include mat.core();
+
+// Define the default theme (same as the example above).
+$my-theme-primary: mat.define-palette(mat.$blue-palette, A200);
+$my-theme-accent:  mat.define-palette(mat.$green-palette,600);
+$my-theme-warn:    mat.define-palette(mat.$red-palette,800);
+$my-theme-success: mat.define-palette(mat.$amber-palette, 600);
+$my-light-theme:   mat.define-light-theme($my-theme-primary, $my-theme-accent, $my-theme-warn);
+
+
+// Include the default theme styles.
+@include mat.all-component-themes($my-light-theme);
+
+
+// Define an alternate dark theme.
+$dark-primary: mat.define-palette(mat.$blue-grey-palette);
+$dark-accent:  mat.define-palette(mat.$amber-palette, A200, A100, A400);
+$dark-warn:    mat.define-palette(mat.$deep-orange-palette);
+$dark-theme:   mat.define-dark-theme($dark-primary, $dark-accent, $dark-warn);
+
+// Include the alternative theme styles inside of a block with a CSS class. You can make this
+// CSS class whatever you want. In this example, any component inside of an element with
+// `.unicorn-dark-theme` will be affected by this alternate dark theme instead of the default theme.
+.unicorn-dark-theme {
+  @include mat.all-component-themes($dark-theme);
+}
+
+//Custom Raised Icon Button colors
+
+
+// Create your Sass color vars (will be available in all the project)
+$primary: mat.get-color-from-palette($my-theme-primary);
+$accent: mat.get-color-from-palette($my-theme-accent);
+$warn: mat.get-color-from-palette($my-theme-warn);
+$success: mat.get-color-from-palette($my-theme-success);
+
+.primary-color{
+  color: $primary !important;
+}
+.primary-bg {
+  background: $primary !important;
+}
+.accent-color {
+  color: $accent !important;
+}
+.accent-bg {
+  background: $accent !important;
+}
+.warn-color {
+	color: $warn !important;
+}
+.warn-bg {
+	background:$warn !important;
+}
+.success-color {
+	color:$success !important;
+}
+.success-bg {
+	background:$success !important;
+}
+
+

@@ -1,0 +1,329 @@
+/*-------------------------------------------------------------
+13.6 theme-dark
+-------------------------------------------------------------*/
+// theme dark clasess 
+.theme-dark *{
+   border-color: $theme-dark-border !important;
+   color: $theme-text-color !important;
+   .mat-form-field-infix {
+      border: none !important;
+   }
+}   
+.theme-dark {
+   #content {
+      background: #24293a;
+   }
+   .mat-card {
+      background-color: #2c3644!important;
+      border-color: rgba(0,0,0,.2)!important;
+   }
+   .new-post-image .mat-card{
+      background-color: transparent !important; 
+      *{
+         color:#000 !important;
+      }
+   }
+   table {
+      background-color: #2c3644!important;
+      tbody tr:nth-child(2n), .theme--dark .v-table thead tr {
+         background-color: #434f5a!important;
+      }
+   } 
+   .ngx-datatable {
+      background-color: #2c3644!important;
+      tbody tr:nth-child(2n), .theme--dark .v-table thead tr {
+         background-color: #434f5a!important;
+      }
+   } 
+   .app-main {
+      background: #303030 !important;
+   }
+
+   // widget m user
+   .support-widget-wrap .mat-list .mat-list-item .mat-list-item-content:not(:nth-child(2)) {
+      background-color: #434f5a !important;
+   }
+
+   // e-commerce dashboard
+
+   .e-commerce-wrapper {
+      .dropzone, .social-icon-wrapper .social-icon, .top-selling-wrapper .thumbnail img  {
+         background-color: $theme-dark !important;
+      }
+    
+      .Todo-list-wrapper .app-card .list:hover {
+         background-color: #434f5a !important;
+      }
+   }   
+   
+   // header wrapper 
+   .header-wrapper {
+      .mat-form-field-infix {
+         padding-top:0px !important;
+      }
+      .mat-toolbar {
+         background-color: $theme-dark !important;
+      }
+      .anglo-header-toolbar .search-bar .input-slot{
+         border: 1px solid  #535869 !important;
+      }  
+   }   
+
+   // e-commerce shop component
+   .grayish-blue, .theme-dark .shop-wrapper .ais-Panel .ais-RefinementList-item  .ais-RefinementList-count {
+      background-color: rgba(0,0,0,.2) !important;
+   }   
+   .ecommerce-wrapper  tr:hover, .cards-wrapper table.a-table tr:nth-child(2n) {
+      background-color: #434f5a !important;
+   }   
+
+   // drag and drop 
+   .dragable-resize-wrapper .card-content .card-text code {
+      background-color:$theme-dark !important;
+   }  
+
+   // dropzone bg color 
+
+   .dropzone {
+		background-color: #2c3644 !important;
+		border-color:#fff !important;
+      .dz-default.dz-message{
+         span{
+            color:#fff !important;
+         }
+      } 
+   }
+   .a-tab-group {
+      background-color: $theme-dark !important;
+      height:100vh;
+   }   
+   .mat-checkbox-frame {
+      border-color: $text-color !important;
+   }
+
+   // chat in module 
+   .a-toolbar-content, .chatsidebar-wrapper {
+      background-color: $theme-dark !important;
+   } 
+
+   .chat-wrapper .mat-sidenav-content {
+      background: #24293a;
+   }
+   .chat-body .chat-bubble-wrap .chat-bubble.even span {
+      color:#000000 !important;
+   }   
+
+   // inbox in module 
+   .inbox-wrapper {
+      .email-detail-wrapper{
+         background-color: $theme-dark !important;
+      }
+      .inbox-inner {
+        background-color: $theme-dark !important;
+        height:100% !important;
+      }
+      .search-mail {
+         background-color: #434f5a !important;
+         .input-slot {
+            background-color: $theme-dark !important;
+         }
+      }
+      .inbox-page-list {
+         background-color: $theme-dark !important;
+      }
+
+      .a-list-content {
+         background-color: $theme-dark !important;
+         &:hover{
+            background-color: #434f5a !important;
+         }
+      }
+   }
+
+   // pages module
+      
+      // gallery-component css
+      .grid-list-wrapper figure.img-wrapper:after {
+         background: rgba(44,54,68,.8);
+         color: $text-color !important;
+      }
+      // pricing-1 css 
+      .pricing-wrapper .fixed-pricing .plan-info {
+         background-color:#303030 !important;
+      }    
+
+      .shop-grid-wrapper {
+         .product-item .overlay-content .a-btn {
+            background-color:#212121 !important;
+            color:$theme-text-color !important;
+         }
+         .ais-RefinementList-count {
+            background-color:#000000;
+         }
+         .noUi-tooltip {
+            background-color: $theme-light-color;
+         }
+      }
+
+
+   // calendar
+   .calendar-wrapper {
+      .cal-month-view { 
+			background-color: transparent;
+         .cal-cell-row {
+            &:hover {
+               background-color: #434f5a !important;
+            }
+            .cal-cell:hover {
+               background-color: #434f5a !important;
+            }
+            .cal-cell.cal-has-events.cal-open, .cal-open-day-events {
+               background-color: $theme-dark !important;
+            }
+         }   
+      }
+   }   
+
+   // theme color for dark mode
+   .mat-icon.mat-primary {
+      color:$primary !important;
+   }
+   .mat-icon.mat-accent {
+      color:$accent !important;
+   }
+   .mat-icon.mat-warn {
+      color:$warn !important;
+   }
+   .mat-icon.mat-success {
+      color:$success !important;
+   }
+   .primary-color.mat-icon {
+      color:$primary !important;
+   }
+   .accent-color.mat-icon {
+      color:$accent !important;
+   }
+   .warn-color.mat-icon {
+      color:$warn !important;
+   }
+   .success-colors.mat-icon {
+      color:$success !important;
+   }
+   .primary-color .mat-icon {
+      color:$primary !important;
+   }
+   .accent-color .mat-icon {
+      color:$accent !important;
+   }
+   .warn-color .mat-icon {
+      color:$warn !important;
+   }
+   .success-colors .mat-icon {
+      color:$success !important;
+   }
+   .primary-color {
+      color:$primary !important;
+   }
+   .accent-color {
+      color:$accent !important;
+   }
+   .warn-color {
+      color: $accent !important;
+   }
+   .success-color {
+      color: $success !important;
+   } 
+
+   // charts bg color them-dark
+
+   #vmap {
+      background-color: $theme-dark !important;
+   }
+
+   // Tables
+   .ngx-datatable.material {
+      &:not(.cell-selection) .datatable-body-row:hover {
+         background-color: $theme-dark !important;
+         transition-duration: 2s !important;
+      }
+      &:not(.cell-selection) .datatable-body-row:hover .datatable-row-group, .mat-paginator-container {
+         background-color: $theme-dark !important;
+      }
+      .datatable-body .datatable-body-row .datatable-body-cell, .datatable-header .datatable-header-cell {
+         background-color: $theme-dark !important;
+      }   
+   }
+   .mat-paginator-container {
+      background-color: $theme-dark !important;
+   }
+
+   // e-commerce-shop
+   .search-box {
+      .ais-SearchBox-input {
+         background-color: $theme-dark;
+      }
+   }
+
+   // ui-element cards
+   .cards-wrapper .content-dropdown .mat-expansion-panel {
+      background-color: $theme-dark;
+   }
+   .mat-expansion-indicator:after {
+      color:$text-color !important;
+   }   
+
+   // ui-element toolbar 
+   .toolbar-wrapper .default-toolbar .mat-toolbar {
+      background-color:$success;
+   }
+
+   // ui-element chips 
+   .a-chips-wrapper .mat-chip.mat-standard-chip {
+      background-color: rgba(0,0,0,0.3) !important;
+   }
+
+   .chat-sidebar-panel .mat-tab-group {
+      background-color: $theme-dark;
+      height:100vh !important;
+   }
+
+   // button
+   .mat-flat-button, .mat-raised-button {
+      background-color: rgba(0,0,0,0.3);
+   }
+   .mat-flat-button.mat-primary {
+      background-color:$primary !important;
+   }
+   .mat-flat-button.mat-accent {
+      background-color: $accent !important;
+   } 
+   .mat-flat-button.mat-warn {
+      background-color: $warn !important;
+   }
+   .mat-raised-button.mat-primary {
+      background-color: $primary !important;
+   }
+   .mat-raised-button.mat-accent {
+      background-color: $accent !important;
+   }
+   .mat-raised-button.mat-warn {
+      background-color: $warn !important;
+   }
+
+   // e-commerce cart
+   .cart-wrapper .input-slot .mat-form-field-wrapper {
+      padding-top:0.625rem;
+   }
+
+   .mat-radio-outer-circle {
+      border-color: rgba(255,255,255,.7) !important;
+   }
+   .note-toolbar, .note-btn, .note-editable, .cke_top, .cke_wysiwyg_frame, .cke_bottom {
+      background-color:$theme-dark !important;
+   }
+
+   // sidebar
+   &.sidebar-overlay-light .mat-sidenav .sidebar-panel .sidebar-list-wrapper * {
+      color: $theme-dark !important;
+   }
+}    

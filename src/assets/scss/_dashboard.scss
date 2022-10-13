@@ -1,0 +1,471 @@
+/*-------------------------------------------------------------
+3.0 Dashboard
+-------------------------------------------------------------*/
+// Web-Analytic-Wrapper
+.Web-Analytic-Wrapper {
+	svg {
+	   width:100% !important;
+	   height:100% !important;
+	}
+	.ngx-charts {
+	   float: none !important;
+	   overflow: visible;
+	}
+}
+.user-bar-wrapper {
+	.mat-progress-bar {
+		height:7px !important;
+		border-radius:10px 0px 0px 10px; 
+	}
+	.male-user {
+		.mat-progress-bar-buffer {
+		   background-color: #bbdefb;
+		}
+		.mat-progress-bar-fill::after {
+    		background-color: $primary ;
+		}
+	}
+	.android-user {
+		.mat-progress-bar-buffer {
+		  background-color: #bbdefb;
+		}
+		.mat-progress-bar-fill::after {
+    		background-color: $accent;
+		}
+	}
+	.female-user {
+		.mat-progress-bar-buffer {
+		   background-color: #bbdefb;
+		}
+		.mat-progress-bar-fill::after {
+    		background-color: $warn;
+		}
+	}
+	.ios-user {
+		.mat-progress-bar-buffer {
+		   background-color: #bbdefb;
+		}
+		.mat-progress-bar-fill::after {
+    		background-color: $primary;
+		}
+	}
+}	
+
+.browser-static-wrapper {
+	.card-content {
+		.users {
+			background-color: #464d69;
+		}
+	}
+}
+.device-share-wrapper {
+ 	.doughnut-chart {
+ 		height:365px !important;
+	 	position:relative;
+	 	.overlay-content {	
+	 		position: absolute;
+	    	top: 0;
+	    	left: 0;
+	    	right: 0;
+	    	bottom: 0;
+	    	text-align: center;
+	    	pointer-events:none;
+	   } 
+	}  
+	.chart-content {
+		.circle{
+			width:12px;
+			height:12px;
+		}	
+	} 
+}   
+.notification-card {
+	.notification-icon {
+		min-width:56px;
+		.a-icon{
+			transition: all 0.5s ease-in-out;
+			background-color: #f4f3f8;
+		}
+	}
+	.card-content{
+		.a-list{
+			transition: all 0.5s ease-in-out;
+			&:hover{
+				background: rgba(0,0,0,.04);
+				.a-icon{
+					background-color: $text-color;
+				}
+			}
+		}
+	}
+}
+.progress-wrapper {
+	.vector-map {
+		#vmap {	
+			height:400px !important;
+		}
+	}
+	.progress-bar {
+		.mat-progress-bar-fill::after {
+ 			background-color: $primary;
+		}
+		.mat-progress-bar-buffer {
+		   background-color: #e9ecef;
+		}
+	}
+}	
+
+.category-wrapper {
+	.card-content {
+		.content {
+			height:40px;
+		}	
+		.title {
+ 			font-weight: $font-weight-medium;
+ 			margin: 0 1rem .2rem 0;
+ 			width: 4.5rem;
+ 			height:40px;
+		}
+	}
+	.traffic-channel-widget{
+		.mat-progress-bar{
+			height:8px !important;
+			border-radius:0px 10px 10px 0px;
+
+		}
+		.mat-progress-bar-fill::after {
+		   background-color: $primary;
+		}
+		.mat-progress-bar-buffer {
+		   background-color: #bbdefb;
+		}
+	}
+}	
+.server-status-wrapper {
+	.server-status-widget {
+		.mat-progress-bar {
+			height:7px !important;
+			border-radius:$border-radius-base;
+		}
+		.mat-progress-bar-fill::after {
+		   background-color: $primary;
+		}
+		.mat-progress-bar-buffer {
+		   background-color: #e9ecef;
+		}
+	}
+}	
+
+.invoices-list-wrapper {
+	tr.mat-row {
+ 		height: 57px !important;
+	}
+}
+
+.promo-widget-wrapper {
+	.customerSupport {
+		.promo-btn {
+			background-color:$primary;
+			color:$text-color;
+		}
+	}
+	.pixelDesign{
+		.promo-btn{
+			background-color: $accent;
+			color:$text-color;
+		}
+	}
+	.promoWidgetTransform {
+		border: 1px solid $primary;
+	}
+	.promoWidgetDesign{
+		border: 1px solid $accent;
+	}
+}
+
+// E-commerce Wrapper
+.e-commerce-wrapper {
+	svg {
+		width:100% !important;
+		height:100% !important;
+	}
+	.ngx-charts {
+	   float: none !important;
+	   overflow: visible;
+	}
+}
+.blog-widget {
+	.img-thumb-wrap{
+		background: url(/assets/img/carousel-slider-2.jpg) no-repeat 50%;
+    	background-size: cover;
+		position:relative;
+		.overlay-content{
+			position:absolute;
+			bottom:0;
+			left:0;
+			right:0;
+		}
+	}
+}
+.dash-title {
+   color:$font-color;
+ 	font-size: .8125rem;
+ 	font-weight: 700;
+ 	letter-spacing: 2px;
+ 	text-transform: uppercase;
+	}
+	.device-share-wrapper {
+ 	.doughnut-chart {
+	 	position:relative;
+	 	.overlay-content {	
+	 		position: absolute;
+	    	top:0;
+	    	left: 0;
+	    	right: 0;
+	    	bottom: 0;
+	    	text-align: center;
+	    	pointer-events:none;
+	   } 
+	}   
+}   	
+.Todo-list-wrapper {
+	.app-card {
+		.list {
+			.delete-btn {
+				opacity:0;
+			}
+			.input-slot{
+				min-width:40px;
+			}
+			&:hover {
+				background-color: #dfeaff!important;
+				.delete-btn {
+					opacity:1;
+					transition: all 0.5s ease-in-out;
+				}
+			}
+		}	
+	}
+}
+.top-selling-wrapper {
+	.cart-layout {
+		.number-chart {
+			width: 30%;
+			height: 130px;
+		}
+	}
+ 	.slick-prev:before, .slick-next:before{
+   	display:none;
+	}
+}
+.blog-image {
+	position:relative;
+	.overlay-content {
+		position: absolute;
+		bottom: 0;
+		padding: 20px;
+		max-width: 100%;
+		line-height: 27px;
+	}
+}
+.reviews-wrapper {
+	.slick-prev {
+		top:-24px ;
+		right:56px ;
+		left:78% ;
+	}
+	.slick-next{
+		right:24px ;
+		top:-24px ;
+	}
+	.slick-prev:before, .slick-next:before{
+		color:$primary;
+	}
+	.br-default .br-unit{
+		height:auto;
+	}
+	.rating-bar{
+		height:30px !important;
+	}
+
+}
+.category-sales-wrapper {
+	.card-content {
+		.content{
+			height:40px;
+		}
+		.title {
+ 			margin: 0 1rem .2rem 0;
+ 			width: 4.5rem;
+ 			height:40px;
+		}
+	}
+	.category-progress-wrap {
+		.mat-progress-bar {
+			height:24px !important;
+			border-radius:0px 10px 10px 0px;
+		}
+		.mat-progress-bar-fill::after {
+		   background-color: #00d0bd !important;
+		}
+		.mat-progress-bar-buffer {
+		   background-color: #e9ecef!important;
+		}
+	}
+}	
+.social-icon-wrapper {
+	.social-icon-list {
+		.card-content{
+			&:hover{
+				.twitter{
+					.social-icon{
+						transition: all 0.5s ease-in-out;
+						background-color: #1fa2fa;	
+					}
+				}
+				.facebook{
+					.social-icon{
+						transition: all 0.5s ease-in-out;
+						background-color: #405de6;
+					}
+				}
+				.linkedin{
+					.social-icon{
+						transition: all 0.5s ease-in-out;
+						background-color: #4875b4;
+					}
+				}
+				.google{
+					.social-icon{
+						transition: all 0.5s ease-in-out;
+						background-color: #d82218;
+					}
+				}
+			}
+			&:hover{	
+				.social-icon{
+					transition: all 0.5s ease-in-out;
+					border-color: transparent;
+ 					.list-icon{
+ 						color:$text-color;
+ 					}
+				}
+			}
+		}
+		.twitter{
+			.list-icon{
+				color:#3b5998;
+			}
+		}
+		.facebook {
+			.list-icon{
+				color:#1fa2fa;
+			}
+		}
+		.linkedin{
+			.list-icon{
+				color:#4875b4;
+			}
+		}
+		.google{
+			.list-icon{
+				color:#d82218;
+			}
+		}
+		.social-icon {
+			background-color: #fafafa;
+ 			height: 60px;
+ 			width: 60px;
+ 			line-height:60px;
+ 			text-align:center;
+ 			margin-right: 5px;
+ 			.list-icon{
+            font-size:20px;
+            line-height:60px;
+			}
+		}
+		.social-desc{
+			width: calc(100% - 70px);
+    		text-align: center;
+    		.social-data{
+    			width:50%;
+    		}
+    	}	
+	}
+}
+
+// RTL
+
+.rtl-layout {	
+ 	.e-commerce-wrapper {
+ 		.reviews-wrapper {
+ 			.slick-prev {
+				right:78% ;
+				left:56px ;
+			}	
+			.slick-next {
+				right:0px ;
+				left:24px;
+			}	
+ 		}
+ 	}		
+ } 
+
+@media (max-width: 768px)  {
+	.web-analytic-wrapper .visitor-area-chart .label-wrap>div.w-30{
+   	width: 55%;
+	}
+	.progress-wrapper .activity-progress-wrap{
+	 	.w-80{
+			width:100% !important ;
+	 	}
+	 	.mr-5{
+	 		margin-right:0px;
+	 	}
+	 	.vector-map{
+	 		display:none;
+	 	}
+	}
+}
+.chart-relative {
+	position: relative !important;
+	left: inherit !important;
+	right: inherit !important;
+	top: inherit !important;
+	z-index: 99 !important;
+	visibility: visible !important;
+	bottom: inherit !important;
+	overflow: inherit !important;
+	pointer-events: inherit !important;
+}
+.blog-db-image .overlay-content{
+	position: relative;
+}
+@media only screen and (max-width: 599px) {
+	.hidden-xs-only {
+    	display: none!important;
+	}
+}	
+@media (max-width: 767px) and (min-width: 600px){	
+	.hidden-sm-only {
+    	display: none!important;
+	}
+}
+@media only screen and (min-width: 1450px){
+	.social-icon-list  .social-desc  .social-data {
+	   width: 40% !important;
+	}	
+}
+@media only screen and (max-width: 1279px){
+	.grid-width > div{
+		width: 33.33% !important;
+		box-sizing: border-box;
+	}
+}
+@media only screen and (max-width: 960px){
+.grid-width > div {
+	width: 100% !important;
+	box-sizing: border-box;
+	max-width: 100% !important;
+}
+}

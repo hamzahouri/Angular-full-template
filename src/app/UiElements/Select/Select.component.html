@@ -1,0 +1,100 @@
+<div class="app-card-title mb-3">
+  <anglo-title-component title="Select"></anglo-title-component>
+</div>
+<div class="a-select-wrapper mb-4">
+	<div class="grid-wrapper" fxLayout="row wrap">
+		<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+			<mat-card>
+				<div class="card-title p-2">
+					<h3>{{'Standard'|translate}}</h3>
+				</div>
+				<div class="card-content p-2">
+					<p>Select fields components are used for collecting user provided information from a list of options.</p>
+					<div fxLayoutAlign="start center" fxlayout="row">
+						<div class="title small" fxFlex>
+							<label>Standard </label>
+						</div>
+						<div class="list-option">	
+							<mat-form-field>
+								<mat-select [(value)]="selected">
+									<mat-option value="nullOption" hidden>Select</mat-option>
+									<mat-option *ngFor="let state of states" [value]="state.value">{{state.viewValue}}</mat-option>
+								</mat-select>
+							</mat-form-field>
+						</div>	
+					</div>
+				</div>
+			</mat-card>
+		</div>
+		<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+			<mat-card>
+				<div class="card-title p-2">
+					<h3>{{'Standard with focus'|translate}}</h3>
+				</div>
+				<div class="card-content p-2">
+					<p>Select fields components are used for collecting user provided information from a list of options.</p>
+					<div fxLayoutAlign="start center" fxlayout="row">
+						<div class="title small" fxFlex >
+							<label>Standard with focus </label>
+						</div>	
+						<div class="list-option">
+							<mat-form-field>
+								<mat-select placeholder="Select">
+									<mat-option *ngFor="let state of states" [value]="state.value">{{state.viewValue}}</mat-option>
+								</mat-select>
+							</mat-form-field>
+						</div>
+					</div>
+				</div>
+			</mat-card>
+		</div>
+	</div>
+	<div class="grid-wrapper" fxLayout="row wrap">
+		<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+			<mat-card>
+				<div class="card-title p-2">
+					<h3>{{'Error'|translate}}</h3>
+				</div>
+				<div class="card-content p-2">
+					<p>Select fields components are used for collecting user provided information from a list of options.</p>				
+					<div fxLayoutAlign="start center" fxlayout="row">
+						<div class="title small" fxFlex>
+							<label>Error </label>
+						</div>
+						<div class="list-option">	
+							<mat-form-field color="warn">
+								<mat-select placeholder="Select">
+									<mat-option color="warn" *ngFor="let state of states" [value]="state.value">{{state.viewValue}}
+									</mat-option>
+								</mat-select>
+							</mat-form-field>
+						</div>	
+					</div>
+				</div>
+			</mat-card>
+		</div>
+		<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+			<mat-card>
+				<div class="card-title p-2">
+					<h3>{{'Disabled'|translate}}</h3>
+				</div>
+				<div class="card-content p-2">
+					<p>Select fields components are used for collecting user provided information from a list of options.</p>				
+					<div fxLayoutAlign="start center" fxlayout="row">
+						<div class="title small" fxFlex>
+							<label>Disabled </label>
+						</div>	
+						<div class="list-option">	
+							<mat-form-field>
+								<mat-select  disabled placeholder="Select">
+									<mat-option *ngFor="let state of states" [value]="state.value">{{state.viewValue}}
+									</mat-option>
+								</mat-select>
+							</mat-form-field>
+						</div>	
+					</div>
+				</div>
+			</mat-card>	
+		</div>
+	</div>	
+</div>		

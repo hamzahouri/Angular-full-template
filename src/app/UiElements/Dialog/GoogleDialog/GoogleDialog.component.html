@@ -1,0 +1,16 @@
+<div class="app-dialog-content">
+	<div class="card-title">
+		<h2 mat-dialog-title>Use Google's location service?</h2>
+	</div>
+	<div class="card-content">	
+		<mat-dialog-content>
+			<p>Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.</p>
+		</mat-dialog-content>
+	</div>
+	<div class="card-actions" fxlayout="row wrap" fxLayoutAlign="end center">
+		<mat-dialog-actions >
+			<button mat-button (click)="dialogRef.close()" color="warn">DISAGREE</button>
+			<button mat-button (click)="dialogRef.close()" color="accent">AGREE</button>
+		</mat-dialog-actions>
+	</div>
+</div>	

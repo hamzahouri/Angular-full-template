@@ -1,0 +1,34 @@
+<div class="user-list-wrapper grid-wrapper" fxLayout="row wrap">
+	<div fxFlex.xs="100" fxFlex.sm="50"  fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33"  *ngFor="let user of UserList">
+		<mat-card >
+			<div class="user-image text-align mb-3">
+		 		<img class="radius-circle" src="{{user.img}}" width="100" height="100">
+		 	</div>	
+		 	<mat-card-content class="text-align">
+		 		<h3 class="font-bold font-lg">{{user.name}}</h3>
+		 		<p>{{user.designation}}</p>
+		 		<div class="mb-4">
+					<anglo-social-icons [socialIcon]="socialIcons"></anglo-social-icons>
+				</div>
+				<div class="border-tb-1 p-2" fxLayoutAlign="space-between">
+		 			<div fxLayoutAlign="start center">
+		 				<span class="mb-0">Connections</span>
+		 			</div>
+		 			<div fxLayoutAlign="start center">
+			 			<ng-container *ngFor="let connections of user.connections">
+			 				<img class="m-0 radius-circle" src="{{connections}}" width="25" height="25">
+			 			</ng-container>
+			 		</div>	
+			 	</div>
+		 	</mat-card-content>
+		 	<mat-card-actions class="m-0 p-0">
+		 		<div *ngIf="user.status ; else elseBlock">
+		 			<button (click)="changeUserStatus(user)" mat-raised-button color="primary">FOLLOW</button>
+		 		</div>
+		 		<ng-template  #elseBlock>
+		 			<button (click)="changeUserStatus(user)" mat-raised-button color="warn">UNFOLLOW</button>
+		 	 	</ng-template>
+		 	</mat-card-actions>
+		</mat-card>
+	</div>
+</div>

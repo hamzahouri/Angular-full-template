@@ -1,0 +1,55 @@
+/*-------------------------------------------------------------
+9.10 Forms
+-------------------------------------------------------------*/
+// Forms-Wizard 
+.form-wizard-wrapper{
+	.horizontal {
+		padding-top:1rem;
+	} 
+}
+.mat-form-field-label-wrapper {
+	line-height: normal;
+}
+// Forms Upload  
+.form-upload-wrapper{
+	.my-drop-zone{
+		background-color: $secondary-color;
+    	border: 3px dotted #c8c8c8;
+    	display: block;
+    	margin-bottom: 1rem;
+    	padding: 1rem;
+    	border-radius: 8px;
+	}
+	.progress{
+		font-size: .75rem;
+     	background-color: $primary; 
+     	border-radius: .25rem; 
+     	border: 1px solid $primary;
+     	display: flex;
+    	height: 1rem;
+
+	}
+	.progress-bar{
+    	color: $text-color;
+    	background-color: $primary;
+	}
+}
+
+// Forms Element
+
+.form-element-wrapper {
+	.app-card-content {
+		.form-group {
+			.input-content {
+				display:block;
+			}
+		}
+	}
+}
+
+// Forms Error
+
+.mat-error.alert-error{
+	margin-top: -1.15rem;
+   font-size: 13px;
+}

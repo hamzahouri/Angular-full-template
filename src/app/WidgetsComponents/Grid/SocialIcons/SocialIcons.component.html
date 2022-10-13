@@ -1,0 +1,7 @@
+<div class="social-icon-wrapper mb-4">
+	<ng-container class="px-2" *ngFor="let icons of socialIcon">
+		<a class="icon {{icons.color_class}}" target ="{{targetNew}}" href="{{icons.link}}">
+			<mat-icon class="list-icon {{icons.icon}} {{icons.color}}" aria-hidden="true"></mat-icon>
+		</a>
+	</ng-container>
+</div>

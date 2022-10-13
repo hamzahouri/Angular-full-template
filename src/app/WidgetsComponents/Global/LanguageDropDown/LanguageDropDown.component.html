@@ -1,0 +1,30 @@
+<div class="language-wrapper">
+	<button class="user-button btn" mat-button [matMenuTriggerFor]="menu_activator">
+	  <img class="img-responsive" width="24" height="24" [src]="selectImage">
+	</button>
+   <mat-menu #menu_activator>
+      <div class="dropdown-content drop-width">
+         <div class="dropdown-top p-3" fxLayoutAlign="space-between center">
+            <div>
+               <span class="font-bold">Languages</span>
+            </div>
+            <div>   
+               <span class="a-badge a-badge-color">{{langArray.length}} NEW</span>
+            </div>   
+         </div>
+         <div class="dropdown-list-content">
+         	<ng-container *ngFor="let lang of translate.getLangs()">
+               <ng-container *ngFor="let language of langArray">
+                  <div class="a-content inline-block text-bg m-1" *ngIf="language.value == lang">
+                     <a href="javascript:void(0);" class="px-3 fs-14" (click)="getLang(lang)" fxLayoutAlign="start center">
+                        <img class="img-responsive mr-3" width="25" height="14" src="{{language.img}}">
+                        <span>{{language.name}}</span>
+                     </a>
+                  </div>
+               </ng-container>
+            </ng-container>
+         </div>
+      </div>
+   </mat-menu>
+</div>
+	

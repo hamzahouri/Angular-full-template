@@ -1,0 +1,55 @@
+/*-------------------------------------------------------------
+11.2 Dropzone
+-------------------------------------------------------------*/
+	.dropzone {
+		border: 2px solid $secondary-color;
+		transition: all 0.5s ease-in-out;
+		&:hover {
+			background-color: $content-hover;
+		}
+		.dz-details  {
+			background-color: rgba(33,150,243,.8) !important;
+	     	bottom: 20;
+	    	transition: opacity .2s linear;
+	    	color: rgba(0,0,0,.9);
+	    	font-size: 13px;
+	    	left: 0;
+	    	bottom:0;
+	    	line-height: 150%;
+	    	max-width: 100%;
+	    	min-width: 100%;
+	    	opacity: 0;
+	    	padding: 2em 1em;
+	    	position: absolute;
+	    	text-align: center;
+	    	top: 0;
+	    	z-index: 20;
+	    	border-radius:20px;
+		}
+		.dz-preview {
+			.dz-image {
+				width:150px !important;
+				height:200px !important;
+				img {
+					width:150px !important;
+					height:200px !important;
+				}
+			}	
+		}
+		.dz-size {
+			span {
+				color: $text-color !important;
+				background: none !important;
+				font-size:1rem;
+			}
+		}
+		.dz-filename {
+			span {
+				color: $text-color !important;
+				background: none !important;
+				font-size:1rem;
+			}
+		}
+		
+	}
+	

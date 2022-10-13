@@ -1,0 +1,16 @@
+<div class="chat-wrapper" *ngIf="openChatData">
+	<div>
+		<div class="full-hght">
+			<mat-sidenav-container class="sidenav-wrapper m-0">
+				<mat-sidenav  #chatSideNav [(opened)] ="coreService.chatSideBarOpen" [mode]="sidenavMode">	
+					<anglo-chat-side-bar [chatData]="chatComponentData" (isOpenChat)="openChat($event)"></anglo-chat-side-bar>
+				</mat-sidenav>
+				<div>
+					<div class="full-hght chatarea-wrapper">
+						<anglo-chat-area [chatAreaData]="openChatData"></anglo-chat-area>
+					</div>	
+				</div>
+			</mat-sidenav-container>
+		</div>	
+	</div>	
+</div>	

@@ -1,0 +1,71 @@
+<div class="app-card-popup-content margin-none-all">
+	<div class="a-toolbar-content primary-bg py-3 mb-4" fxLayoutAlign="space-between center">
+		<div class="toolbar-title text-color" fxLayout="row-wrap" fxLayoutAlign="center center" >
+			<button class="text-color" mat-icon-button (click)="onClose()"><mat-icon>close</mat-icon></button><div class="title text-color ml-4">Settings</div>
+		</div>
+		<div class="a-btn-content text-color">
+			<button class="text-color" mat-button (click)="onClose()">Save</button>
+			<button class="text-color" mat-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
+			<mat-menu #menu>
+				<button mat-menu-item>Click Me 1</button>
+				<button mat-menu-item>Click Me 2</button>
+				<button mat-menu-item>Click Me 3</button>
+				<button mat-menu-item>Click Me 4</button>
+			</mat-menu>
+		</div>
+	</div>
+
+	<mat-dialog-content>
+		<div class="a-card-text p-3">
+			<div class="a-btn mb-4">
+				<button mat-raised-button class="mr-2 mb-3" (click)="openDialog2()" color="warn">OPEN DIALOG 2</button>
+				<button mat-raised-button matTooltip="Tool Tip" color="accent" matTooltipPosition="right">TOOL TIP ACTIVATOR</button>
+			</div>
+			<div class="a-list-subheader mb-4">
+				<div class="a-subheader">	
+					<p>User Controls</p>
+				</div>
+				<div class="list-title-content mrgn">
+					<div class="a-list-title">
+						<p>Content filtering</p>
+					</div>
+					<div class="a-list-subtitle">
+						<p>Set the content filtering level to restrict apps that can be downloaded</p>
+					</div>
+				</div>
+				<div class="list-title-content">
+					<div class="a-list-title">
+						<p>Password</p>
+					</div>
+					<div class="a-list-subtitle">
+						<p>Require password for purchase or use password to restrict purchase</p>
+					</div>
+				</div>
+			</div>	
+			<mat-divider></mat-divider>
+			<div class="a-list-subheader">
+				<div class="a-subheader pt-3">
+					<p>General</p>
+				</div>
+				<div class="list-title-content mb-4" fxLayout="row-wrap" fxLayoutAlign="start center">
+					<div class="mr-4" ><mat-checkbox></mat-checkbox></div>
+					<div class="a-list-title">Notification
+						<div class="a-list-subtitle">Notify me about updates to apps or games that I downloaded</div>
+					</div>
+				</div>
+				<div class="list-title-content mb-4" fxLayout="row-wrap" fxLayoutAlign="start center">
+					<div class="mr-4"><mat-checkbox></mat-checkbox></div>
+					<div class="a-list-title">Sound
+						<div class="a-list-subtitle">Auto-update apps at any time. Data charges may apply</div>
+					</div>	
+				</div>
+				<div class="list-title-content mb-4" fxLayout="row-wrap" fxLayoutAlign="start center">		
+					<div class="mr-4"><mat-checkbox></mat-checkbox></div>
+					<div class="a-list-title">Auto-add widgets
+						<div>Automatically add home screen widgets</div>
+					</div>	
+				</div>	
+			</div>
+		</div>		
+	</mat-dialog-content>
+</div>

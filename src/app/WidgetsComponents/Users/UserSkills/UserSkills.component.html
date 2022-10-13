@@ -1,0 +1,23 @@
+<div class="user-skill-wrapper card-content">
+	<mat-card class="success-bg" *ngIf="skill" id="userSkill">
+		<div class="mb-4" fxLayoutAlign="space-between center">
+			<div class="card-title-skill">
+				<h3 class="mb-0 font-sz-sm text-color">{{'Skills'|translate}}</h3>
+			</div>
+			<div class="a-icon">
+				<TopsideMenu (isCloseEvent) = "getCloseValue($event)" (isFullScreen)="showFullScreen('userSkill')" (isShowSpinner)="spinnerShow('userSkill')"></TopsideMenu>
+			</div>
+		</div>	
+		<mat-card-content>
+			<div *ngFor="let skills of UserSkills">
+				<div class="mb-3 text-color">
+					<h5>{{skills.language}}</h5>
+					<mat-progress-bar mode="determinate" value="{{skills.progress}}"></mat-progress-bar>
+				</div>
+			</div>
+		</mat-card-content>
+		<div class="card-spinner" [ngClass] = "{'reload' : userSkillSpinner}" fxLayoutAlign="center center">
+			<mat-spinner *ngIf="userSkillSpinner" mode="indeterminate" diameter="39"></mat-spinner>
+		</div>	
+	</mat-card>
+</div>

@@ -1,0 +1,218 @@
+<div class="app-card-title mb-3">
+  <anglo-title-component title="Form wizard"></anglo-title-component> 
+</div>
+   <div class="grid-wrapper form-wizard-wrapper">
+      <div class="app-card">
+      	<mat-card>
+		      <div class="card-title mb-3">
+		         <h3>{{'Form Wizard'|translate}}</h3>
+		      </div>
+	        	<mat-divider></mat-divider>
+	      	<form [formGroup]="profileForm">
+					<aw-wizard>
+						<aw-wizard-step stepTitle="{{'Step 1'|translate}}" >
+							<div class="form-group">
+								<mat-form-field class="full-wid"> 
+                        	<input matInput placeholder="Email" formControlName="email" type="email">
+                     	</mat-form-field>
+								<mat-error *ngIf="profileForm.controls['email'].touched && !profileForm.controls['email'].valid">
+									<mat-error *ngIf="profileForm.controls['email'].hasError('required')">
+									You must include an email.
+									</mat-error>
+									<mat-error *ngIf="profileForm.controls['email'].hasError('pattern')">
+									Your email must be valid.
+									</mat-error>
+								</mat-error>
+							</div>	
+							<div class="form-group">
+								<mat-form-field class="full-wid">
+                        	<input matInput placeholder="Password" formControlName="password" type="password">
+                     	</mat-form-field>
+								<mat-error *ngIf="profileForm.controls['password'].touched && !profileForm.controls['password'].valid">
+									<mat-error *ngIf="profileForm.controls['password'].hasError('required')">
+									You must include a password.
+									</mat-error>
+								</mat-error>
+							</div>	
+							<div class="form-group">
+								<mat-form-field class="full-wid">
+                        	<input matInput placeholder="1234 Main St" formControlName="address" type="text">
+                     	</mat-form-field>
+								<mat-error *ngIf="profileForm.controls['address'].touched && !profileForm.controls['address'].valid">
+									<mat-error *ngIf="profileForm.controls['address'].hasError('required')">
+									You must include an address.
+									</mat-error>
+								</mat-error>
+							</div>
+							<div class="form-group">
+								<mat-form-field class="full-wid">
+                        	<input matInput placeholder="Apartment,stdio or floor" formControlName="address2" type="text">
+                     	</mat-form-field>
+								<mat-error *ngIf="profileForm.controls['address2'].touched && !profileForm.controls['address2'].valid">
+									<mat-error *ngIf="profileForm.controls['address2'].hasError('required')">
+									You must include an address 2.
+									</mat-error> 
+								</mat-error>
+							</div>
+							<div class="form-group" *ngIf="countries && countries.length>0">
+								<mat-form-field class="full-wid">
+									<mat-select placeholder="Country" (selectionChange)="getSelectedCountry($event)" formControlName="country">
+									   <mat-option value="" disabled selected hidden>Select your country</mat-option>
+									   <mat-option *ngFor="let countryData of countries" value="{{countryData.country}}">{{ countryData.country }}</mat-option>
+									</mat-select>
+								</mat-form-field>
+								<mat-error *ngIf="profileForm.controls['country'].touched && !profileForm.controls['country'].valid">
+									<mat-error *ngIf="profileForm.controls['country'].hasError('required')">
+									You must include a country.
+									</mat-error> 
+								</mat-error>
+							</div>
+							<div class="form-group" *ngIf="states && states.length>0">
+								<mat-form-field class="full-wid">
+									<mat-select placeholder="State" formControlName="states">
+									   <mat-option value="" disabled selected hidden>Select your state</mat-option>
+									   <mat-option *ngFor="let stateData of states" value="{{stateData}}">{{ stateData }}</mat-option>
+									</mat-select>
+								</mat-form-field>
+								<mat-error *ngIf="profileForm.controls['states'].touched && !profileForm.controls['states'].valid">
+									<mat-error *ngIf="profileForm.controls['states'].hasError('required')">
+									You must include a state.
+									</mat-error>
+								</mat-error>
+							</div>
+							<div class="form-group">
+								<mat-form-field class="full-wid">
+                        	<input matInput placeholder="City" formControlName="city" type="text">
+                     	</mat-form-field>
+								<mat-error *ngIf="profileForm.controls['city'].touched && !profileForm.controls['city'].valid">
+									<mat-error *ngIf="profileForm.controls['city'].hasError('required')">
+									You must include a city.
+									</mat-error> 
+								</mat-error>
+							</div>
+							<div class="checkbox mb-3">
+								<mat-checkbox type="checkbox" formControlName="checkOut">Check me out</mat-checkbox>
+								<mat-error *ngIf="profileForm.controls['checkOut'].touched && !profileForm.controls['checkOut'].valid">
+									<mat-error *ngIf="profileForm.controls['checkOut'].hasError('required')">
+									You must check me out.
+									</mat-error> 
+								</mat-error>
+							</div>
+							<button mat-raised-button color="primary" type="button" awNextStep (click)="step2()" [disabled]="!profileForm.valid">Next Step</button>	
+						</aw-wizard-step>
+
+						<aw-wizard-step stepTitle="{{'Step 2'|translate}}" navigationSymbol="{ symbol: '&#xf2dd;' fontFamily: 'FontAwesome' }" awOptionalStep>
+							<div formGroupName="companyDeatils">
+								<div class="form-group">
+									<mat-form-field class="full-wid">
+                        		<input matInput placeholder="Company Name" formControlName="companyName" id="companyName" type="text">
+                     		</mat-form-field>
+									<mat-error *ngIf="profileForm.get('companyDeatils.companyName').touched && !profileForm.get('companyDeatils.companyName').valid">
+										<mat-error *ngIf="profileForm.get('companyDeatils.companyName').hasError('required')">
+										You must include a company name.
+										</mat-error>
+									</mat-error>
+								</div>	
+								<div class="form-group">
+									<mat-form-field class="full-wid">
+                        		<input matInput placeholder="Desination" formControlName="desination" id="desination" type="text">
+                     		</mat-form-field>
+									<mat-error *ngIf="profileForm.get('companyDeatils.desination').touched && !profileForm.get('companyDeatils.desination').valid">
+										<mat-error *ngIf="profileForm.get('companyDeatils.companyName').hasError('required')">
+										You must include a desination.
+										</mat-error> 
+									</mat-error>
+								</div>
+								<div class="form-group">
+									<mat-form-field class="full-wid">
+                        		<input matInput placeholder="Address" id="companyAdd" formControlName="companyAdd" type="text">
+                     		</mat-form-field>
+									<mat-error *ngIf="profileForm.get('companyDeatils.companyAdd').touched && !profileForm.get('companyDeatils.companyAdd').valid">
+										<mat-error *ngIf="profileForm.get('companyDeatils.companyAdd').hasError('required')">
+										You must include a company address.
+										</mat-error> 
+									</mat-error>
+								</div>
+								<div class="form-group">
+									<mat-form-field class="full-wid">
+                        		<input matInput placeholder="H.Q. Address" formControlName="companyHqAdd" id="companyHqAdd"  type="text">
+                     		</mat-form-field>
+									<mat-error *ngIf="profileForm.get('companyDeatils.companyHqAdd').touched && !profileForm.get('companyDeatils.companyHqAdd').valid">
+										<mat-error *ngIf="profileForm.get('companyDeatils.companyHqAdd').hasError('required')">
+										You must include a company H.Q. address.
+										</mat-error> 
+									</mat-error>
+								</div>
+								<div class="form-group">
+									<mat-form-field class="full-wid">
+                        		<input matInput placeholder="City" id="companyCity" formControlName="companyCity" type="text">
+                     		</mat-form-field>
+									<mat-error *ngIf="profileForm.get('companyDeatils.companyCity').touched && !profileForm.get('companyDeatils.companyCity').valid">
+										<mat-error *ngIf="profileForm.get('companyDeatils.companyCity').hasError('required')">
+										You must include a city.
+										</mat-error> 
+									</mat-error>
+								</div>
+								<div class="form-group" *ngIf="countries && countries.length>0">
+									<mat-form-field class="full-wid">
+										<mat-select id="companyCountry" placeholder="Country" formControlName="companyCountry" (change)="getSelectedCountry($event.target.value)">
+										   <mat-option value="" disabled selected hidden>Select your country</mat-option>
+										   <mat-option *ngFor="let countryData of countries" value="{{countryData.country}}">{{ countryData.country }}</mat-option>
+										</mat-select>
+									</mat-form-field>
+									<mat-error *ngIf="profileForm.get('companyDeatils.companyCountry').touched && !profileForm.get('companyDeatils.companyCountry').valid">
+										<mat-error *ngIf="profileForm.get('companyDeatils.companyCountry').hasError('required')">
+										You must include a country.
+										</mat-error> 
+									</mat-error>
+								</div>
+								<div class="form-group" *ngIf="states && states.length>0">
+									<mat-form-field class="full-wid">
+										<mat-select id="companyState" placeholder="CompanyState" formControlName="companyState">
+										   <mat-option value="" disabled selected hidden>Select your country</mat-option>
+										   <mat-option *ngFor="let stateData of states" value="{{stateData}}">{{ stateData }}</mat-option>
+										</mat-select>
+									</mat-form-field>
+									<mat-error *ngIf="profileForm.get('companyDeatils.companyState').touched && !profileForm.get('companyDeatils.companyState').valid">
+										<mat-error *ngIf="profileForm.get('companyDeatils.companyState').hasError('required')">
+										You must include a state.
+										</mat-error> 
+									</mat-error>
+								</div>
+								<div class="form-group">
+									<mat-form-field class="full-wid">
+                        		<input matInput id="companyZip" placeholder="Zip Code" formControlName="companyZip" type="text">
+                     		</mat-form-field>
+									<mat-error *ngIf="profileForm.get('companyDeatils.companyZip').touched && !profileForm.get('companyDeatils.companyZip').valid">
+										<mat-error *ngIf="profileForm.get('companyDeatils.companyZip').hasError('required')">
+										You must include a Zip.
+										</mat-error> 
+									</mat-error>
+								</div>
+								<div class="checkbox-field mb-3">
+									<mat-checkbox  formControlName="companyCheckout">Check me out</mat-checkbox>
+									<mat-error *ngIf="profileForm.get('companyDeatils.companyCheckout').touched && !profileForm.get('companyDeatils.companyCheckout').valid">
+										<mat-error *ngIf="profileForm.get('companyDeatils.companyCheckout').hasError('required')">
+										You must check me out.
+										</mat-error> 
+									</mat-error>
+								</div> 
+								<button mat-raised-button  class="mr-3 mb-3" color="primary" awPreviousStep (click)="gotoStep1()" >Go to previous step</button>
+								<button mat-raised-button color="accent" awNextStep [disabled]="!profileForm.valid">Go to next step</button>
+							</div>
+						</aw-wizard-step>
+						<aw-wizard-step stepTitle="{{'Step 3'|translate}}">
+							<div class="form-group">
+								<h3>Thanks for Resgistration</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, vero! Aliquid consequuntur in, praesentium nisi repellendus et cumque illo asperiores sunt odio dolorum ea repellat debitis hic necessitatibus dolore totam velit earum, eaque ut voluptates tempora illum magnam. Quibusdam, officiis aut nesciunt perferendis in iste cupiditate itaque earum excepturi molestiae.</p>
+							</div>
+							<button mat-raised-button class="mr-3" color="primary" awPreviousStep>Previous Step</button>
+							<button mat-raised-button (click)="finish()" color="accent">Finish</button>
+						</aw-wizard-step>
+					</aw-wizard>
+				</form>
+			</mat-card>
+		</div>
+	</div>					
+						
+				

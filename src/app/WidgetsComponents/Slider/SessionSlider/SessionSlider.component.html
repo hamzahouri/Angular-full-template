@@ -1,0 +1,23 @@
+<div class="session-left" fxLayoutAlign="start center">
+	<div class="session-content text-color">
+		<mat-card-content>
+			<ngx-slick-carousel [config]="slideConfig"  class="carousel" #slickModal="slick-carousel">
+				<div ngxSlickItem *ngFor="let slide of Reviews_slides">
+					<div class="slider-content text-align">
+						<div class="text-align slider-image radius-circle inline-block mb-3">
+							<img class="radius-circle inline-block" src="{{slide.images}}" width="170" height="170">
+						</div>
+						<div class="meta-data mb-4">
+							<h5 class="mb-0">{{slide.name}}</h5>
+							<span>{{slide.heading}}</span>
+						</div>
+						<div class="content px-4">	
+							<p>{{slide.content}}</p>
+						</div>	
+					</div>
+				</div>
+			</ngx-slick-carousel>
+		</mat-card-content>
+	</div>
+</div>		
+

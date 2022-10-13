@@ -1,0 +1,38 @@
+<mat-card *ngIf = "progrssMapVisible" id="progressMap">
+	<div fxLayoutAlign="space-between center">
+		<div class="card-title">
+			<h3 class="mb-0 text-capitalize">{{titleName|translate}}</h3>
+		</div>
+		<div class="a-icon">	
+			<TopsideMenu (isCloseEvent) = "getCloseValue($event)" (isFullScreen)="showFullScreen('progressMap')" (isShowSpinner)="spinnerShow('progressMap')"></TopsideMenu>
+		</div>	
+	</div>	
+	<mat-card-content class="mb-0">
+		<div class="activity-progress-wrap" fxLayout="row wrap">
+			<div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+				<div class="mr-5 w-80" *ngFor="let country of countryData">
+					<div class="py-3 border-b-1" fxLayoutAlign="space-between center">
+						<div class="mr-4">
+							<img class="img-responsive" src="{{country.img}}" width="45" height="45">
+						</div>
+						<div class="full-wid">
+							<div class="mb-2" fxLayoutAlign="space-between center">
+								<h6 class="mb-0">{{country.name}}</h6>
+								<span>{{country.value}}%</span>
+							</div>
+							<div class="progress-bar">
+								<mat-progress-bar mode="determinate" value="{{country.value}}"></mat-progress-bar>
+							</div>
+						</div>
+					</div>	
+				</div>
+			</div>	
+			<div class="vector-map" fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+				<anglo-vector-map color="#E8ECEE"></anglo-vector-map>
+			</div>
+		</div>		
+	</mat-card-content>
+	<div class="card-spinner" [ngClass] = "{'reload' : progressMapShowSpinner}" fxLayoutAlign="center center">
+		<mat-spinner *ngIf="progressMapShowSpinner" mode="indeterminate" diameter="39"></mat-spinner>
+	</div>
+</mat-card>

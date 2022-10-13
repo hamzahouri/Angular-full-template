@@ -1,0 +1,76 @@
+<div class="app-card-title mb-4">
+   <anglo-title-component title="List"></anglo-title-component>
+</div>
+<div class="list-wrapper">
+	<mat-card>
+		<div class="grid-wrapper" fxLayout="row wrap">
+			<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+				<mat-card class="mat-card-content p-0 box-shadow-card full-hght">
+					<div class="title-header px-3 mb-4" fxlayout="row wrap" fxLayoutAlign="start center">
+						<div class="card-title">
+							<h4 class="text-color m-0"><mat-icon>menu</mat-icon></h4>
+						</div>
+						<div class="ml-3"><h5 class="m-0 text-color title">List 1</h5></div>
+					</div>	
+					<div class="card-content ">
+					<span class="sub-header px-3 font-bold fs-14 grey-text">Today</span>
+						<mat-list>
+							<mat-list-item class="list-content p-0 mb-3" *ngFor ="let list of list1">
+								<img class="mr-4 radius-circle" mat-list-avatar width= "48" height="48" src="{{list.img}}">
+									<h3 class="theme-light-color" mat-line>{{list.heading}}</h3>
+									<p class="theme-light-color" mat-line><span class="grey-text">{{list.sub_title}}</span>{{list.paragraph}}</p>
+							</mat-list-item>
+						</mat-list>
+					</div>
+				</mat-card>	
+			</div>	
+			<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+				<mat-card class="mat-card-content p-0 box-shadow-card full-hght">
+					<div class="title-header px-3" fxlayout="row wrap" fxLayoutAlign="start center">
+						<div class="card-title">
+							<h4 class="text-color m-0"><mat-icon>menu</mat-icon></h4>
+						</div>
+						<div class="ml-3"><h5 class="m-0 text-color title">List 2</h5></div>
+					</div>
+					<div class="card-content">
+						<mat-list>
+							<mat-list-item class="list-item p-0 list-content" *ngFor="let list of  list2">
+								<div mat-line *ngIf="list.status==1 then ifCondition else elseCondition"></div>
+								<ng-template #ifCondition>
+									<a class="a-list mb-0" fxlayout="row wrap" fxLayoutAlign="space-between center">
+										<div class="list-title" fxLayoutAlign="space-between center">
+											<div class="list-action mr-4">
+												<mat-icon>star</mat-icon>
+											</div>
+											<div class="title-content">	
+												<div class="mb-0 theme-light-color" mat-line>{{list.name}}</div>
+											</div>
+										</div>	
+										<div class="image-thumb-wrap radius-circle inline-block">
+											<img class="radius-circle"  mat-list-avatar width="48" height="48" src="{{list.img}}">
+										</div>
+									</a>
+								</ng-template>
+								<ng-template #elseCondition>
+									<a class="a-list list-title-content mb-0" fxlayout="row wrap" fxLayoutAlign="space-between center">
+										<div class="list-title" fxLayoutAlign="space-between center">
+											<div class="list-action mr-4">
+												<mat-icon>star</mat-icon>
+											</div>
+											<div class="title-content">
+												<div class="mb-0 theme-light-color" mat-line>{{list.name}}</div>
+											</div>
+										</div>	
+										<div class="image-thumb-wrap">
+											<img class="radius-circle"  mat-list-avatar width="48" height="48" src="{{list.img}}">
+										</div>
+									</a>	
+								</ng-template>
+							</mat-list-item>
+						</mat-list>	
+					</div>
+				</mat-card>	
+			</div>
+		</div>
+	</mat-card>
+</div>	

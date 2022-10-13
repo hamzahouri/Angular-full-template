@@ -1,0 +1,258 @@
+<div class="web-analytic-wrapper">
+	<!-- Visitors -->
+	<div class="visitor-content">
+	   <mat-card-content>
+		  <div class="mb-4 visitor-area-chart">
+			 <div class="card-title label-wrap" fxLayoutAlign="space-between center">
+				<h4>{{'Visitors'|translate}}</h4>
+				<div class="w-30" fxLayoutAlign="space-between center">
+				   <div class="w-50 mr-3">
+					  <h4 class="accent-color mb-0">$ 35,455</h4>
+					  <p class="fs-12 grey-text">International Visior</p>
+				   </div>
+				   <div class="w-50">
+					  <h4 class="primary-color mb-0">$ 35,455</h4>
+					  <p class="fs-12 grey-text">Domestic Visior</p>
+				   </div>
+				</div>
+			 </div>
+		  </div>
+	   </mat-card-content>
+	   <div>
+		  <div class="w-100 height-220">
+			 <anglo-visitor-linechart [color]="visitChartColors" [data]="visitChartData" [label]="visitChartLabel"></anglo-visitor-linechart>
+		  </div>
+	   </div>
+	</div>
+	<div class="grid-wrapper" fxLayout="row wrap">
+	   <!-- Total Page Views -->
+	   <div class="stats-card" fxFlex.xs="100" fxFlex.sm="33.33" fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33">
+		  <mat-card>
+			 <mat-card-content>
+				<div class="card-content" fxLayoutAlign="space-between center">
+				   <div class="w-50">
+					  <p class="mb-2">Total Views</p>
+					  <div class="mb-2" fxLayoutAlign="start center">
+						 <div>
+							<h4 class="mb-0">35,455</h4>
+						 </div>
+						 <div class="ml-2">
+							<mat-icon color="primary">arrow_upward</mat-icon>
+						 </div>
+					  </div>
+					  <div>
+						 <p class="fs-12 grey-text mb-0">+5% from yesterday</p>
+					  </div>
+				   </div>
+				   <div class="height-60 w-50">
+					  <anglo-line-chart [color]="pageViewChartColors" [data]="pageViewChartData" [label]="pageViewChartLabel"></anglo-line-chart>
+				   </div>
+				</div>
+			 </mat-card-content>
+		  </mat-card>
+	   </div>
+	   <!-- Total Earnings -->
+	   <div class="stats-card" fxFlex.xs="100" fxFlex.sm="33.33" fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33">
+		  <mat-card>
+			 <mat-card-content>
+				<div class="card-content" fxLayoutAlign="space-between center">
+				   <div class="w-50">
+					  <p class="mb-2">Total Earn</p>
+					  <div class="mb-2" fxLayoutAlign="start center">
+						 <div>
+							<h4 class="mb-0">4,5005</h4>
+						 </div>
+						 <div class="ml-2">
+							<mat-icon color="accent">arrow_downward</mat-icon>
+						 </div>
+					  </div>
+					  <div>
+						 <p class="fs-12 grey-text mb-0">-2% from yesterday</p>
+					  </div>
+				   </div>
+				   <div class="height-60 w-50">
+					  <anglo-line-chart  [color]="earningChartColors" [data]="earningChartData" [label]="earningChartLabel"></anglo-line-chart>
+				   </div>
+				</div>
+			 </mat-card-content>
+		  </mat-card>
+	   </div>
+	   <!-- Impressions -->
+	   <div class="stats-card" fxFlex.xs="100" fxFlex.sm="33.33" fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33">
+		  <mat-card>
+			 <mat-card-content>
+				<div class="card-content" fxLayoutAlign="space-between center">
+				   <div class="w-50">
+					  <p class="mb-2">Impressions</p>
+					  <div class="mb-2" fxLayoutAlign="start center">
+						 <div>
+							<h4 class="mb-0">45,000</h4>
+						 </div>
+						 <div class="ml-2">
+							<mat-icon color="primary">arrow_upward</mat-icon>
+						 </div>
+					  </div>
+					  <div>
+						 <p class="fs-12 grey-text mb-0">+5% from yesterday</p>
+					  </div>
+				   </div>
+				   <div class="height-60 w-50">
+					  <anglo-line-chart  [color]="impressionChartColors" [data]="impressionChartData" [label]="impressionChartLabel"></anglo-line-chart>
+				   </div>
+				</div>
+			 </mat-card-content>
+		  </mat-card>
+	   </div>
+	</div>
+	<div class="grid-wrapper" fxLayout="row wrap">
+	   <!-- Activity Around World -->
+	   <div class="app-card progress-wrapper" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="66.8" fxFlex.lg="66.8" fxFlex.xl="66.7">
+		  <anglo-progress [countryData]="acivityWorldData" titleName="Activity Around World"></anglo-progress>
+	   </div>
+	   <!-- Device Separations -->
+	   <div class="app-card device-share-wrapper" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="33.2" fxFlex.lg="33.2" fxFlex.xl="33.3">
+		  <mat-card *ngIf = "deviceVisible" id="deviceSeparation">
+			 <div fxLayoutAlign="space-between center">
+				<div class="card-title">
+				   <h3 class="text-capitalize mb-0">{{'Device Separations'|translate}}</h3>
+				</div>
+				<div class="a-icon">	
+				   <TopsideMenu (isCloseEvent) = "getCloseValue($event)" (isFullScreen)="showFullScreen('deviceSeparation')" (isShowSpinner)="spinnerShow('deviceSeparation')"></TopsideMenu>
+				</div>
+			 </div>
+			 <mat-card-content>
+				<div class="doughnut-chart">
+				   <div>
+					  <anglo-doughnut-chart [doughnutChart]="doughnutChartOptions"></anglo-doughnut-chart>
+				   </div>
+				   <div class="overlay-content" fxLayoutAlign="center center">
+					  <span class="font-bold font-sz-md">2500</span>
+				   </div>
+				</div>
+				<div class="px-4 mb-3 chart-content" fxLayoutAlign="space-between center">
+				   <div class="fs-12 grey-text mr-2" fxLayoutAlign="start center">
+					  <span class="primary-bg a-badge mr-2 circle p-0 radius-circle"></span>
+					  <span>computer</span>	
+				   </div>
+				   <div class="fs-12 grey-text mr-2" fxLayoutAlign="start center">
+					  <span class="accent-bg a-badge mr-2 circle p-0 radius-circle"></span>
+					  <span>Mobile</span>	
+				   </div>
+				   <div class="fs-12 grey-text mr-2" fxLayoutAlign="start center">
+					  <span class="warn-bg a-badge mr-2 circle radius-circle p-0"></span>
+					  <span>Tablets</span>	
+				   </div>
+				</div>
+			 </mat-card-content>
+			 <div class="card-spinner" [ngClass] = "{'reload' : deviceShowSpinner}" fxLayoutAlign="center center">
+				<mat-spinner *ngIf="deviceShowSpinner" mode="indeterminate" diameter="39"></mat-spinner>
+			 </div>
+		  </mat-card>
+	   </div>
+	</div>
+	<div class="grid-wrapper" fxLayout="row wrap">
+	   <!-- Browser Statics -->
+	   <div class="browser-static-wrapper app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.lg="50" fxFlex.xl="50">
+		  <anglo-browser-static [invoicesData]="browserStaticsData" [displayedColumnsData]="displayedBrowserColumns" title = "Browser Statics" [headerData]="browserHeaderData"></anglo-browser-static>
+	   </div>
+	   <!-- Traffic Channel -->
+	   <div class="category-wrapper app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.lg="50" fxFlex.xl="50">
+		  <anglo-category-sales [CategorySaleData]="trafficChannelData" titleName="Traffic Channel" [id]="trafficChannelId" className="traffic-channel-widget"></anglo-category-sales>
+	   </div>
+	</div>
+	<div class="grid-wrapper" fxLayout="row wrap">
+	   <!-- Bandwidth Usage -->
+	   <div class="app-card" fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+		  <mat-card class="p-0">
+			 <mat-card-content>
+				<div class="bandwidth-widget pt-3">
+				   <div class="mb-3 pl-4">
+					  <h2 class="mb-2">{{'Bandwidth Usage'|translate}}</h2>
+					  <p class="fs-14 mb-0 fw-light">March 2018</p>
+				   </div>
+				   <div class="chartjs-wrapper">
+					  <div class="height-150">
+						 <anglo-line-chart-with-area [color]="bandwidthChartColors" [data]="bandwidthChartData" [label]="bandwidthChartLabel"></anglo-line-chart-with-area>
+					  </div>
+				   </div>
+				</div>
+			 </mat-card-content>
+		  </mat-card>
+	   </div>
+	   <!-- Total Downloading -->
+	   <div class="app-card" fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+		  <mat-card class="p-0">
+			 <mat-card-content>
+				<div class="bandwidth-widget pt-3">
+				   <div class="mb-3 pl-4">
+					  <h2 class="mb-2">{{'Total Downloading'|translate}}</h2>
+					  <p class="fs-14 mb-0 fw-light">March 2018</p>
+				   </div>
+				   <div class="chartjs-wrapper">
+					  <div class="height-150">
+						 <anglo-line-chart-with-area [color]="downloadChartColors" [data]="downloadChartData" [label]="downloadChartLabel"></anglo-line-chart-with-area>
+					  </div>
+				   </div>
+				</div>
+			 </mat-card-content>
+		  </mat-card>
+	   </div>
+	</div>
+	<div class="grid-wrapper" fxLayout="row wrap">
+	   <!-- Notifications -->
+	   <div class="notification-card app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.lg="40" fxFlex.xl="40">
+		  <anglo-notification-card title="Notifications" [notificationData]="notificationData"></anglo-notification-card>
+	   </div>
+	   <!-- Support Tickets -->
+	   <div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.lg="60" fxFlex.xl="60">
+		  <anglo-support-ticket title="Support Tickets" [supportData]="supportTicketData"></anglo-support-ticket>
+	   </div>
+	</div>
+	<div class="grid-wrapper" fxLayout="row wrap">
+	   <!-- Total Bookmarked -->
+	   <div fxFlex.xs="100" fxFlex.sm="50" fxFlex.lg="25" fxFlex.xl="25">
+		  <anglo-icon-card [data]="Bookmarks"></anglo-icon-card>
+	   </div>
+	   <!-- Items Downloads -->
+	   <div fxFlex.xs="100" fxFlex.sm="50" fxFlex.lg="25" fxFlex.xl="25">
+		  <anglo-icon-card [data]="Downloads"></anglo-icon-card>
+	   </div>
+	   <!-- Items Uploaded -->
+	   <div fxFlex.xs="100" fxFlex.sm="50" fxFlex.lg="25" fxFlex.xl="25">
+		  <anglo-icon-card [data]="Uploaded"></anglo-icon-card>
+	   </div>
+	   <!-- Total Analytics -->
+	   <div fxFlex.xs="100" fxFlex.sm="50" fxFlex.lg="25" fxFlex.xl="25">
+		  <anglo-icon-card [data]="Analytics"></anglo-icon-card>
+	   </div>
+	</div>
+	<div class="grid-wrapper" fxLayout="row wrap">
+	   <!-- Hot Keywords -->
+	   <div class="invoices-list-wrapper app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.lg="50" fxFlex.xl="50">
+		  <anglo-invoices [invoicesData]="hotKeywordsData" [displayedColumnsData]="hotKeywordColumns" [tableHeadingData]="hotKeywordHeading" title="Hot Keywords"></anglo-invoices>
+	   </div>
+	   <div class="margin-none" fxFlex.xs="100" fxFlex.sm="100" fxFlex.lg="50" fxFlex.xl="50">
+		  <div class="grid-wrapper" fxLayout="row wrap">
+			 <!-- User Progress Bar -->
+			 <div class="user-bar-wrapper" fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+				<anglo-users-bar [UserData]="userProfressData"></anglo-users-bar>
+			 </div>
+			 <!-- Phone Progress Bar -->
+			 <div class="user-bar-wrapper" fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+				<anglo-users-bar [UserData]="appProfressData"></anglo-users-bar>
+			 </div>
+			 <div class="app-card server-status-wrapper" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="100" fxFlex.lg="100" fxFlex.xl="100">
+				<anglo-server-status [ServeStatusData]="ServeStatus" titleName="Server Status"></anglo-server-status>
+			 </div>
+		  </div>
+	   </div>
+	</div>
+	<div class="grid-wrapper" fxLayout="row wrap">
+	   <div class="promo-widget-wrapper" fxFlex.xs="100" fxFlex.sm="100" fxFlex.lg="50" fxFlex.xl="50">
+		  <anglo-promo-widget [promoWidgetData]="promoWidgetTransform"></anglo-promo-widget>
+	   </div>
+	   <div class="promo-widget-wrapper" fxFlex.xs="100" fxFlex.sm="100" fxFlex.lg="50" fxFlex.xl="50">
+		  <anglo-promo-widget [promoWidgetData]="promoWidgetComment"></anglo-promo-widget>
+	   </div>
+	</div>
+ </div>

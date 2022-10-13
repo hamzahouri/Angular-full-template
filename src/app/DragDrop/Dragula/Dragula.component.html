@@ -1,0 +1,39 @@
+<div class="app-card-title mb-4"> 
+   <anglo-title-component title="Dragula"></anglo-title-component>
+</div>
+<mat-card>
+   <div class="dragula-wrapper grid-wrapper" fxLayout="row wrap">
+      <div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+         <mat-card>
+            <div class="layout">
+               <div class="card-title mb-3">
+                  <h3 class="text-capitalize">List 1</h3>
+               </div>
+               <div class="list-content">
+                  <div class="dragula-container1 p-2 anglo-block" dragula="LIST" [(dragulaModel)]="list1">
+                     <div *ngFor= "let list of list1">
+                        <span class="list mb-2 p-2 anglo-block primary-bg">{{list}}</span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </mat-card>
+      </div> 
+      <div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+         <mat-card>   
+            <div class="layout">
+               <div class="card-title mb-3">
+                  <h3 class="text-capitalize">List 2</h3>
+               </div>
+               <div class="list-content">
+                  <div class="dragula-container2 p-2 anglo-block" dragula="LIST" [(dragulaModel)]="list2">
+                     <div *ngFor= "let list of list2">
+                        <span class="list mb-2 p-2 anglo-block primary-bg">{{list}}</span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </mat-card> 
+      </div>     
+   </div>   
+</mat-card>

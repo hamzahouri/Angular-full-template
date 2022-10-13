@@ -1,0 +1,168 @@
+<div class="header-wrapper">
+   <mat-toolbar class="anglo-header-toolbar px-4">
+      <div fxLayoutAlign="start center">
+         <div class="anglo-ham-icon" fxLayoutAlign="start center">
+            <button class="toggle-btn" mat-card-icon (click)="_toggleSidebarOpened()">
+               <mat-icon class="icon-color">menu</mat-icon>
+            </button>
+         </div>
+         <div class="a-btn-content">
+            <button  mat-icon-button (click)="onSearch()">
+         	   <mat-icon class="mat-icon">search</mat-icon>
+            </button>
+         </div>
+         <div class="search-form-wrap">
+      		<div class="a-close-btn">
+               <button mat-mini-fab mat-icon-button class="close-btn a-btn" (click)="onCloseSlide()">
+      			   <mat-icon class="a-icon">close</mat-icon>
+               </button>
+      		</div>
+         	<div class="centered">
+         		<form class="a-form">
+                  <div class="px-5 a-input-field" fxLayoutAlign="center center">
+                   	<div class="a-btn-search mr-3">
+         					<mat-icon class="mat-icon text-color">search</mat-icon>
+         				</div>
+						  	<mat-form-field class="full-wid" floatLabel="never">
+						 		<input matInput type="text" class="form-control" placeholder="what are you looking for..">
+							</mat-form-field>
+						</div>
+         		</form>
+         	</div>
+         </div>
+         <div class="quick-link">
+            <button class="btn" mat-button [matMenuTriggerFor]="apps">
+               <mat-icon class="material-icons grey-text font-lg icon-color">apps</mat-icon>
+            </button>
+            <mat-menu  #apps>
+               <div class="dropdown-content drop-width">
+                  <div class="dropdown-top p-3" fxLayoutAlign="space-between center">
+                     <div>
+                        <span class="font-bold">Quick Links</span>
+                     </div>
+                     <div>
+                        <span class="a-badge a-badge-color">{{quickLinks.length}} NEW</span>
+                     </div>   
+                  </div>
+                  <div class="dropdown-list-content">
+                     <div class="a-list text-color inline-block m-1" *ngFor="let quickLink of quickLinks">
+                        <a (click) = "quickLinkPath(quickLink.routerLink)" class="px-2 fs-14 text-bg" fxLayoutAlign="start center">
+                           <mat-icon class="material-icons dropdown-icon mr-3 {{quickLink.color}}">{{quickLink.icon}}</mat-icon>
+                           <span>{{quickLink.name}}</span>
+                        </a>
+                     </div>
+                  </div>
+               </div>
+            </mat-menu>
+         </div> 
+         <div class="search-bar"> 
+            <div class="input-slot px-2 border-rad-sm" fxLayoutAlign="space-between center">
+               <div class="a-icon primary-color p-2" fxLayoutAlign="center center">  
+                  <mat-icon class="primary-color">search</mat-icon>
+               </div>
+               <div class="input-text-field full-wid">
+                  <form class="search-form" fxShow="true">
+                     <mat-form-field class="full-wid grey-text" floatLabel="never">
+                        <input matInput placeholder="Search">
+                     </mat-form-field>
+                  </form>   
+               </div>   
+            </div>   
+         </div>   
+      </div>      
+      <span fxFlex></span>
+      <div class="secondary-menu full-hght" fxLayoutAlign="center center">
+         <div class="button-row m-1">
+            <button mat-raised-button (click)="onPlans()" color="primary" class="font-bold">PLANS</button>
+         </div>
+         <div>        
+            <button fxHide="true" fxHide.gt-sm="false" mat-button class="fullscreen-toggle btn" (click)="toggleFullscreen()">
+               <mat-icon class="icon-color" *ngIf="!isFullscreen">fullscreen</mat-icon>
+               <mat-icon class="icon-color" *ngIf="isFullscreen">fullscreen_exit</mat-icon>
+            </button>
+         </div>
+         <div>
+            <button class="toggle-btn btn" mat-button (click)="_toggleChatSideNavOpen()">
+               <mat-icon class="material-icons icon-color">question_answer</mat-icon>
+            </button>
+         </div>
+         <div>
+            <button class="user-button btn" mat-button [matMenuTriggerFor]="notification">
+               <mat-icon class="material-icons icon-color">notifications</mat-icon>
+            </button>
+            <mat-menu #notification>
+               <div class="dropdown-content drop-width">
+                  <div class="dropdown-top p-3" fxLayoutAlign="space-between center">
+                     <div>
+                        <span class="font-bold">Notification</span>
+                     </div>
+                     <div>
+                        <span class="a-badge a-badge-color">{{notifications.length}} NEW</span>
+                     </div>   
+                  </div>
+                  <div class="dropdown-list-content">
+                     <div class="dropdown-list" *ngFor ="let notification of notifications">
+                        <a href="javascript:void(0)" class="notification text-bg px-3" fxLayoutAlign="start center">
+                           <mat-icon class="material-icons mr-3 {{notification.icon}}">{{notification.icon}}</mat-icon>
+                           <span class="fs-14">{{notification.name}}</span>
+                        </a>
+                     </div>
+                  </div>
+               </div>
+            </mat-menu>
+         </div>
+         <div class="a-card shopping-cart">
+            <button class="user-button btn" mat-button [matMenuTriggerFor]="shopping_cart">
+               <mat-icon class="material-icons icon-color w-20">shopping_cart</mat-icon>
+               <ng-container *ngIf="coreService.cartLength>0">
+                  <span class="cart-wrap">
+                     <span matBadge="{{coreService.cartLength}}" matBadgeOverlap="false"></span>
+                  </span>
+               </ng-container>
+            </button>
+            <mat-menu #shopping_cart>
+               <div class="dropdown-content">
+                  <div class="dropdown-top p-3" fxLayoutAlign="space-between center">
+                     <div>
+                        <span class="font-bold">Cart</span>
+                     </div>
+                     <div>
+                        <span class="a-badge a-badge-color" *ngIf="coreService.cartLength>0">{{coreService.cartLength}} NEW</span>
+                     </div>   
+                  </div>
+                  <div class="a-list-cart" *ngIf="(coreService.localStorageCart && coreService.cartLength>0);else elseBlock">
+                     <div class="a-content p-3" fxLayoutAlign="space-between center" *ngFor="let cart of coreService.localStorageCart">
+                        <div class="list-cart-content" fxLayoutAlign="start center">
+                           <div class="product-img inline-block mr-3">
+                              <img width="50" height="50" src='{{cart.image}}'>
+                           </div>
+                           <span class="a-list-title-content">
+                              <span class="anglo-block fs-14">{{cart.name}}</span>
+                              <span class="anglo-block grey-text fs-14">{{cart.price|currency}}</span>
+                           </span>
+                        </div>   
+                        <div class="close-icon">   
+                           <button class="btn" mat-mini-fab mat-button-sm color="primary"  (click)="onDelete(cart)">
+                              <mat-icon class="material-icons">close</mat-icon>
+                           </button>
+                        </div>            
+                     </div>
+                  </div>
+                  <ng-template #elseBlock>
+                     <div class="cart-content text-align p-3">
+                        <div class="cart-icon">
+                           <mat-icon class="shopping-cart">shopping_cart</mat-icon>
+                        </div>
+                        <div class="cart-title">         
+                           <h3>No Item Found</h3>
+                        </div>     
+                     </div>
+                  </ng-template>
+                  <mat-divider></mat-divider>  
+               </div>
+            </mat-menu>
+         </div>
+         <anglo-language-drop-down></anglo-language-drop-down>
+      </div>
+   </mat-toolbar>
+</div>   

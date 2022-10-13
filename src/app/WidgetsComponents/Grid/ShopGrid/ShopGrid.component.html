@@ -1,0 +1,42 @@
+<div class="shop-grid-wrapper grid-wrapper" fxLayout="row wrap">
+	<div *ngFor="let shop of shopGridData" fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33">
+		<div class="product-item">
+			<mat-card class="p-0">
+				<mat-card-content class="mb-0">
+					<div class="app-card-content p-3">	
+						<div class="card-title mb-2">
+							<h5>{{shop.name}}</h5>
+						</div>
+						<div class="overlay-wrap mb-4 text-align">
+							<img class="img-responsive" src="{{shop.image}}" width="200" height="200">
+							<div class="overlay-content" fxLayoutAlign="center center" *ngIf="!ifItemExistInCart(shop)">
+								<button class="a-btn" mat-button-sm mat-raised-button (click)="addTOCart(shop)">Add To Cart</button>
+							</div>
+							<div class="overlay-content" fxLayoutAlign="center center" *ngIf="ifItemExistInCart(shop)">
+								<button mat-button-sm mat-raised-button color="primary" (click)="viewCart()">View Cart</button>
+							</div>	
+						</div>	
+						<div class="content">	
+							<span class="anglo-block fw-semi-bold warn-color mb-2">{{shop.price|currency}}</span>
+							<span class="fs-12 mb-2 grey-text anglo-block">{{shop.type}}</span>
+							
+						</div>
+					</div>
+				</mat-card-content>
+				<mat-card-actions class="p-0 m-0">
+					<div class="p-3 border-t-1" fxLayoutAlign="space-between center">
+						<div>
+							<span class="primary-color fs-14">Show Details</span>
+						</div>
+						<div>	
+							<button mat-icon-button><mat-icon class="grey-text">more_vert</mat-icon></button>
+						</div>	
+					</div>	
+				</mat-card-actions>
+			</mat-card>
+		</div>	
+	</div>
+</div>
+	
+
+

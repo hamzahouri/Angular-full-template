@@ -1,0 +1,228 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "vuely-angular": {
+      "root": "",
+      "sourceRoot": "src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "allowedCommonJsDependencies": [
+              "jquery",
+              "hogan.js",
+              "contra/emitter",
+              "dom-plane",
+              "dom-set",
+              "crossvent",
+              "@firebase/auth",
+              "@firebase/app",
+              "firebase/app",
+              "chart.js",
+              "lodash",
+              "rxjs-compat",
+              "angular2-text-mask",
+              "leaflet-map",
+              "dragula",
+              "ng2-validation",
+              "leaflet",
+              "@mattlewis92/dom-autoscroller",
+              "lodash/throttle",
+              "lodash/uniq",
+              "lodash/curry",
+              "lodash/escape",
+              "lodash/union",
+              "lodash/isFinite",
+              "lodash/isEqual",
+              "lodash/filter",
+              "angular-calendar/date-adapters/date-fns",
+              "ngx-embed-video",
+              "calendar-utils/date-adapters/date-fns",
+              "core-js/library/fn/get-iterator",
+              "angular-instantsearch",
+              "nouislider",
+              "algoliasearch-helper",
+              "algoliasearch/lite",
+              "algoliasearch/index",
+              "echarts",
+              "zrender/lib/vml/vml",
+              "zrender/lib/svg/svg",
+              "clone-deep",
+              "qs"
+
+            ],
+            "showCircularDependencies": false,
+            "outputPath": "dist/vuely-angular",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.app.json",
+            "assets": [
+              "src/assets",
+              "src/favicon.ico"
+            ],
+            "styles": [
+              "src/assets/scss/style.scss",
+              "src/assets/animate/animate.css",
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/font-awesome/css/font-awesome.css",
+              "src/assets/glyphicons/glyphicons.css",
+              "src/assets/linea/styles.css",
+              "node_modules/simple-line-icons/scss/simple-line-icons.scss",
+              "node_modules/quill/dist/quill.snow.css",
+              "node_modules/quill/dist/quill.bubble.css",
+              "node_modules/dragula/dist/dragula.min.css",
+              "node_modules/dragula/dist/dragula.css",
+              "node_modules/dropzone/dist/min/dropzone.min.css",
+              "node_modules/@videogular/ngx-videogular/fonts/videogular.css",
+              "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
+              "node_modules/angular2-draggable/css/resizable.min.css",
+              "node_modules/angular-instantsearch/bundles/instantsearch.min.css",
+              "node_modules/angular-calendar/css/angular-calendar.css",
+              "node_modules/@swimlane/ngx-datatable/index.css",
+              "node_modules/@swimlane/ngx-datatable/themes/material.css",
+              "src/assets/summernote/dist/summernote-lite.css",
+              "node_modules/slick-carousel/slick/slick.scss",
+              "node_modules/slick-carousel/slick/slick-theme.scss",
+              "node_modules/leaflet/dist/leaflet.css",
+              "node_modules/nouislider/dist/nouislider.min.css",
+              "node_modules/ngx-bar-rating/themes/br-default-theme.scss",
+              "node_modules/jqvmap/dist/jqvmap.css",
+              "node_modules/angular-archwizard/styles/archwizard.css"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/jqvmap/dist/jquery.vmap.js",
+              "node_modules/jqvmap/dist/maps/jquery.vmap.world.js",
+              "node_modules/popper.js/dist/umd/popper.js",
+              "node_modules/echarts/dist/echarts.min.js",
+              "src/assets/summernote/dist/summernote.js",
+              "src/assets/summernote/dist/summernote-lite.js",
+              "node_modules/slick-carousel/slick/slick.min.js",
+              "node_modules/chart.js/dist/Chart.bundle.js"
+            ],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
+          },
+          "configurations": {
+            "production": {
+              "budgets": [{
+                "type": "anyComponentStyle",
+                "maximumWarning": "6kb"
+              }],
+              "fileReplacements": [{
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/environment.prod.ts"
+              }],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractLicenses": true,
+            }
+          },
+          "defaultConfiguration": ""
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "vuely-angular:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "vuely-angular:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "vuely-angular:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.spec.json",
+            "karmaConfig": "src/karma.conf.js",
+            "styles": [
+              "src/assets/scss/style.scss",
+              "src/assets/animate/animate.css",
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/font-awesome/css/font-awesome.css",
+              "src/assets/glyphicons/glyphicons.css",
+              "src/assets/linea/styles.css",
+              "node_modules/simple-line-icons/scss/simple-line-icons.scss",
+              "node_modules/quill/dist/quill.snow.css",
+              "node_modules/quill/dist/quill.bubble.css",
+              "node_modules/dragula/dist/dragula.min.css",
+              "node_modules/dragula/dist/dragula.css",
+              "node_modules/dropzone/dist/min/dropzone.min.css",
+              "node_modules/@videogular/ngx-videogular/fonts/videogular.css",
+              "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
+              "node_modules/angular2-draggable/css/resizable.min.css",
+              "node_modules/angular-instantsearch/bundles/instantsearch.min.css",
+              "node_modules/angular-calendar/css/angular-calendar.css",
+              "node_modules/@swimlane/ngx-datatable/index.css",
+              "node_modules/@swimlane/ngx-datatable/themes/material.css",
+              "src/assets/summernote/dist/summernote-lite.css",
+              "node_modules/slick-carousel/slick/slick.scss",
+              "node_modules/slick-carousel/slick/slick-theme.scss",
+              "node_modules/leaflet/dist/leaflet.css",
+              "node_modules/nouislider/dist/nouislider.min.css",
+              "node_modules/ngx-bar-rating/themes/br-default-theme.scss",
+              "node_modules/jqvmap/dist/jqvmap.css",
+              "node_modules/angular-archwizard/styles/archwizard.css"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/jqvmap/dist/jquery.vmap.js",
+              "node_modules/jqvmap/dist/maps/jquery.vmap.world.js",
+              "node_modules/popper.js/dist/umd/popper.js",
+              "node_modules/echarts/dist/echarts.min.js",
+              "src/assets/summernote/dist/summernote-lite.js",
+              "node_modules/slick-carousel/slick/slick.min.js",
+              "node_modules/chart.js/dist/Chart.bundle.js"
+            ],
+            "assets": [
+              "src/assets",
+              "src/favicon.ico"
+            ]
+          }
+        }
+      }
+    },
+    "anglo-e2e": {
+      "root": "e2e/",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "anglo:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "anglo:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "vuely-angular",
+  "cli": {
+    "analytics": "5fdd0619-3199-4c95-b428-42ac77ebe6c0"
+  }
+}

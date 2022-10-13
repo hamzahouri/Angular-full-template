@@ -1,0 +1,13 @@
+<mat-card>
+	<mat-card-content>
+		<div *ngFor="let user of UserData">
+			<div class="app-card-content">
+				<p class="fs-12 grey-text mb-2">{{user.name|translate}}</p>
+				<h4 class="mb-2">{{user.total}}({{user.value}}%)</h4>
+				<div class={{user.colorClass}}>
+					<mat-progress-bar class="my-3" mode="determinate" value="{{user.value}}"></mat-progress-bar>
+				</div>
+			</div>
+		</div>
+	</mat-card-content>
+</mat-card>

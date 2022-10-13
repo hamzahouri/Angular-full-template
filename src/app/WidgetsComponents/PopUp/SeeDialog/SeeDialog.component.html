@@ -1,0 +1,20 @@
+<mat-dialog-content>
+	<div class="mb-4" fxLayoutAlign="space-between center">
+		<div fxLayoutAlign="start center">	
+			<div class="mr-4">
+				<img class="radius-circle" src="{{data.img}}" height="40" width="40">
+			</div>
+			<div>	
+				<h6 class="fs-14 mb-0">{{data.name}}</h6>
+				<span class="fs-14">{{data.mail}}</span>
+			</div>
+		</div>	
+		<div>
+			<span class="fs-14">{{data.date}}</span>
+		</div>
+	</div>
+	<div>	
+		<h3>{{data.heading}}</h3>
+		<p class="fs-14 mb-0">{{data.data}}</p>
+	</div>	
+</mat-dialog-content>

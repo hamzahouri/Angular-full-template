@@ -1,0 +1,37 @@
+<mat-card class="p-0">
+	<div *ngIf = "serverStatusVisible" id="serverStatus" class="server-status-widge">
+		<div class="mb-3 p-3" fxLayoutAlign="space-between center">
+			<div class="card-title">
+				<h3 class="mb-0 text-capitalize">{{titleName | translate}}</h3>
+			</div>
+			<div class="a-icon">
+				<TopsideMenu (isCloseEvent) = "getCloseValue($event)" (isFullScreen)= "showFullScreen('serverStatus')" (isShowSpinner)="spinnerShow('serverStatus')"></TopsideMenu>
+			</div>
+		</div>
+		<mat-card-content>
+			<div class="px-3 card-content" *ngFor="let trafficChannel of ServeStatusData">		
+				<div class="mb-3">
+					<div fxLayoutAlign="space-between center">
+						<h6 class="mb-0 title">{{trafficChannel.name}}</h6>
+						<span class="anglo-block grey-text font-sz text-right">{{trafficChannel.value}}%</span>
+					</div>			
+					<div class="full-wid">
+						<div class="mb-4 mt-3">
+							<mat-progress-bar mode="determinate" value="{{trafficChannel.value}}"></mat-progress-bar>
+						</div>	
+					</div>
+				</div>	
+			</div>
+		</mat-card-content>
+		<mat-divider></mat-divider>
+		<div class="app-footer">
+			<div class="grey-text p-3 fs-12" fxLayoutAlign="end center">
+				<mat-icon class="update-list">replay</mat-icon>
+				<span>Updated 10 min ago</span>
+			</div>	
+		</div>
+		<div class="card-spinner" [ngClass] = "{'reload' : serverStatusShowSpinner}" fxLayoutAlign="center center">
+			<mat-spinner *ngIf="serverStatusShowSpinner" mode="indeterminate" diameter="39"></mat-spinner>
+		</div>
+	</div>	
+</mat-card>

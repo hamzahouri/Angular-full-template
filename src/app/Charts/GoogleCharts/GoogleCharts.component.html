@@ -1,0 +1,121 @@
+<div class="app-card-title mb-3">
+   <anglo-title-component title="Google Charts"></anglo-title-component>
+</div> 
+<div  class="google-chart-wrapper grid-wrapper" fxLayout="row wrap">    
+    <div class="app-card-content" fxFlex.xs="100" fxFlex.sm="100" fxFlex.lg="50" fxFlex.xl="50">
+        <mat-card>
+            <div class="card-title">
+               <h4>{{'Scatter chart'|translate}}</h4>
+            </div>
+            <div class="card-content">
+               <google-chart [data]="scatterChartData"></google-chart>
+            </div>
+        </mat-card>
+    </div>
+    <div class="app-card-content" fxFlex.xs="100" fxFlex.sm="100" fxFlex.lg="50" fxFlex.xl="50">
+        <mat-card>
+            <div class="card-title">
+               <h4>{{'Timeline chart'|translate}}</h4>
+            </div>
+            <div class="card-content">
+               <google-chart [data]="timelineChartData"></google-chart>
+            </div>
+        </mat-card>
+    </div>
+   <div class="app-card-content" fxFlex.xs="100" fxFlex.sm="100" fxFlex.lg="50" fxFlex.xl="50">
+      <mat-card>
+         <div class="card-title">
+            <h4>Scatter chart</h4>
+         </div>
+         <div class="card-content">
+            <google-chart [data]="scatterChartData"></google-chart>
+         </div>
+      </mat-card>
+   </div>
+   <div class="app-card-content" fxFlex.xs="100" fxFlex.sm="100" fxFlex.lg="50" fxFlex.xl="50">
+      <mat-card>
+         <div class="card-title">
+            <h4>Timeline chart</h4>
+         </div>
+         <div class="card-content">
+            <google-chart [data]="timelineChartData"></google-chart>
+         </div>
+      </mat-card>
+   </div>
+</div>
+<div class="google-chart-wrapper grid-wrapper" fxLayout="row wrap">     
+   <div class="app-card-content" fxFlex.xs="100" fxFlex.sm="100" fxFlex.lg="50" fxFlex.xl="50">
+      <mat-card>
+         <div class="card-title">
+            <h4>{{'Line chart with events'|translate}}</h4>
+         </div>
+         <div class="card-content">
+            <google-chart [data]="lineChartData" (chartReady)="ready($event)" (chartError)="error($event)" (chartSelect)="select($event)"></google-chart>
+         </div>
+      </mat-card>
+   </div>
+   <div class="app-card-content" fxFlex.xs="100" fxFlex.sm="100" fxFlex.lg="50" fxFlex.xl="50">
+      <mat-card>
+         <div class="card-title">
+            <h4>{{'Combo chart'|translate}}</h4>
+         </div>
+         <div class="card-content">
+            <google-chart [data]="comboChartData" (mouseOver)="mouseOver($event)"></google-chart>
+         </div>
+      </mat-card>
+   </div>
+</div> 
+<div class="google-chart-wrapper grid-wrapper" fxLayout="row wrap">
+   <div class="app-card-content" fxFlex.xs="100" fxFlex.sm="100" fxFlex.lg="50" fxFlex.xl="50">
+      <mat-card>
+         <div class="card-title">
+            <h4>{{'Line'|translate}}</h4>
+         </div>
+         <div class="card-content mb-1">
+            <div class="mb-2">
+               <google-chart [data]="columnChartData"></google-chart>
+            </div>   
+            <div fxLayoutAlign="space-between center">
+               <div>
+                  <button mat-raised-button color="primary" (click)="changeData()">Change data</button>
+               </div>
+               <div>
+                  <button mat-raised-button color="accent" (click)="changeChartType()">Change chart type</button>
+               </div>
+            </div>
+         </div>   
+      </mat-card>    
+   </div>
+   <div class="app-card-content" fxFlex.xs="100" fxFlex.sm="100" fxFlex.lg="50" fxFlex.xl="50">
+      <mat-card>
+         <div class="card-title">
+            <h4>{{'Animated chart'|translate}}</h4>
+         </div>
+         <div class="card-content mb-5">
+            <google-chart #cchart [data]="columnChartData2"></google-chart>
+         </div>
+      </mat-card>
+   </div>
+</div>
+<div class="google-chart-wrapper grid-wrapper" fxLayout="row wrap">    
+   <div class="app-card-content" fxFlex.xs="100" fxFlex.sm="100" fxFlex.lg="50" fxFlex.xl="50">
+      <mat-card>
+         <div class="card-title">
+            <h4>{{'Pie Chart'|translate}}</h4>
+         </div>
+         <div class="card-content">
+            <google-chart [data]="pieChartData"></google-chart>
+         </div>
+      </mat-card>
+   </div>
+   <div class="app-card-content" fxFlex.xs="100" fxFlex.sm="100" fxFlex.lg="50" fxFlex.xl="50">
+      <mat-card>
+         <div class="card-title">
+            <h4>{{'Gauge chart'|translate}}</h4>
+         </div>
+         <div class="card-content mb-4">
+            <google-chart [data]="gaugeChartData"></google-chart>
+         </div>
+      </mat-card>
+   </div>
+</div>   

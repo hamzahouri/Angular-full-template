@@ -1,0 +1,27 @@
+<div *ngFor="let cards of card">
+	<mat-card>	
+		<div class="blog-widget">
+			<img class="img-responsive mb-3" src="{{cards.img}}">
+			<div class="card-title">	
+				<h5 class="title text-capitalize">{{cards.heading}}</h5>
+			</div>
+			<mat-card-content>
+				<div class="mb-1">
+					<span class="grey-text fs-12">Last updated: {{cards.date}}</span>
+				</div>
+				<p>{{cards.content}}</p>
+			</mat-card-content>	
+			<mat-card-actions class="my-0 p-0">
+				<div class="share-icon" fxLayoutAlign="space-between center">
+					<div>
+						<button mat-icon-button class="grey-text share" color="#"><mat-icon>share</mat-icon></button>
+						<button mat-icon-button class="grey-text fav" color="#"><mat-icon>favorite</mat-icon></button>
+					</div>
+					<div>	
+						<button mat-icon-button><mat-icon class="grey-text">more_horiz</mat-icon></button>
+					</div>	
+				</div>	
+			</mat-card-actions>
+		</div>	
+	</mat-card>	
+</div>

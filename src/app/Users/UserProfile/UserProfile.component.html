@@ -1,0 +1,156 @@
+<div class="app-card-title mb-4">
+	<anglo-title-component title="User Profile"></anglo-title-component>
+</div>
+<div class="user-profile-wrapper mb-4">
+	<div fxLayout="row wrap">
+		<div class="card-content" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="100"  fxFlex.lg="100" fxFlex.xl="100">
+			<mat-card class="mb-3">
+				<img mat-card-image class="profile-banner" width="1920" height="165" src="/assets/img/profile-banner.jpg">
+				<mat-card-content>
+					<div class="profile-bottom text-align">
+						<div class="user-image mb-3">
+							<img class="radius-circle img-responsive" width="100" height="100"  src="/assets/img/user-7.jpg">
+						</div>
+						<div class="user-list-content">	
+							<h3>Gregory A.</h3>
+							<p>Web Designer & Developer</p>
+							<div>
+								<anglo-social-icons [socialIcon]="social_icon"></anglo-social-icons>
+							</div>		
+						</div>	
+					</div>
+				</mat-card-content>
+				<mat-divider></mat-divider>
+				<mat-list>
+					<div class="user-activity-list text-center" fxLayout="row wrap" fxLayoutAlign="center center">
+						<div class="user-activity" fxLayoutAlign="center center">
+							<mat-list-item>
+								<span class="font-bold theme-light-color" matLine>588</span>
+								<span class="theme-light-color">Articles</span>
+							</mat-list-item>
+						</div>	
+						<div class="user-activity" fxLayoutAlign="center center">
+							<mat-list-item>
+								<span class="font-bold theme-light-color" matLine>2400</span>
+								<span class="theme-light-color">Followers</span>
+							</mat-list-item>
+						</div>
+						<div class="user-activity" fxLayoutAlign="center center">	
+							<mat-list-item>
+								<span class="font-bold theme-light-color" matLine>1200</span>
+								<span class="theme-light-color">Following</span>
+							</mat-list-item>
+						</div>
+					</div>		
+				</mat-list>
+			</mat-card>
+		</div>
+	</div>	
+	<div class="profile-body grid-wrapper" fxLayout="row wrap">
+		<div class="app-card"  fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="35" fxFlex.lg="35" fxFlex.xl="35">
+			<anglo-user-request></anglo-user-request>
+			<anglo-user-education [UserEducation]="userEducation"></anglo-user-education>
+			<anglo-user-skills [UserSkills]="userSkills"></anglo-user-skills>
+		</div>
+		<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="65" fxFlex.lg="65" fxFlex.xl="65">
+			<mat-card>
+				<div class="card-title mb-4">
+					<h3>Activity</h3>
+				</div>	
+				<mat-card-content>
+					<div class="card-title pt-3">
+						<h3>Today</h3>
+					</div>
+			  		<div class="py-4" fxLayout="row">
+				  		<div class="user-image mr-3">
+				  			<img class="radius-circle" mat-card-sm-image src="{{activity?.dataOne?.profile_pic}}">
+				  		</div>
+				  		<div>	
+				  			<span class="font-bold">{{activity.dataOne.user_name}}
+				  			<span class="small">{{activity.dataOne.name}}</span></span>
+				  			<p>{{activity.dataOne.content}}</p>
+				  		</div>
+				  	</div>		
+		  			<mat-divider></mat-divider>
+				   <div class="py-4" fxLayout="row">	
+				   	<div class="user-image mr-3">
+				   		<img class="radius-circle" mat-card-sm-image src="{{activity?.dataTwo?.profile_pic}}">
+				   	</div>
+				   	<div>
+					   	<span class="font-bold">{{activity.dataTwo.user_name}}
+				  			<span class="small">{{activity.dataTwo.name}}</span></span>
+				  			<p>{{activity.dataTwo.message}}</p>
+				  			<div class="user-image">
+				  				<img class="img-responsive" width="445" height="200" src="{{activity?.dataTwo?.posted_image}}">
+				  			</div>
+				  		</div>
+				  	</div>			
+			  	 	<mat-divider></mat-divider>
+			   	<div class="py-4" fxLayout="row">
+				   	<div class="user-image mr-3">
+				   		<img class="radius-circle" mat-card-sm-image src="{{activity?.dataThree?.profile_pic}}">
+			  			</div>
+			  			<div>
+			  				<div class="mb-3">
+					  			<span class="font-bold mb-3">{{activity.dataThree.user_name}}
+					  			<span class="small">{{activity.dataThree.name}}</span></span>
+				  			</div>
+				  			<div>
+				  				<h3 class="primary-bg p-3 font-sz-sm text-color">{{activity.dataThree.content}}</h3>
+				  			</div>	
+			  			</div>
+		  			</div>
+			   	<mat-divider></mat-divider>
+				   <div class="py-4" fxLayout="row">	
+				   	<div class="user-image mr-3">
+				   		<img class="radius-circle" mat-card-sm-image src="{{activity?.dataFour?.profile_pic}}">
+			  			</div>
+			  			<div>
+				  			<div class="profile-content mb-3">
+					  			<span class="font-bold">{{activity.dataFour.user_name}}
+					  			<span class="small">{{activity.dataFour.name}}</span></span>
+					  			<p>{{activity.dataFour.message}}</p>
+				  			</div>
+				  			<div class="img-list grid-wrapper" fxLayout="row wrap">
+					  			<div class="user-image" fxFlex.xs="50" fxFlex.sm="25" fxFlex.md="25"  fxFlex.lg="25" fxFlex.xl="25">
+					  				<img class="img-responsive" width="100" height="100" src="{{activity?.dataFour?.posted_image.img1}}">
+					  			</div>
+					  			<div class="user-image" fxFlex.xs="50" fxFlex.sm="25" fxFlex.md="25"  fxFlex.lg="25" fxFlex.xl="25">
+					  				<img class="img-responsive" width="100" height="100" src="{{activity?.dataFour?.posted_image.img2}}">
+					  			</div>
+					  			<div class="user-image" fxFlex.xs="50" fxFlex.sm="25" fxFlex.md="25"  fxFlex.lg="25" fxFlex.xl="25">
+					  				<img class="img-responsive" width="100" height="100" src="{{activity?.dataFour?.posted_image.img3}}">
+					  			</div>
+					  			<div class="user-image" fxFlex.xs="50" fxFlex.sm="25" fxFlex.md="25"  fxFlex.lg="25" fxFlex.xl="25">
+					  				<img class="img-responsive" width="100" height="100" src="{{activity?.dataFour?.posted_image.img4}}">
+						   	</div>
+						   </div>	
+					   </div>
+					</div>   
+				   <mat-divider></mat-divider>
+				   <div class="py-4">	
+				   	<div fxLayout="row">
+					   	<div class="user-image mr-3">
+					   		<img class="radius-circle" mat-card-sm-image src="{{activity?.dataFive?.profile_pic}}">
+				  			</div>
+				  			<div>
+					  			<span class="font-bold ">{{activity.dataFive.user_name}}
+					  			<span class="small">{{activity.dataFive.name}}</span></span>
+					  			<p class="mb-4">Posted a new blog in website</p>
+						  		<div class="p-0 media-full" fxLayoutAlign="start start">
+						  			<div class="mr-3">
+						  				<img class="img-responsive" width="376" height="467" src="{{activity?.dataFive?.posted_image}}">
+						  			</div>
+						  			<div class="user-profile-list-des">
+							  			<h5>{{activity.dataFive.headline}}</h5>
+							  			<p>{{activity.dataFive.content}}</p>
+						  			</div>
+					  			</div>
+			  				</div>
+			  			</div>
+			  		</div>		
+				</mat-card-content>
+			</mat-card>
+		</div>
+	</div>
+</div>	

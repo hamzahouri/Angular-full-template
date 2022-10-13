@@ -1,0 +1,19 @@
+<div class="app-card-title mb-4">
+  <anglo-title-component title="Grid"></anglo-title-component>
+</div>
+<div class="grid-card-wrapper">
+	<div class="app-card">
+		<mat-card class="p-0">
+			<div class="card-title p-4">
+				<h3>{{'Grid'|translate}}</h3>
+			</div>
+			<div class="card-content p-4">
+				<mat-grid-list cols="12" rowHeight="100px">
+					<mat-grid-tile class="text-color" *ngFor="let tile of tiles" [colspan]="tile.cols"
+					[rowspan]="tile.rows" [style.background]="tile.color">{{tile.text}}</mat-grid-tile>
+				</mat-grid-list>
+			</div>
+		</mat-card>
+	</div>
+</div>	
+

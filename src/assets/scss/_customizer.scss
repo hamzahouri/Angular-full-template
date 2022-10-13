@@ -1,0 +1,252 @@
+/*-------------------------------------------------------------
+14.0 Customizer
+-------------------------------------------------------------*/
+#content {
+   height: calc(100vh - 64px);
+   overflow-x: hidden;
+   overflow-y: auto;
+   position:relative;
+}
+.app-main {
+   .mat-drawer-container {
+      background-color: $content-color !important;
+   }    
+}
+.anglo-customizer {
+   top:10%;
+   transition: all 0.5s ease-in-out; 
+   backface-visibility: hidden;
+   height: 100vh;
+   position: fixed;
+   right: 0px;
+   z-index: 99;
+
+   .customizer-toggle {
+      color:$text-color;
+      border:none;
+      cursor: pointer;
+      left: -45px;
+      width:45px;
+      position: absolute;
+      text-align: center;
+      top: 30%;
+      height:45px !important;
+   }
+}
+.setting-panel {
+   width:320px;   
+   .theme-options {
+      box-shadow: 0 0 10px 0 rgba(0,0,0,.3);
+      .img-holder.img-active {
+            border-color: #00d014;
+      }
+      .img-holder {
+         border: 3px solid transparent;
+      }  
+      .title {
+         text-align:center;
+         margin-bottom:0px;
+      }
+      .sidebar-images > div {
+         display: inline-block;
+         margin: 0 !important;
+         width: calc(100% / 3);
+
+         img {
+            max-width: 100%;
+            vertical-align: middle;
+            width: 100%;
+         }
+      }
+      .customizer-scroll-area {
+         height:100%;
+         padding:1.25rem;
+         .theme-layout {
+            .checkbox-list {
+               height:3rem;
+            }
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0,0,0,.09);
+            margin-bottom: 1.5rem;
+            padding: 1.25rem;
+
+         }
+      }
+   }
+   .inner-toolbar {
+      padding: 1.25rem;
+      .theme-color {
+         border-radius: 4px;
+         box-shadow: 0 2px 10px rgba(0,0,0,.09);
+         margin-bottom: 1.5rem;
+         padding: 1.25rem;
+         .a-list {
+            .active-theme {
+               .a-list-link:after{
+                  opacity: 1;
+                  transform: scale(1);
+               }
+            }
+            >div:nth-child(2) .a-list-link:after {
+               border-color: #000;
+            }
+            .a-list-link {
+               border-radius: 100%;
+               height: 1.75rem;
+               margin: 0 .25rem;
+               overflow: hidden;
+               position: relative;
+               width: 1.75rem;
+               display:inline-block;
+               span { 
+                  border-radius:100%;
+                  display: inline-block;
+                  height: 1.75rem;
+                  position: relative;
+                  width: 1.75rem;
+               }
+               &:after {
+                  border: 2px solid #fff;
+                  border-radius: 100%;
+                  bottom: 0;
+                  content: "";
+                  left: 0;
+                  margin: .25rem;
+                  opacity: 0;
+                  position: absolute;
+                  right: 0;
+                  top: 0;
+               }
+            }
+            >div:nth-child(2) .a-list-link {
+               border: 1px solid #000;
+            }
+         }
+      }  
+   }
+}
+
+.sidebar-panel .content-name, .sidebar-panel .sidebar-user-name {
+   width: 126px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap; margin-left:5px;
+}
+
+[dir="rtl"].collapsed-sidebar {
+   .sidebar-panel:not(:hover) .content-name, .sidebar-panel:not(:hover) .sidebar-user-name {
+      width:0px !important;
+      display:none;
+   }  
+   .image-thumb-wrap{
+      margin: 0;  
+   }
+}
+   
+.sidenav {
+   transform: translateX(0px);
+}
+
+.rtl-layout .anglo-customizer .customizer-toggle {
+   left:inherit;
+   right:-45px !important;
+}
+
+.rtl-layout .anglo-customizer {
+   left:0;
+   right: inherit !important;
+}    
+
+
+.collapsed-sidebar mat-sidenav .sidebar-panel:not(:hover) .mat-list-item > .mat-list-item-content > a > .menu-caret, .collapsed-sidebar mat-sidenav .sidebar-panel:not(:hover) .mat-list-item > .mat-list-item-content > a > span:not(.menu-badge) {
+   display: none;
+}
+
+.collapsed-sidebar mat-sidenav .sidebar-panel:not(:hover) .mat-nav-list .nav-item{
+   padding: 0 1.7 rem;
+}
+
+.collapsed-sidebar  .mat-sidenav .sidebar-panel .mat-nav-list a{
+   padding: 0 1.8rem;
+}
+
+.collapsed-sidebar .mat-sidenav .sidebar-panel {
+   transition: all 0.3s ease-in-out 0s;
+}
+
+.collapsed-sidebar .mat-sidenav .sidebar-panel:not(:hover) .sidebar-title, .collapsed-sidebar .mat-sidenav .sidebar-panel:not(:hover) .sub-menu{
+   display:none;
+   visibility:hidden;
+}
+
+.collapsed-sidebar .mat-sidenav .sidebar-panel:not(:hover) .nav-item .nav-icon{
+   margin-left:0rem !important;
+}
+
+.collapsed-sidebar[dir="rtl"] .mat-sidenav .sidebar-panel:not(:hover) .mat-list-item .child-item{
+   margin-right:0rem;
+}
+.collapsed-sidebar[dir="rtl"] .mat-sidenav .sidebar-panel:not(:hover) .mat-list-item .nav-icon{
+   margin-right:0.8rem;
+}
+
+.collapsed-sidebar.side-panel-opened mat-sidenav.sidebar-area ~ .mat-drawer-content {
+   margin-left: 80px!important
+}
+
+.collapsed-sidebar .sidebar-panel:not(:hover) .anglo-logo .eka-logo{
+   display:none;
+}
+.collapsed-sidebar .sidebar-panel:not(:hover) .eka-sign{
+   margin-right:0px !important;
+}
+.collapsed-sidebar mat-sidenav .sidebar-panel:not(:hover) {
+    width: 5rem;
+    min-width: 5rem;
+}
+
+.collapsed-sidebar mat-sidenav .sidebar-panel:not(:hover) {
+   width: 5rem;
+   min-width: 5rem;
+}
+
+.collapsed-sidebar[dir="rtl"] mat-sidenav.mat-sidenav-opened ~ .mat-sidenav-content,
+[dir="rtl"] .collapsed-sidebar mat-sidenav.mat-sidenav-opened ~ .mat-sidenav-content {
+   margin-left: 0 !important;
+   margin-right: 4rem !important;
+}
+
+.collapsed-sidebar[dir="rtl"].side-panel-opened mat-sidenav.sidebar-area ~ .mat-drawer-content {
+   margin-left: 0 !important;
+   margin-right: 5rem !important;
+}
+
+
+@media (max-width: 1279px) {
+   .collapsed-sidebar.side-panel-opened mat-sidenav.sidebar-area ~ .mat-drawer-content{
+      margin-left:0px !important;
+   }
+   
+}
+
+@media (max-width: 768px){
+   .anglo-customizer, .toogle-btn {
+      display: none !important;
+   }
+}
+@media (max-width: 1263px)  {
+   .app-main .theme-options .theme-layout .collapsed-sidebar, .rtl{
+      display: none !important;
+   }
+}
+
+@media(min-width:1280px){
+   .side-panel-opened .app > .mat-sidenav-content {
+      margin-left: 15.5rem !important;
+   }
+   .rtl-layout{
+      &.side-panel-opened .app >{
+         .mat-sidenav-content{
+            margin-left: 0px !important;
+            margin-right: $sidebar-width  !important;
+         }
+      }
+   }
+}

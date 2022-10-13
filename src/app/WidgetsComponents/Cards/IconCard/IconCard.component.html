@@ -1,0 +1,15 @@
+<mat-card>
+	<mat-card-content>
+		<div *ngFor="let iconData of data">
+			<div fxLayoutAlign="space-between start">
+				<div>
+					<h2 class="mb-2">{{iconData.value}}</h2>
+					<p class="mb-0 fs-12 grey-text">{{iconData.name|translate}}</p>
+				</div>
+				<div>
+					<mat-icon class="font-sz-md" color="{{iconData.color}}">{{iconData.sign}}</mat-icon>
+				</div>		
+			</div>
+		</div>
+	</mat-card-content>
+</mat-card>

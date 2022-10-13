@@ -1,0 +1,19 @@
+<div class="app-card-title mb-4">
+	<anglo-title-component title="Glyphicons"></anglo-title-component>
+</div>
+<div class="card-icon">
+	<div class="app-card" *ngIf="glyphIcons && glyphIcons.length>0">
+		<mat-card>
+			<div class="card-title">
+				<h3>{{'Glyph Icon'|translate}}</h3>
+			</div>
+			<div class="card-content">
+				<mat-list fxLayout="row wrap" >
+					<mat-list-item class="mb-3" *ngFor="let glyphIcon of glyphIcons" fxLayoutAlign="center center" fxFlex.xs="50" fxFlex.sm="33.33" fxFlex.md="20" fxFlex.lg="20" fxFlex.xl="20">
+						<mat-icon matListIcon class="icon {{glyphIcon}}"></mat-icon>
+					</mat-list-item>
+				</mat-list>
+			</div>
+		</mat-card>
+	</div>
+</div>	

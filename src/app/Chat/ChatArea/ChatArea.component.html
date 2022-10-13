@@ -1,0 +1,106 @@
+<div class="chatarea-content full-hght">	
+	<ng-container *ngIf="chatAreaData">
+		<div class="px-3 a-toolbar-content" fxLayoutAlign="space-between center">
+			<div class="chat-head-left" fxLayoutAlign="start center">
+				<!-- Responsive Toggle BUtton -->
+				<div>
+					<button class="m-0 toggle-btn" mat-button (click)="_toggleSidebarOpened()"><mat-icon>menu</mat-icon></button>
+				</div>	
+				<div class="mr-3" fxLayoutAlign="start center">
+					<img class="radius-circle" [src]="chatAreaData.avatar" width="40" height="40">
+				</div>
+				<div>	
+					<h6 class="mb-0">{{chatAreaData.name}}</h6>
+					<span class="grey-text fs-12 inline-block">{{chatAreaData.lastSeen}}</span>
+				</div>
+			</div>	
+			<div class="chat-head-right" fxLayoutAlign="start center">
+				<div class="m-1 video-icon">
+					<button mat-icon-button mat-mini-fab color="primary">
+						<mat-icon>videocam</mat-icon>
+					</button>	
+				</div>
+				<div class="m-1">
+					<button mat-icon-button mat-mini-fab color="primary">
+						<mat-icon>local_phone</mat-icon>
+					</button>	
+				</div>
+				<div class="m-1">
+					<button mat-icon-button   [matMenuTriggerFor]="menu">
+						<mat-icon>more_vert</mat-icon>
+						<mat-menu #menu="matMenu">
+						  	<button mat-menu-item>
+								<span>Clear Chat</span>
+							</button>
+							<button mat-menu-item>
+								<span>Mute Notification</span>
+							</button>
+							<button mat-menu-item>
+								<span>Block</span>
+							</button>
+						</mat-menu>
+					</button>
+				</div>	
+			</div>
+		</div>
+		<div class="chat-body">	
+			<perfect-scrollbar class="scroll-bar" [config]="config">
+				<div class="p-4">	
+					<div *ngFor="let openChat of chatAreaData.chats">
+						<div>
+							<div>
+								<ng-container *ngIf="openChat.isAdmin else elseBlock">
+									<div class="chat-block mb-3" fxLayoutAlign="start start" fxLayout="row-reverse">
+										<div class="avatar-wrap">	
+											<img class="radius-circle" src="/assets/img/user-10.jpg" height="40" width="40">
+										</div>
+										<div class="chat-bubble-wrap">
+											<div class="chat-bubble odd primary-bg p-3 " fxLayoutAlign="start center">
+												<p class="text-color mb-0">{{openChat.body}}</p>
+											</div>
+											<span class="anglo-block fs-12 grey-text text-right d-block mt-1">{{openChat.time}}</span>
+										</div>	
+									</div>		
+								</ng-container>
+							</div>
+							<ng-template #elseBlock>
+								<div class="chat-block mb-3" fxLayoutAlign="start start">
+									<div class="avatar-wrap">
+										<img class="radius-circle" [src]="chatAreaData.avatar" width="40" height="40">
+									</div>	
+									<div class="chat-bubble-wrap">	
+										<div class="chat-bubble even primary-bg p-3 " fxLayoutAlign="start center">
+											<span class="inline-block fs-14">{{openChat.body}}</span>
+										</div>
+										<span class="anglo-block fs-12 grey-text text-left d-block mt-1">{{openChat.time}}</span>
+									</div>
+								</div>	
+							</ng-template>
+						</div>		
+					</div>
+					<div>
+						<ng-container *ngIf="typing">
+							<img class="radius-circle" [src]="chatAreaData.avatar" width="40" height="40">
+							<div>typing...</div>
+						</ng-container>
+					</div>
+				</div>
+			</perfect-scrollbar>	
+			<div class="chat-footer" fxLayoutAlign="start center">
+				<div class="input-slot full-wid">
+					<mat-form-field class="full-wid">
+						<input matInput placeholder="Send Message..." [(ngModel)]="newMessage">
+					</mat-form-field>
+				</div>
+				<div fxLayoutAlign="start center">
+					<div class="m-1">	
+						<button mat-icon-button mat-mini-fab color="primary"><mat-icon>attachment</mat-icon></button>
+					</div>
+					<div class="m-1">
+						<button mat-icon-button mat-mini-fab color="primary" (click)="sendMessage()"><mat-icon>send</mat-icon></button>
+					</div>
+				</div>	
+			</div>
+		</div>	
+	</ng-container>
+</div>	

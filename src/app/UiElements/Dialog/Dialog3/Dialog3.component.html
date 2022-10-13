@@ -1,0 +1,25 @@
+<div class="a-dialog-wrapper">
+	<div class="p-3 card-content" fxLayoutAlign="space-between center">	
+		<div class="card-title">
+			<h2 class="m-0" mat-dialog-title>Dialog 3</h2>
+		</div>
+		<div class="a-btn-content">
+			<mat-dialog-content>
+				<button mat-button [matMenuTriggerFor]="menu">
+					<mat-icon>more_vert</mat-icon>
+				</button>
+				<mat-menu #menu>
+					<button mat-menu-item>Click Me 1</button>
+					<button mat-menu-item>Click Me 2</button>
+					<button mat-menu-item>Click Me 3</button>
+					<button mat-menu-item>Click Me 4</button>
+				</mat-menu>
+			</mat-dialog-content>
+		</div>
+	</div>	
+	<div class="p-2">
+		<mat-dialog-actions>
+			<button mat-raised-button (click)="dialogRef.close()" color="primary">CLOSE</button>
+		</mat-dialog-actions>
+	</div>
+</div>	

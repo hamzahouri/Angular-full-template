@@ -1,0 +1,15 @@
+<div class="app-card-title mb-4">
+ 	<anglo-title-component title="Ckeditor"></anglo-title-component>
+</div>
+<div class="app-card ckeditor-wrapper">
+	<mat-card>
+		<div fxlayout="row">
+			<div class="card-title mb-3 p-2" fxlayout="column">
+				<h3>Ckeditor</h3>
+			</div>
+		</div>
+		<div class="card-content p-2">
+			<ck-editor name="editor1" [(ngModel)]="editorValue" skin="moono-lisa" language="en" [fullPage]="true"></ck-editor>
+		</div>
+	</mat-card>
+</div>

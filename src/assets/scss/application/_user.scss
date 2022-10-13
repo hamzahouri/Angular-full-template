@@ -1,0 +1,86 @@
+/*--------------------------------------------------------------
+10.1 User 
+----------------------------------------------------------------*/
+// user profile
+.user-profile-wrapper {
+	.user-activity-list {
+      padding-top:10px;
+		.user-activity {
+			border-right: 2px solid #dde6f3;
+			&:last-child {
+	   		border: none;
+			}
+
+			span {
+   		   font-size: 1.375rem;
+   		   margin:0px 10px;
+   		}
+		}
+	}
+	.profile-bottom {
+		.user-image img {
+			box-shadow: 0 7px 14px 0 rgba(0,0,0,.21)
+		}
+	}
+	
+	.social-icon-wrapper {
+		a{
+			padding:0 0.8rem;
+			font-size:1rem;
+		}
+	}
+	.profile-body{
+		.user-skill-wrapper{
+			.mat-progress-bar-fill::after {
+	    		background-color: $text-color;
+			}
+		}
+	}
+	.profile-banner{
+		width: auto;
+  }
+}
+
+// user-list
+.user-list-wrapper{
+	.social-icon-wrapper {
+		a{
+			padding:0 0.8rem;
+			font-size:1rem;
+		}
+	}
+}
+
+
+
+@media (max-width: 767px) {
+   .user-activity .mat-list-item > * {
+      display: block !important;
+      text-align: center;
+   }
+   .user-profile-wrapper {
+      .user-activity-list {
+         padding-top:0px;
+      }
+   }
+   .user-activity-list .mat-list-item {
+      height: auto !important;
+      padding: 10px 0 !important;
+   }
+   .user-activity-list .user-activity {
+	   border-bottom: 1px solid #dde6f3;
+	   border-right: none !important;
+	   display: block;
+	   width: 100%;
+	}
+ 	.user-profile-wrapper .media-full {
+    	display: block !important;
+    	width: 100% !important;
+   }
+   .user-profile-list-des{
+      padding-top:1rem;
+   }
+   .user-profile-wrapper .user-activity-list .user-activity span {
+      margin: 0px 5px;
+   }
+}

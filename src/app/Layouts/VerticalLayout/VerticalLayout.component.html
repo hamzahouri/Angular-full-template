@@ -1,0 +1,137 @@
+<div [dir]="coreService.layout" id="main-app" class="app-main theme-light sidebar sidebar-overlay-dark header-light {{isHeaderFilterClass}} {{isSidebarFilterClass}}" [ngClass] = "{'collapsed-sidebar': coreService.isCheckboxOpen}" [class.side-panel-opened]="coreService.sidebarOpen"  [class.side-panel-closed]="!coreService.sidebarOpen">
+    <div class="app">
+        <mat-sidenav-container class="anglo-container">
+            <mat-sidenav #sidenav class="sidebar-area overflow-hidden background-none"  
+            [(opened)]="coreService.sidebarOpen" [mode]="sidenavMode">
+                <anglo-sidebar></anglo-sidebar>
+            </mat-sidenav>
+           <div class="header-toolbar"> 
+                <header>
+                    <anglo-header></anglo-header>     
+                </header>   
+            </div>
+            <div id="content">
+                <div class="inner-container">
+                  <router-outlet (activate)="onActivate($event)"></router-outlet>
+                </div>
+            </div>
+            <mat-sidenav [(opened)]="coreService.leftSideNav" mode="over" position="end">
+            <!-- Chat Side Nav  -->
+                <div class="chat-sidebar-panel" *ngIf="coreService.chatSideNavOpen">
+                    <div class="chat-sidebar-content">
+                        <div class="sidebar-top p-3" fxLayoutAlign="space-between center">
+                            <span class="text-color fw-semi-bold font-size-base">Chat</span>
+                            <mat-icon class="material-icons search text-color cursor-pointer">search</mat-icon>
+                        </div>
+                        <mat-tab-group>
+                            <mat-tab label="CHAT">
+                                <div class="chat-tabs">
+                                    <a href="javascript:void(0)" class="chat-link">
+                                        <div class="a-list-content px-3" *ngFor="let chat of chatTab" fxLayoutAlign="space-between center">
+                                            <div class="content" fxLayoutAlign="start center"> 
+                                                <div class="chat-list-image" fxLayoutAlign="start center">
+                                                    <img class="radius-circle" alt="Chat session" src="{{chat.img}}" width="40" height="40">
+                                                </div>
+                                                <div class="chat-list-title">
+                                                   <span>{{chat.name}}</span>
+                                                </div>
+                                            </div> 
+                                            <div class="chat-list-icon">
+                                                <mat-icon class="a-icon material-icons {{chat.color}}">chat_bubble</mat-icon>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </mat-tab>
+                            <mat-tab label="PREVIOUS CHAT"> 
+                                <div class="chat-tabs">
+                                    <a href="javascript:void(0)" class="chat-link">
+                                        <div class="a-list-content px-3" *ngFor="let previousChat of previousChatTab" fxLayoutAlign="start center">
+                                            <div class="chat-list-image"> 
+                                                <img class="radius-circle" alt="Chat session" src="{{previousChat.img}}" width="40" height="40">
+                                            </div>
+                                            <div class="chat-list-title">
+                                                <span>{{previousChat.name}}</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </mat-tab>
+                        </mat-tab-group>
+                    </div>
+                </div>
+                <!-- Setting Side Nav  -->
+                <div class="setting-panel"  *ngIf="coreService.settingSideNavOpen">
+                    <mat-toolbar color="primary">
+                        <span fxFlex>Theme Options</span>
+                    </mat-toolbar>
+                    <mat-tab-group class="a-tab-group">
+                        <mat-tab label="ADVANCE"> 
+                            <div class="inner-toolbar">
+                                <div class="theme-color">
+                                    <div class="text-align mb-3"> 
+                                        <h5 class="theme-light-color">Sidebar Filters</h5>
+                                    </div>
+                                    <div class="a-list" fxLayoutAlign="start center">
+                                       <div class="sidebar" id="{{i}}-sidebar" *ngFor = "let filter of sideBarFilterClass; let i = index" [ngClass]="{'active-theme': i== 0 }">
+                                          <a  class="a-list-link cursor-pointer" (click)="sidebarFilter(filter, i+'-sidebar')">
+                                             <span class="{{filter.sideBarSelect}}"></span>
+                                          </a>
+                                        </div>      
+                                    </div>
+                                </div>
+                                <div class="theme-color">
+                                    <div class="text-align mb-3"> 
+                                        <h5 class="theme-light-color">Header Filters</h5>
+                                    </div>
+                                    <div class="a-list" fxLayoutAlign="start center">
+                                        <div class = "header" id="{{i}}-header" *ngFor = "let filter of headerFilterClass ; let i = index" [ngClass]="{'active-theme': i== 1}">
+                                          <a class="a-list-link cursor-pointer" (click)="headerFilter(filter,i+'-header')">
+                                             <span class="{{filter.headerSelect}}"></span>
+                                          </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </mat-tab>
+                        <mat-tab label="GENERAL">
+                            <div class="theme-options">
+                                <div class="customizer-scroll-area">
+                                    <div class="theme-layout">
+                                        <div class="checkbox-list collapsed-sidebar">
+                                            <mat-checkbox [checked]="coreService.isCheckboxOpen" (change)="onCollapseChange($event.checked)">Collapsed Sidebar</mat-checkbox>
+                                        </div>
+                                        <div class="checkbox-list">
+                                            <mat-checkbox  (change)="onBackgroundChange($event.checked)">Background image</mat-checkbox>
+                                        </div>
+                                        <div class="checkbox-list">
+                                            <mat-checkbox (change)="onDarkModeChange($event.checked)">Dark Mode</mat-checkbox>
+                                        </div>
+                                        <div class="checkbox-list rtl">
+                                            <mat-checkbox [checked]="coreService.rtlStatus" (change)="changeRTL($event.checked)">RTL Layout</mat-checkbox>
+                                        </div>
+                                    </div>
+                                    <div *ngIf = "isBackgroundImageOpen" class="sidebar-images">
+                                        <div class="" *ngFor="let sidebarBgImage of backgroundImages; let i=index">
+                                            <a id="{{i}}-img" [ngClass]="{'img-active': i== 0 }" class="select-bg-img cursor-pointer img-holder inline-block" (click)="changeBackgroundImage(sidebarBgImage, i+'-img')">
+                                                <img src="{{sidebarBgImage}}" height="150" width="75" alt="dynamic sidebar images">
+                                            </a>
+                                        </div>
+                                    </div> 
+                                </div>
+                            </div>    
+                        </mat-tab>
+                    </mat-tab-group>    
+                </div>   
+            </mat-sidenav>
+        </mat-sidenav-container>
+        <div class="anglo-customizer">
+            <div class="toogle-btn" fxLayoutAlign="center center" fxLayout="row">
+                <button class="customizer-toggle primary-bg" (click)="settingSideNav()">
+                    <mat-icon class="fa-spin">settings</mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>          
+     

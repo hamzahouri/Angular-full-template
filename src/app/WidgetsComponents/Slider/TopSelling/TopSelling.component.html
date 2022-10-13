@@ -1,0 +1,15 @@
+<ngx-slick-carousel [config]="slideConfig">
+	<div class="text-align p-3" ngxSlickItem *ngFor="let slide of slides">
+		<div class="thumbnail mb-4" fxLayoutAlign="center center">
+			<img src="{{ slide.img }}" alt="" width="245" height="250">
+		</div>
+		<div class="text-align">	
+			<h4 class="mb-2">{{slide.title}}</h4>
+			<h5 class="primary-color">{{slide.price|currency}}</h5>
+		</div>	
+	</div>
+</ngx-slick-carousel>
+
+	
+
+

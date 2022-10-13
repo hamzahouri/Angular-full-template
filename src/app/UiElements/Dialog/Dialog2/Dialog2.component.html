@@ -1,0 +1,21 @@
+<div class="a-card-title">
+<h4 mat-dialog-title>Dialog 2</h4>
+</div>
+<div class="a-card">
+	<mat-dialog-content>
+		<button mat-raised-button (click)="Dialog3()" color="accent">OPEN DAILOG 3</button>
+		<mat-form-field class="full-wid">
+			<mat-select placeholder="A Select List">
+				<mat-option value="1">State 1</mat-option>
+				<mat-option value="2">State 2</mat-option>
+				<mat-option value="3">State 3</mat-option>
+				<mat-option value="4">State 4</mat-option>
+				<mat-option value="5">State 5</mat-option>
+				<mat-option value="6">State 6</mat-option>
+			</mat-select>
+		</mat-form-field>	
+	</mat-dialog-content>
+</div>
+<mat-dialog-actions>
+	<button mat-raised-button (click)="dialogRef.close()" color="warn">CLOSE</button>
+</mat-dialog-actions>

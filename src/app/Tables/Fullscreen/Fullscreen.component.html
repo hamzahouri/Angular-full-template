@@ -1,0 +1,16 @@
+<div class="app-card-title mb-4">
+	<anglo-title-component title="Full Screen"></anglo-title-component>
+</div>
+
+<div class="fullscreen-table-wrapper">
+	<div class="overflow-hidden">
+		<ngx-datatable class="material fullscreen"  style="top: 1px" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="0" [rowHeight]="50" [scrollbarV]="true" [scrollbarH]="true" [rows]="rows">
+		   <ngx-datatable-column name="Id"></ngx-datatable-column>
+		   <ngx-datatable-column name="Name" [width]="300"></ngx-datatable-column>
+		   <ngx-datatable-column name="Gender"></ngx-datatable-column>
+		   <ngx-datatable-column name="Age"></ngx-datatable-column>
+		   <ngx-datatable-column name="City" [width]="300" prop="address.city"></ngx-datatable-column>
+		   <ngx-datatable-column name="State" [width]="300" prop="address.state"></ngx-datatable-column>
+		</ngx-datatable>
+	</div>	
+</div>

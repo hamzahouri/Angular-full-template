@@ -1,0 +1,25 @@
+/*-------------------------------------------------------------
+9.13 Charts
+-------------------------------------------------------------*/
+// Ngx-Charts
+
+.ngx-chart-wrapper {
+	svg {
+	   width:100% !important;
+	   height:100% !important;
+	}
+	.ngx-charts {
+	   float: none !important;
+	   overflow: visible;
+	}
+	.card-content {	
+		overflow:hidden;
+	}
+}
+
+// Ngx-Echart  
+.ngx-echart-wrapper {
+	.doughnut-chart {
+    	height: 400px !important;
+	}
+}

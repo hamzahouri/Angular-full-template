@@ -1,0 +1,84 @@
+<ng-container *ngIf = "selectedEmail != null">
+	<div class="email-detail-wrapper text-bg">
+		<div class="border-tb-1 p-3 px-4" fxLayoutAlign="space-between center">
+			<div>
+				<button class="a-btn-sm" mat-icon-button><mat-icon class="text-color">archive</mat-icon></button>
+				<button class="a-btn-sm" mat-icon-button><mat-icon class="text-color">error</mat-icon></button>
+				<button class="a-btn-sm" mat-icon-button (click)="onDeleteEmail()"><mat-icon class="text-color">delete</mat-icon></button>
+			</div>
+			<div>
+				<button class="a-btn-sm" mat-icon-button><mat-icon class="text-color">arrow_back</mat-icon></button>
+				<button class="a-btn-sm" mat-icon-button><mat-icon class="text-color">arrow_forward</mat-icon></button>
+			</div>
+		</div>	
+		<div class="border-b-1 p-3  grey-text" fxLayoutAlign="space-between center">
+			<div>
+				<button mat-icon-button (click)="backToEmails()"><mat-icon>keyboard_backspace</mat-icon></button>
+			</div>
+			<div>	
+				<button mat-icon-button><mat-icon>reply</mat-icon></button>
+				<button mat-icon-button><mat-icon>local_printshop</mat-icon></button>
+			</div>	
+		</div>
+		<perfect-scrollbar class="scroll-bar" [config]="config">
+			<div class="theme-light-color">	
+				<div class="border-b-1 p-3 px-4 mail-subject-wrap">
+					<h5 class="mb-0">{{selectedEmail.subject}}</h5>
+				</div>
+				<div class="media p-3 px-4" fxLayoutAlign="start center">	
+						<img class="mr-3 border-rad-sm" src = {{selectedEmail.avatarSrc}} width="50" height="50">
+					<div class="media-body">	
+						<h6 class="mb-0">{{selectedEmail.userName}}</h6>
+                  <p class="mb-0 fs-14">From <span class="fs-12 grey-text">{{selectedEmail.userEmail}}</span></p>
+                  
+                  <div>	
+                        <span class="fs-12 grey-text">{{selectedEmail.time}} Hour Ago</span>
+                     </div>
+						<p class="mb-0 fs-14">To: <span class="fs-12 grey-text">Me</span></p>
+					</div>
+				
+             </div>
+           	
+				<div class="mail-detail border-b-1">
+					<p class="fs-14">{{selectedEmail.body}}</p>
+					<p class="fs-14 mb-0 font-bold">Regards,</p>
+					<p class="mb-0 fs-12">{{selectedEmail.userName}}</p>
+				</div>
+				<div *ngIf = "selectedEmail.attachments != null">
+					<div class="py-3">
+						<div class="p-3 px-4" fxLayoutAlign="space-between center">		
+							<div>
+								<h6>{{selectedEmail.attachments.length}} Attachments</h6>
+							</div>
+							<div>
+								<button class="mr-2" mat-icon-button mat-button-sm><mat-icon>insert_drive_file</mat-icon></button>
+								<button mat-icon-button mat-button-sm><mat-icon>cloud_circle</mat-icon></button>
+							</div>	
+						</div>	
+						<div class="attachment-list px-2" >
+							<div class="mx-3" *ngFor = "let attachment of selectedEmail.attachments">	
+								<div class="overlay-wrapper inline-block">
+									<img class="a-image img-responsive" src = {{attachment.src}} width="180" height="140">
+									<a class="overlay-content cursor-pointer inline-block" fxLayoutAlign="center center"><mat-icon class="text-color">get_app</mat-icon></a>
+								</div>	
+								<span class="fs-12 anglo-block">{{attachment.name}}</span>	
+							</div>
+						</div>	
+					</div>	
+					<div class="p-3 px-4 bottom-form" fxLayoutAlign="start center" >
+						<div class="input-slot full-wid">
+							<div class="form-group input-text-field full-wid">
+									<mat-form-field class="full-wid" floatLabel="never">
+										<input matInput placeholder="Reply">
+									</mat-form-field>
+							</div>	
+						</div>
+						<div class=" text-color a-btn border-rad-sm">	
+							<button class="text-color primary-bg  a-btn-large" mat-button>SEND<mat-icon class="ml-3 text-color">send</mat-icon></button>
+						</div>
+					</div>
+				</div>
+			</div>		
+		</perfect-scrollbar>	
+	</div>	
+</ng-container>

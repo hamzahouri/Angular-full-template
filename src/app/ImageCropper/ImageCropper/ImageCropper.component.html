@@ -1,0 +1,28 @@
+<div class="app-card-title mb-4">
+	<anglo-title-component title="Image Cropper"></anglo-title-component>
+</div>	
+<mat-card>
+	<div class="grid-wrapper" fxLayout="row wrap">
+		<div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+			<mat-card>
+				<div class="mb-3">
+					<input type="file" (change)="fileChangeEvent($event)" width="400" height="400" accept= "image/*">
+				</div>	
+				<image-cropper
+				   [imageChangedEvent]="imageChangedEvent"
+				   [maintainAspectRatio]="true"
+				   [aspectRatio]="4 / 3"
+				   [resizeToWidth]="128"
+				   format="png"
+				   (imageCropped)="imageCropped($event)">
+				</image-cropper>
+				<mat-card-actions class="p-0 m-0">
+					<button class="generate-btn" mat-raised-button color="accent"(click)="onGenerate()">Generate</button>
+				</mat-card-actions>
+			</mat-card>	
+		</div>
+		<div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+			<img class="img-responsive" width="400" height="400" src="{{image}}">
+		</div>	
+	</div>
+</mat-card>

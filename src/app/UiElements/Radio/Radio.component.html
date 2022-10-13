@@ -1,0 +1,77 @@
+<div class="app-card-title mb-3">
+  <anglo-title-component title = "Radio"></anglo-title-component>
+</div>
+<div class="grid-wrapper a-radio-wrapper" fxLayout="row wrap">
+	<div class="app-card" fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+		<mat-card>
+			<div class="card-title p-2">
+				<h3>{{'Radios Default'|translate}}</h3>
+			</div>
+			<div class="card-content p-2">
+				<mat-radio-group>
+					<mat-radio-button class="mr-2" value="1">Radio 1</mat-radio-button>
+					<mat-radio-button class="mr-2" value="2">Radio 2</mat-radio-button>
+				</mat-radio-group>
+			</div>
+		</mat-card>	
+	</div>
+	<div class="app-card" fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+		<mat-card>
+			<div class="card-title p-2">
+				<h3>{{'Radio Direction Row'|translate}}</h3>
+			</div>
+			<div class="card-content p-2">
+				<mat-radio-group>
+					<mat-radio-button class="mr-2" value="1">option 1</mat-radio-button>
+					<mat-radio-button class="mr-2" value="2">option 2</mat-radio-button>
+				</mat-radio-group>
+			</div>
+		</mat-card>
+	</div>
+</div>	
+<div class="grid-wrapper" fxLayout="row wrap">
+	<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+		<mat-card>
+			<div class="card-title p-2">
+				<h3>{{'Switches - Colors'|translate}}</h3>
+			</div>
+			<div class="card-content p-2">
+				<mat-slide-toggle checked class="mr-2" color="primary">Primary</mat-slide-toggle>
+				<mat-slide-toggle checked class="mr-2" color="accent">Accent</mat-slide-toggle>
+				<mat-slide-toggle checked class="mr-2" color="warn">Warn</mat-slide-toggle>
+			</div>
+		</mat-card>
+	</div>
+	<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+		<mat-card>
+			<div class="card-title p-2">
+				<h3>{{'Radios Colors'|translate}}</h3>
+			</div>
+			<div class="card-content p-2">
+				<mat-radio-group>
+					<mat-radio-button class="mr-2" color="primary" value="1">Primary</mat-radio-button>
+					<mat-radio-button class="mr-2" color="accent" value="2">Accent</mat-radio-button>
+					<mat-radio-button class="mr-2" color="warn" value="3">Warn</mat-radio-button>
+				</mat-radio-group>
+			</div>
+		</mat-card>
+	</div>
+</div>	
+<div class="grid-wrapper">
+	<div class="app-card">
+		<mat-card>
+			<div class="card-title p-2">
+				<h3>{{'Radios Direction Column'|translate}}</h3>
+			</div>
+			<div class="card-content p-2">
+				<mat-radio-group [(ngModel)]="selectOption">
+					<div *ngFor="let option of optionsArray">
+						<mat-radio-button class="mr-2" [value]="option">
+								{{option}}
+						</mat-radio-button>
+					</div>
+				</mat-radio-group>
+			</div>
+		</mat-card>	
+	</div>
+</div>

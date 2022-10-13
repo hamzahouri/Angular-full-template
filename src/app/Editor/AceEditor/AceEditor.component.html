@@ -1,0 +1,17 @@
+<div class="app-card-title mb-4">
+	 <anglo-title-component title="Ace Editor"></anglo-title-component> 
+</div>
+<div class="app-card ace-editor-wrapper">
+	<mat-card>
+		<div fxlayout="row">
+			<div class="card-title mb-3 p-2" fxlayout="column">
+				<h3>{{'Ace Editor'|translate}}</h3>
+			</div>
+		</div>
+		<div class="app-card-content p-2">
+			<ace-editor
+			[(text)]="text" 
+			#editor style="height:350px;"></ace-editor>
+		</div>
+	</mat-card>
+</div>

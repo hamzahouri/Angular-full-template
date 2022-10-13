@@ -1,0 +1,319 @@
+<div class="e-commerce-wrapper">
+   <div class="dash-title mt-2 mb-3" fxLayoutAlign="start center">
+      <span>Overview</span>
+      <span class="a-tooltip ml-1">
+         <span  class="font-sz-md" 
+            matTooltip="Dashboard Overview"
+            matTooltipPosition="above">
+            <a class="cursor-pointer" fxLayoutAlign="start center">
+               <mat-icon  class="primary-color update-list material-icons">help_outline</mat-icon>
+            </a>
+         </span>
+      </span>
+   </div>
+   <div class="app-card">
+      <div class="grid-wrapper" fxLayout="row wrap">
+         <!-- Total Earnings -->
+         <div fxFlex.xs="100" fxFlex.sm="50"  fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33">
+            <div class="height-80">
+               <anglo-ecommerce-stats-card [statCardData] = "earningCardData" [color]="earningChartColors" [data]="earningChartData" [label]="earningChartLabel"></anglo-ecommerce-stats-card>
+            </div>
+         </div>
+         <!-- New Customers -->
+         <div fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33">
+            <div class="height-80">
+               <anglo-ecommerce-stats-card [statCardData] = "customerCardData" [color]="customersChartColors" [data]="customersChartData" [label]="customersChartLabel"></anglo-ecommerce-stats-card>
+            </div>
+         </div>
+         <!-- Online Revenue -->
+         <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33">
+            <div class="height-80">
+               <anglo-ecommerce-stats-card [statCardData] = "revenueCardData" [color]="revenueChartColors" [data]="revenueChartData" [label]="revenueChartLabel"></anglo-ecommerce-stats-card>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="grid-wrapper" fxLayout="row wrap">
+      <!-- Sales  -->
+      <div class="chartjs-size-monitor app-card chart-relative" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="60" fxFlex.xl="66.8">
+         <mat-card *ngIf="isVisibleChildComponent.singleSalesChartVisible" id="saleChart">
+            <div class="app-card full-hght">
+               <div fxLayoutAlign="space-between center">
+                  <div class="card-title">
+                     <h3 class="mb-0 text-capitalize">{{'Sales' | translate}}</h3>
+                  </div>
+                  <div class="a-icon">
+                     <TopsideMenu (isCloseEvent) = "getCloseValue($event, 'sales')" (isFullScreen)="showFullScreen('saleChart')" (isShowSpinner)="spinnerShow('saleChart')"></TopsideMenu>
+                  </div>
+               </div>
+               <mat-card-content>
+                  <div class="mb-4">
+                     <div class="height-350">
+                        <anglo-sale-bar-chart [color]="barChartColors" [data]="barChartData" [label]="barChartLabels" [xAxisLabel]="xAxisLabel"></anglo-sale-bar-chart>
+                     </div>
+                  </div>
+                  <div class="px-4 hidden-xs-only" fxLayoutAlign="space-between center">
+                     <div fxLayoutAlign="start">
+                        <span class="mr-2">
+                           <mat-icon class="primary-color">add_shopping_cart</mat-icon>
+                        </span>
+                        <p>
+                           <span class="anglo-block font-bold fs-14">2382</span>
+                           <span class="anglo-block grey-text fs-12">Sales</span>
+                        </p>
+                     </div>
+                     <div fxLayoutAlign="start">
+                        <span class="mr-2">
+                           <mat-icon class="accent-color">remove_red_eye</mat-icon>
+                        </span>
+                        <p>
+                           <span class="anglo-block font-bold fs-14">53,255</span>
+                           <span class="anglo-block grey-text fs-12">Views</span>
+                        </p>
+                     </div>
+                     <div fxLayoutAlign="start">
+                        <span class="mr-2">
+                           <mat-icon class="warn-color">equalizer</mat-icon>
+                        </span>
+                        <p>
+                           <span class="anglo-block font-bold fs-14">$1,25,000</span>
+                           <span class="anglo-block grey-text fs-12">Earned</span>
+                        </p>
+                     </div>
+                  </div>
+               </mat-card-content>
+               <div class="card-spinner" [ngClass] = "{'reload' : isReloadChildComponent.saleShowSpinner}" fxLayoutAlign="center center">
+                  <mat-spinner *ngIf="isReloadChildComponent.saleShowSpinner" mode="indeterminate" diameter="39"></mat-spinner>
+               </div>
+            </div>
+         </mat-card>
+      </div>
+      <!-- Device Share -->
+      <div class="app-card device-share-wrapper" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="40" fxFlex.xl="33.2">
+         <mat-card *ngIf="isVisibleChildComponent.deviceShareVisible" id="deviceShare">
+            <div class="app-card full-hght">
+               <div fxLayoutAlign="space-between center">
+                  <div class="card-title">
+                     <h3 class="mb-0 text-capitalize">{{'Device Share'|translate}}</h3>
+                  </div>
+                  <div class="a-icon">
+                     <TopsideMenu (isCloseEvent) = "getCloseValue($event, 'deviceShare')" (isFullScreen)= "showFullScreen('deviceShare')" (isShowSpinner)="spinnerShow('deviceShare')"></TopsideMenu>
+                  </div>
+               </div>
+               <mat-card-content>
+                  <div class="doughnut-chart">
+                     <div>
+                        <anglo-doughnut-chart [doughnutChart]="doughnutChartOptions"></anglo-doughnut-chart>
+                     </div>
+                     <div class="overlay-content" fxLayoutAlign="center center">
+                        <span class="font-bold font-sz-md grey-text">$ 2000</span>
+                     </div>
+                  </div>
+                  <div class="hidden-xs-only" fxLayoutAlign="space-around center">
+                     <div class="mr-3">
+                        <span class="a-badge primary-bg px-2 py-1"></span>
+                        <span class="anglo-block grey-text fs-12">65%</span>
+                        <span class="anglo-block grey-text fs-12">Website</span>
+                     </div>
+                     <div class="mr-3">
+                        <span class="a-badge accent-bg px-2 py-1"></span>
+                        <span class="anglo-block grey-text fs-12">65%</span>
+                        <span class="anglo-block grey-text fs-12">iOS Devices</span>
+                     </div>
+                     <div class="mr-3">
+                        <span class="a-badge warn-bg px-2 py-1"></span>
+                        <span class="anglo-block grey-text fs-12">65%</span>
+                        <span class="anglo-block grey-text fs-12">Android Devices</span>
+                     </div>
+                  </div>
+               </mat-card-content>
+               <div class="card-spinner" [ngClass] = "{'reload' : isReloadChildComponent.deviceShowSpinner}" fxLayoutAlign="center center">
+                  <mat-spinner *ngIf="isReloadChildComponent.deviceShowSpinner" mode="indeterminate" diameter="39"></mat-spinner>
+               </div>
+            </div>
+         </mat-card>
+      </div>
+   </div>
+   <div class="grid-wrapper" fxLayout="row wrap">
+      <!-- Recent Sale -->
+      <div class="app-card" fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33">
+         <anglo-recent-sale [recentSaleData]="recentSaleData"></anglo-recent-sale>
+      </div>
+      <!-- Support Request -->
+      <div class="support-request" fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33">
+         <anglo-support-request [supportRequestData]="supportRequestData"></anglo-support-request>
+      </div>
+      <!-- To Do List -->
+      <div class="Todo-list-wrapper app-card" fxFlex.xs="100" fxFlex.md="33.33" fxFlex.sm="100" fxFlex.lg="33.33" fxFlex.xl="33.33">
+         <anglo-todolist [TodoListData]="todoListData"></anglo-todolist>
+      </div>
+   </div>
+   <div class="grid-wrapper top-selling-wrapper" fxLayout="row wrap">
+      <!-- Customer Overview -->
+      <div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+         <mat-card class="p-0" *ngIf="isVisibleChildComponent.numberCardChartVisible" id="customerOverview">
+            <div class="p-3" fxLayoutAlign="space-between center">
+               <div class="card-title">
+                  <h3 class="mb-0 text-capitalize">{{'Customer Overview'|translate}}</h3>
+               </div>
+               <div class="a-icon">
+                  <TopsideMenu (isCloseEvent) = "getCloseValue($event, 'advanceChart')" (isFullScreen)= "showFullScreen('customerOverview')" (isShowSpinner)="spinnerShow('customerOverview')"></TopsideMenu>
+               </div>
+            </div>
+            <mat-card-content class="mb-0">
+               <div class="cart-layout p-3 mb-1" fxLayoutAlign="start start">
+                  <div class="number-chart hidden-xs-only">
+                     <h3 class="mb-0">35000</h3>
+                     <p class="mb-0 grey-text fs-12">New Coustmer</p>
+                  </div>
+                  <div class="number-chart hidden-xs-only">
+                     <h3 class="mb-0">25000</h3>
+                     <p class="mb-0 grey-text fs-12">Returning Customers</p>
+                  </div>
+               </div>
+               <div class="anglo-line-chart height-210">	
+                  <anglo-line-chart-with-area [color]="customerChartColors" [data]="customerChartData" [label]="customerChartLabel"></anglo-line-chart-with-area>
+               </div>
+            </mat-card-content>
+            <div class="card-spinner"  [ngClass] = "{'reload' : isReloadChildComponent.customerShowSpinner}" fxLayoutAlign="center center">
+               <mat-spinner *ngIf="isReloadChildComponent.customerShowSpinner" mode="indeterminate" diameter="39"></mat-spinner>
+            </div>
+         </mat-card>
+      </div>
+      <!-- Invoices -->
+      <div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+         <div class="invoices-list-wrapper">
+            <anglo-invoices [invoicesData]="invoicesData" [displayedColumnsData]="displayedColumns" [tableHeadingData]="invoicesTableHeading" title="Invoices"></anglo-invoices>
+         </div>
+      </div>
+   </div>
+   <div class="grid-wrapper recent-order-wrapper" fxLayout="row wrap">
+      <!-- Recent Orders -->
+      <div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="65" fxFlex.lg="65" fxFlex.xl="65">
+         <anglo-recent-order  [recentOrdersData]="recentOrderData"></anglo-recent-order>
+      </div>
+      <div class="app-card margin-none" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="35" fxFlex.lg="35" fxFlex.xl="35">
+         <div class="grid-wrapper" fxLayout="row wrap">
+            <!-- Weekly Sales -->
+            <div fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="100" fxFlex.lg="100" fxFlex.xl="100">
+               <mat-card class="p-0" *ngIf="isVisibleChildComponent.weeklySaleChartVisible" id="weeklySales">
+                  <div class="p-3"  fxLayoutAlign="space-between center">
+                     <div class="card-title">
+                        <h3 class="mb-0 text-capitalize">{{'Weekly Sales'|translate}}</h3>
+                     </div>
+                     <div class="a-icon">	
+                        <TopsideMenu (isCloseEvent) = "getCloseValue($event,'weeklySaleChart')" (isFullScreen)= "showFullScreen('weeklySales')" (isShowSpinner)="spinnerShow('weeklySales')"></TopsideMenu>
+                     </div>
+                  </div>
+                  <mat-card-content class="mb-0">
+                     <div class="pl-4">
+                        <h5 class="mb-0 fw-bold">2578</h5>
+                        <p class="fs-12 grey--text">+35% from last week</p>
+                     </div>
+                     <div class="height-100">
+                        <anglo-line-chart-with-area [color]="saleChartColors" [data]="saleChartData" [label]="saleChartLabel"></anglo-line-chart-with-area>
+                     </div>
+                  </mat-card-content>
+                  <div class="card-spinner" [ngClass] = "{'reload' : isReloadChildComponent.weeklySellShowSpinner}" fxLayoutAlign="center center">
+                     <mat-spinner *ngIf="isReloadChildComponent.weeklySellShowSpinner" mode="indeterminate" diameter="39"></mat-spinner>
+                  </div>
+               </mat-card>
+            </div>
+            <!-- Reviews -->
+            <div fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="100" fxFlex.lg="100" fxFlex.xl="100">
+               <mat-card class="p-0" *ngIf="isVisibleChildComponent.reviewVisible">
+                  <div class="p-3" fxLayout="row wrap" fxLayoutAlign="space-between center">
+                     <div class="title">
+                        <h4 class="mb-0 text-capitalize">{{'Reviews'|translate}}</h4>
+                     </div>
+                  </div>
+                  <div class="reviews-wrapper">
+                     <mat-card-content class="mb-0">
+                        <anglo-reviews [reviewsSlideData]="reviewsSlideData"></anglo-reviews>
+                     </mat-card-content>
+                  </div>
+               </mat-card>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- Social Feeds -->
+   <div fxLayout="row wrap">
+      <div class="social-icon-wrapper" *ngFor="let socialData of socialFeedData" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="100" fxFlex.lg="100" fxFlex.xl="100">
+         <anglo-social-card [socialData]="socialData"></anglo-social-card>
+      </div>
+   </div>
+   <div class="grid-wrapper" fxLayout="row wrap">
+      <!-- Top Selling -->
+      <div class="app-card top-selling-wrapper" fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="50" fxFlex.lg="35" fxFlex.xl="35">
+         <mat-card class="p-0" *ngIf="isVisibleChildComponent.topSellingVisible" id="topSelling">
+            <div class="p-3" fxLayoutAlign="space-between center">
+               <div class="card-title">
+                  <h3 class="mb-0 text-capitalize">{{'Top Selling'|translate}}</h3>
+               </div>
+               <div class="a-icon">	
+                  <TopsideMenu (isCloseEvent)="getCloseValue($event,'topSelling')" (isFullScreen)= "showFullScreen('topSelling')" (isShowSpinner)="spinnerShow('topSelling')"></TopsideMenu>	
+               </div>
+            </div>
+            <mat-card-content class="m-0">
+               <anglo-top-selling [slides]="topSellingData"></anglo-top-selling>
+               <div class="border-t-1 p-3" fxLayout="row">
+                  <div class="border-r-1 w-50 text-align">
+                     <p class="fs-12 grey-text mb-0">Total Sales</p>
+                     <h4 class="mb-0 font-bold">12,500</h4>
+                  </div>
+                  <div class="# w-50 text-align">
+                     <p class="fs-12 grey-text mb-0">Earnings</p>
+                     <h4 class="mb-0 font-bold">25,000</h4>
+                  </div>
+               </div>
+            </mat-card-content>
+            <div class="card-spinner" [ngClass] = "{'reload' : isReloadChildComponent.topSellShowSpinner}" fxLayoutAlign="center center">
+               <mat-spinner *ngIf="isReloadChildComponent.topSellShowSpinner" mode="indeterminate" diameter="39"></mat-spinner>
+            </div>
+         </mat-card>
+      </div>
+      <!-- Category Sales -->
+      <div class="app-card category-sales-wrapper" fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="50" fxFlex.lg="65" fxFlex.xl="65">  
+         <anglo-category-sales [id]="categorySaleId" [CategorySaleData]="categorySaleData" titleName="Category Sales" className="category-progress-wrap"></anglo-category-sales>
+      </div>
+   </div>
+   <div class="grid-wrapper grid-width" fxLayout="row wrap">
+      <!-- Blog Layout Card -->
+      <div class="app-card blog-widget" fxFlex.xs="100" fxFlex.sm="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33">
+         <!-- <anglo-blog-layout [card]="blogLayoutData"></anglo-blog-layout> -->
+         <mat-card class="p-0">
+            <div class="p-3 primary-bg" fxLayoutAlign="start center">
+               <div class="mr-3">
+                  <img class="mb-0 radius-circle" width="40" height="40" src="assets/img/user-7.jpg" alt="Photo of a blog">
+               </div>
+               <div class="card-title">
+                  <h6 class="text-color mb-0">Gregory A.</h6>
+                  <span class="fs-12 text-color">Web Designer & Developer</span>
+               </div>
+            </div>
+            <div class="img-thumb-wrap height-533">
+               <div class="overlay-content p-3 pb-4">
+                  <mat-card-content>
+                     <h3 class="text-color">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.
+                     </h3>
+                  </mat-card-content>
+                  <mat-card-actions class="p-0 m-0">
+                     <button mat-raised-button class="text-color" color="primary">LIKE</button>
+                     <button mat-raised-button class="text-color" color="accent">SHARE</button>
+                  </mat-card-actions>
+               </div>
+            </div>
+         </mat-card>
+      </div>
+      <!-- Image Blog Card  -->
+      <div class="height-630" fxFlex.xs="100" fxFlex.sm="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33">
+         <anglo-image-card></anglo-image-card>
+      </div>
+      <!-- New Post -->
+      <div class="app-card " fxFlex.xs="100" fxFlex.sm="100" fxFlex.lg="33.33" fxFlex.xl="33.33">
+         <anglo-new-post class="new-post-image"></anglo-new-post>
+      </div>
+   </div>
+</div>

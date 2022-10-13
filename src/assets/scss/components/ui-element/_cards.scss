@@ -1,0 +1,32 @@
+/*-------------------------------------------------------------
+9.1 Cards
+-------------------------------------------------------------*/
+.cards-wrapper {
+	.mat-expansion-panel {
+		box-shadow: none ;
+	}
+	.mat-expansion-panel-header:hover {
+		background: none;
+	}
+	.mat-card-actions {
+		margin-bottom:0px;
+	}
+	.card-image {
+		position:relative;
+		.overlay-content {
+			position:absolute;
+			top:0;
+			right:0;
+			left:0;
+			bottom:0;
+		}
+	}
+	.headline{
+	   font-weight: $font-weight-base;
+	   letter-spacing: normal;
+	}
+}	
+
+.user-blog-widget img {
+	width: 100%;
+}

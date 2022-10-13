@@ -1,0 +1,68 @@
+<div class="app-card-title mb-4">
+	<anglo-title-component title =  "Carousel"></anglo-title-component>
+</div>
+<div class="carousel-card-wrapper">
+	<div class="app-card mb-4">
+		<mat-card>
+			<div class="card-title p-2">
+				<h3>{{'Default'|translate}}</h3>
+			</div>
+			<mat-card-content class="p-2">
+				<slideshow
+					[imageUrls]="imageSources1"
+					[height]="'400px'"
+					[arrowSize]="'15px'"
+					[showArrows]="true"
+				    [autoPlay]="true"
+					[autoPlayInterval]="3333"
+					[stopAutoPlayOnSlide]="true"
+					[disableSwiping]="true"
+					[showCaptions]="true"
+					[hideOnNoSlides]="false"
+					[captionBackground]="'rgba(0,0,0,0.5)'"
+					[showDots]="true"
+					[dotColor]="'#FFFFFF'">
+				</slideshow>
+			</mat-card-content>
+		</mat-card>
+	</div>
+	<div class="app-card mb-4">
+		<mat-card>
+			<div class="card-title p-2">
+				<h3>{{'Hide Controls'|translate}}</h3>
+			</div>
+			<mat-card-content class="p-2">
+				<slideshow
+					[imageUrls]="imageSources2"
+					[height]="'400px'"
+					[autoPlay]="true"
+					[showArrows]="false"
+					[autoPlayInterval]="3333"
+					[stopAutoPlayOnSlide]="true"
+					[showCaptions]="true"
+					[captionBackground]="'rgba(0,0,0,0.5)'"
+					[showDots]="true"
+					[dotColor]="'#FFFFFF'">
+				</slideshow>
+			</mat-card-content>
+		</mat-card>
+	</div>	
+	<div class="app-card mb-4">
+		<mat-card>
+			<div class="card-title p-2">
+				<h3>{{'Hide Delimiters'|translate}}</h3>
+			</div>
+			<mat-card-content class="p-2">
+				<slideshow
+					[imageUrls]="imageSources3"
+					[height]="'400px'"
+					[arrowSize]="'15px'"
+					[showArrows]="true"
+					[autoPlay]="true"
+					[autoPlayInterval]="3333"
+					[stopAutoPlayOnSlide]="true">
+				</slideshow>
+			</mat-card-content>
+		</mat-card>
+	</div>	
+</div>	

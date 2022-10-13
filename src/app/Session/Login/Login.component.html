@@ -1,0 +1,68 @@
+<div class="application-wrapper">
+	<div class="session-wrapper">
+		<div class="full-hght mb-0">	
+			<div class="testimonial-section">
+				<anglo-session-slider [Reviews_slides]="ReviewsSlides"></anglo-session-slider>
+			</div>
+			<div class="login-sec">		
+				<app-nav-bar></app-nav-bar>
+
+				<div class="session-right full-hght">
+					<!--new block added here : navbar component-->
+					<div class="session-table">	
+						<div class="session-content text-align">
+							<div class="anglo-logo inline-block mb-3">
+						   	<img alt="Anglo logo" src="/assets/img/cergap2.jpg" width="98" height="98">
+						   </div>
+						   <div>	
+						   	<h2 class="mb-3">{{'Login To Admin'|translate}}</h2>
+						   	<p class="fs-14 mb-3">Entrer login et mot de pass pour se connecter</p>
+							</div>
+							<form class="mb-4" [formGroup]="loginForm">
+								<div>
+									<mat-form-field>
+										<input type="email" matInput placeholder="Identifiant" formControlName="email" >
+									</mat-form-field>
+									<mat-error *ngIf="loginForm.controls['email'].touched && !loginForm.controls['email'].valid">
+										<mat-error *ngIf="loginForm.controls['email'].hasError('required')">
+											E-mail is required
+										</mat-error>
+										<mat-error *ngIf="loginForm.controls['email'].hasError('pattern')">
+											E-mail must be valid
+										</mat-error>
+									</mat-error>
+								</div>
+								<div class="mb-2">
+									<mat-form-field>
+										<input type="password" matInput placeholder="Mot de pass" formControlName="password">
+									</mat-form-field>
+									<mat-error *ngIf="loginForm.controls['password'].touched && !loginForm.controls['password'].valid">
+										<mat-error *ngIf="loginForm.controls['password'].hasError('required')">
+											Password is required
+										</mat-error>
+										<mat-error *ngIf="loginForm.controls['password'].hasError('minlength')">
+											Password must contain atleast 6 characters 
+										</mat-error>
+									</mat-error>
+								</div>
+								
+								<div class="mb-3">
+									<a class="primary-color"  [routerLink]="['/session/forgot-password']" routerLinkActive="active">Mot de pass oublier?</a>
+								</div>
+								<mat-card-actions>
+									<button class="login-btn btn py-1 mb-2 mx-0" mat-raised-button color="primary" (click)="logInFormOpen(loginForm.value)">Se connecter</button>
+								</mat-card-actions>
+								
+							</form>
+                        
+						</div>
+						
+					</div>	
+				
+				</div>	
+					
+			</div>
+		</div>
+	
+	</div>	
+</div>	

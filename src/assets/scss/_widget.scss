@@ -1,0 +1,159 @@
+/*-------------------------------------------------------------
+4.1 Widget
+-------------------------------------------------------------*/ 
+.support-widget-wrap {
+	.doughnut-chart{
+		height:290px !important;
+	}
+   .mat-list .mat-list-item .mat-list-item-content:not(:nth-child(2)) {
+		background-color: #f4f7fa;
+	}
+	.mat-list-item{
+		width:100% !important;
+	}
+	.mat-list-item-content {
+		width:100% !important;
+		display:flex;
+		justify-content:space-between;
+		align-items:center;
+	}
+	.list-name{
+		width:20%;
+		color:$font-color;
+	}	
+	.list-value{
+		.a-badge {
+			width:70px;
+		}
+	}			
+}
+.user-blog-widget {
+	.title{
+		font-size: 24px!important;
+ 		line-height: 32px!important;
+ 	}	
+	.mat-card{
+		padding:0px !important;
+	}
+	.mat-card-content{
+		padding:1rem 1.25rem !important;
+	}
+	.mat-card-actions{
+		padding:0.5rem 1.5rem !important;
+	}
+	.a-responsive{
+ 		position:relative;	
+		.blog-heading{
+			position: absolute;
+				bottom: 0;
+				top: 0;
+				justify-content: flex-end;
+				display: flex;
+				align-items: flex-end;
+				align-content: flex-end;
+				padding: 20px;
+				max-width: 100%;
+				line-height: 35px;
+				.title{
+					color:$text-color;
+				}
+		}
+	}
+}   
+.app-card-content {
+	.user-widget-wrap {
+		.data-content {
+			.mail-action {
+			 	width:16%;
+			   opacity:0;
+			   transition: all 0.5s ease-in-out;
+			}	
+			&:hover .mail-action {
+		   	opacity:1;
+		   	transition: all 0.5s ease-in-out;
+			}
+		}
+	}
+}	
+.charts-wrapper {
+	svg {
+	   width:100% !important;
+	   height:100% !important;
+	}
+	.ngx-charts {
+	   float: none !important;
+	   overflow: hidden;
+	}
+}	
+.campaign-performance{
+	.mat-form-field-appearance-legacy .mat-form-field-wrapper {
+		padding-bottom:1rem !important;
+	}	
+}
+.ladgend-wrapper {
+ 	.ladgend {
+	   border-radius: 30px;
+	   display: inline-block;
+	   height: 10px;
+	   margin-right: 5px;
+	   width: 20px;
+	}
+	p span {
+ 		color: $grey-text;
+	} 
+ 	.ladgend.ladgend-success {
+ 		background: $ladgend-success;
+	}
+	.ladgend.ladgend-warning {
+	   background: $ladgend-warning;
+	}
+	.ladgend.ladgend-pink {
+ 		background: $ladgend-pink;
+	}
+}	
+.radial-progress-container {
+	position:relative;
+	.radial-progress-inner {
+    	position: absolute;
+    	bottom: 0;
+    	left: 0;
+    	right: 0;
+    	top: 0;
+    	margin: 0 auto;
+   } 
+   .anglo-circle-progress{
+   	height:172px !important;
+   }	
+}
+
+@media (max-width: 767px) and (min-width: 320px){
+   .charts-wrapper .update-content{
+      font-size:10px !important;
+   }
+   .ladgend-wrapper .ladgend-content {
+		font-size:12px !important
+	}
+}  
+@media (max-width:959px) and (min-width:320px){
+	.app-card-content .user-widget-wrap .data-content .mail-action {
+		width:100% !important;
+		text-align: left;
+	}
+	.app-card-content .user-widget-wrap .data-content .mail-content {
+		display: block !important;
+	}
+}
+
+.list-img{
+ width:180px;
+}
+.list-img-md{
+	width: 50px;
+	img{
+		width: 50px;
+		height: 50px;
+	}
+}
+.list-msg-box{
+	width:calc(100% - 150px);
+}

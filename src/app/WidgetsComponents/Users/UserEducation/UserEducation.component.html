@@ -1,0 +1,26 @@
+<div class="card-content mb-4">
+	<mat-card *ngIf="education" id = "userEducation">
+		<div class="mb-4" fxLayout="row" fxLayoutAlign="space-between center">
+			<div>
+				<h3 class="mb-0">{{'Education'|translate}}</h3>
+			</div>
+			<div class="a-icon">	
+				<TopsideMenu (isCloseEvent) = "getCloseValue($event)" (isFullScreen)="showFullScreen('userEducation')" (isShowSpinner)="spinnerShow('userEducation')"></TopsideMenu>
+			</div>	
+		</div>	
+		<mat-card-content>
+			<div *ngFor="let education of UserEducation" fxLayout="row wrap" fxLayoutAlign="space-between center">
+				<div class="mb-4">
+					<h5 class="mb-2">{{education.designer}}</h5>
+					<span>{{education.airHelper}}</span>
+				</div>
+				<div>
+					<span>{{education.year}}</span>
+				</div>
+			</div>
+			<div class="card-spinner" [ngClass] = "{'reload' : userEducationSpinner}" fxLayoutAlign="center center">
+				<mat-spinner *ngIf="userEducationSpinner" mode="indeterminate" diameter="39"></mat-spinner>
+			</div>	
+		</mat-card-content>
+	</mat-card>
+</div>	

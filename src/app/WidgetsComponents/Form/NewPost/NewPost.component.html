@@ -1,0 +1,31 @@
+<mat-card *ngIf = "newPosttVisible" id="newPost">
+	<div class="mb-4" fxLayoutAlign="space-between center">
+		<div class="card-title">
+			<h3 class="mb-0 text-capitalize">{{'New Post' | translate}}</h3>
+		</div>
+		<div class="a-icon">	
+			<TopsideMenu (isCloseEvent) = "getCloseValue($event)"  (isFullScreen)= "showFullScreen('newPost')" 
+			(isShowSpinner)="spinnerShow()"></TopsideMenu>
+		</div>
+	</div>		
+	<mat-card-content>
+		<div class="dropzone mb-4" [dropzone]="config"></div>
+		<div class="mb-4 grey-text">
+			<mat-form-field class="full-wid">
+				<input matInput placeholder="Subject">
+			</mat-form-field>
+		</div>
+		<div>
+			<mat-form-field class="full-wid">
+			<label>Content</label>
+				<textarea matAutosizeMaxRows matInput rows="6"></textarea>
+			</mat-form-field>
+		</div>
+	</mat-card-content>
+	<mat-card-actions class="m-0 p-3">
+		<button mat-raised-button color="primary">PUBLISH</button>
+	</mat-card-actions>	
+	<div class="card-spinner" [ngClass] = "{'reload' : newPostShowSpinner}" fxLayoutAlign="center center">
+		<mat-spinner *ngIf="newPostShowSpinner" mode="indeterminate" diameter="39"></mat-spinner>
+	</div>
+</mat-card>

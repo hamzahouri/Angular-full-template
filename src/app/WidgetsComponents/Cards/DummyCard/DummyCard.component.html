@@ -1,0 +1,35 @@
+<div *ngFor="let cards of card">
+	<mat-card class="p-0">
+		<div class="p-4">
+			<div>
+				<h4 class="title">{{cards.heading}}</h4>
+			</div>
+			<div class="meta-data grey-text fs-12">	
+				<span class="mr-1">{{cards.author.date|date}},</span>
+				<span class="mr-1">By: {{cards.author.by}},</span>
+				<span>{{cards.author.comments_count}} Comments</span>
+			</div>
+		</div>	
+		<img class="img-responsive" src="{{cards.img}}">
+		<mat-card-content class="px-4 py-3 mb-4">
+			<p class="m-0">{{cards.content}}</p>
+		</mat-card-content>
+		<mat-card-actions class="p-0 my-0">
+			<div class="py-2 px-4" fxLayoutAlign="space-between center">
+				<div>
+					<button mat-icon-button color="primary"><mat-icon>share</mat-icon></button>
+					<button mat-icon-button color="warn"><mat-icon>favorite</mat-icon></button>
+				</div>
+				<div>
+					<button mat-icon-button><mat-icon class="grey-text">more_horiz</mat-icon></button>
+				</div>
+			</div>
+		</mat-card-actions>	
+	</mat-card>
+</div>	
+
+
+	
+
+
+

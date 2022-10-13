@@ -1,0 +1,53 @@
+<ng-container *ngIf="emailsService.state.emails && emailsService.state.emails.length>0 else noEmailFound">
+	<perfect-scrollbar class="scroll-bar" [config]="config">
+		<div class="border-b-1 email-list-item text-bg" *ngFor="let emails of emailsService.state.emails">
+			<div>
+				<a class="a-list-content cursor-pointer p-3" fxLayout="row wrap" fxLayoutAlign="start center">
+					<div fxFlex.xs="15" fxFlex.sm="15" fxFlex.md="15"  fxFlex.lg="10" fxFlex.xl="10">
+						<div fxLayoutAlign="start center">
+							<div class="mr-3">
+								<mat-checkbox (change) = onSelectEmail(emails)></mat-checkbox>
+							</div>
+							<div class="rating-star">	
+								<button mat-icon-button (click) ="markAsStarEmail(emails)">
+									<ng-container *ngIf="emails.starred else elseBlock">
+										<mat-icon class="success-color">star</mat-icon>
+									</ng-container>
+									<ng-template #elseBlock>
+										<mat-icon class="success-color">star_border</mat-icon>
+									</ng-template>
+								</button>
+							</div>
+						</div>
+					</div>	
+					<div (click)="onViewEmail(emails)" fxFlex.xs="85" fxFlex.sm="85" fxFlex.md="85"  fxFlex.lg="90" fxFlex.xl="90">
+						<div class="email-listing-content">
+							<div fxLayoutAlign="space-between center">
+								<div class="media px-3" fxLayoutAlign="start center">
+									<div class="list-avatar-img mr-3">
+										<img class="radius-circle" src={{emails.avatarSrc}} width="40" height="40">
+									</div>
+									<div class="media-body" fxLayoutAlign="space-between center">
+										<div class="inline-block list-title">
+											<h6 class="mb-1 theme-light-color">{{emails.userName}}</h6>
+											<span class="fs-12 inline-block">{{emails.subject}}</span>
+										</div>
+										<div class="content">	
+											<p class="fs-12 grey-text inline-block m-0 mx-4">{{emails.body}}</p>
+										</div>
+									</div>		
+								</div>	
+								<div class="a-tile-action">
+									<span class="fs-12 grey-text">{{emails.time}} hour ago</span>
+								</div>
+							</div>
+						</div>		
+					</div>			
+				</a>	
+			</div>	
+		</div>
+	</perfect-scrollbar>	
+</ng-container>
+<ng-template #noEmailFound>
+<h3 class="email-title" fxLayoutAlign="center center">No Email Found.</h3>
+</ng-template>

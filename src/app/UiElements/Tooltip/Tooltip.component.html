@@ -1,0 +1,36 @@
+<div class="app-card-title mb-3">
+   <anglo-title-component title="Tooltip"></anglo-title-component>
+</div>
+<div class="grid-wrapper a-tooltip-wrapper" fxLayout="row wrap">
+   <div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+      <mat-card>
+      	<div class="card-title p-2">
+            <h3>{{'Tooltip'|translate}}</h3>
+         </div>
+         <div class="card-content p-2">
+            <ng-container *ngFor="let toolTip of toolTips">
+         	  <button class="m-2" mat-raised-button color={{toolTip.color}} matTooltip="{{toolTip.position}} Tooltip" matTooltipPosition="{{toolTip.position}}">{{toolTip.position}}</button>
+            </ng-container>
+         </div>
+      </mat-card>   
+   </div>
+   <div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+      <mat-card>
+      	<div class="card-title p-2">
+            <h3>{{'Visibility'|translate}}</h3>
+         </div>
+         <div class="card-content p-2" fxlayout="row">
+            <div class="toggle-tooltip mr-2" fxflex.lg="30" fxFlex="50">
+               <button mat-raised-button class="toggle-btn full-wid m-2" color="primary" (click)="tooltip.toggle()">TOGGLE</button>
+            </div>
+            <div class="tooltip mb-1" fxflex.lg="30" fxFlex="50" fxLayoutAlign="start center">   
+               <button mat-button>
+                  <mat-icon class="material-icons shopping-cart" #tooltip="matTooltip"
+                  matTooltip="Programmatic tooltip"
+                  matTooltipPosition="above">shopping_cart</mat-icon>
+               </button>
+            </div>
+         </div>
+      </mat-card>
+   </div>
+</div>   

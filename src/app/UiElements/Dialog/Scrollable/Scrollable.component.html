@@ -1,0 +1,16 @@
+<div class="scrollable-content">
+	<div class="card-title">
+		<h2 mat-dialog-title>Select Country</h2>
+	</div>
+	<mat-divider></mat-divider>
+		<mat-dialog-content class="p-3">
+			<div *ngFor="let countryData of countries; let i=index;">
+				<mat-radio-button *ngIf="i<20">{{countryData.country}}</mat-radio-button>
+			</div>	
+		</mat-dialog-content>
+	<mat-divider></mat-divider>
+	<mat-dialog-actions>
+		<button mat-raised-button color="accent" (click)="onClose()">Close</button>
+		<button mat-raised-button color="warn" (click)="onClose()">Save</button>
+	</mat-dialog-actions>
+</div>

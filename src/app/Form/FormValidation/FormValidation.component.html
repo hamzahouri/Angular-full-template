@@ -1,0 +1,163 @@
+<div class="app-card-title mb-3">
+   <anglo-title-component title = "Form Validation"></anglo-title-component>
+</div>
+   <div class="grid-wrapper form-validation-wrapper">
+      <div class="app-card">
+         <mat-card>
+            <div class="card-title p-2">
+               <h3>{{'Basic Validation'|translate}}</h3>
+            </div>
+            <div class="card-content-content p-2">
+               <form [formGroup]="basicForm">
+                  <div class="form-group">
+                     <mat-form-field class="full-wid">
+                        <input matInput placeholder="Name" formControlName="name">
+                     </mat-form-field>
+                     <mat-error *ngIf="basicForm.controls['name'].touched && !basicForm.controls['name'].valid">
+                        <mat-error *ngIf="basicForm.controls['name'].hasError('required') " class="required alert-error">  
+                        You must include a name.
+                        </mat-error>  
+                         <mat-error *ngIf="basicForm.controls['name'].hasError('minlength') " class="patern alert-error">  
+                        Your name must be alteast 3 characters long.
+                        </mat-error>  
+                        <mat-error *ngIf="basicForm.controls['name'].hasError('maxlength') " class="patern alert-error">  
+                        Your name cannot exceed 10 characters.
+                        </mat-error>
+                     </mat-error> 
+                  </div>
+                  <div class="form-group">
+                     <mat-form-field class="full-wid"> 
+                        <input matInput placeholder="Email" formControlName="email" type="email">
+                     </mat-form-field>
+                     <mat-error *ngIf="basicForm.controls['email'].touched && !basicForm.controls['email'].valid">
+                        <mat-error *ngIf="basicForm.controls['email'].hasError('required')" class="required alert-error">
+                        You must include an email.
+                        </mat-error>
+                        <mat-error *ngIf="basicForm.controls['email'].hasError('pattern')" class="pattern alert-error">
+                        Your email must be valid.
+                        </mat-error>
+                     </mat-error>
+                  </div>
+               </form>
+            </div>   
+         </mat-card>
+      </div>
+      <div class="app-card">
+         <mat-card>
+            <div class="card-title p-2">
+               <h3>{{'Validation With Submit & Clear'|translate}}</h3>
+            </div>
+            <div class="card-content-content p-2">
+               <form [formGroup]="submitForm">
+                  <div class="form-group">
+                     <mat-form-field class="full-wid">
+                        <input matInput placeholder="Name" formControlName="name">
+                     </mat-form-field>
+                     <mat-error *ngIf="submitForm.controls['name'].touched && !submitForm.controls['name'].valid">
+                        <mat-error *ngIf="submitForm.controls['name'].hasError('required')" class="required alert-error">
+                        You must include a name.
+                        </mat-error>
+                        <mat-error *ngIf="submitForm.controls['name'].hasError('minlength') " class="pattern alert-error">  
+                        Your name must be alteast 3 characters long.
+                        </mat-error>  
+                        <mat-error *ngIf="submitForm.controls['name'].hasError('maxlength') " class="pattern alert-error">  
+                        Your name cannot exceed 10 characters.
+                        </mat-error>
+                     </mat-error>
+                  </div>
+                        
+                  <div class="form-group">
+                     <mat-form-field class="full-wid"> 
+                        <input matInput placeholder="Email" formControlName="email" type="email">
+                     </mat-form-field>
+                     <mat-error *ngIf="submitForm.controls['email'].touched && !submitForm.controls['email'].valid">
+                        <mat-error *ngIf="submitForm.controls['email'].hasError('required')" class="required alert-error">
+                        You must include a email.
+                        </mat-error>
+                        <mat-error *ngIf="submitForm.controls['email'].hasError('pattern')" class="pattern alert-error">
+                        Your email must be valid. 
+                        </mat-error>
+                     </mat-error>
+                  </div>
+                  
+                  <div class="form-group">
+                     <mat-form-field class="full-wid">
+                        <input matInput placeholder="Website Address (https://www.google.com)" formControlName="url" type="url">
+                     </mat-form-field>
+                     <mat-error *ngIf="submitForm.controls['url'].touched && !submitForm.controls['url'].valid">
+                        <mat-error *ngIf="submitForm.controls['url'].hasError('required')" class="required alert-error">
+                        You must include url.
+                        </mat-error>
+                        <mat-error *ngIf="submitForm.controls['url'].hasError('pattern')" class="pattern alert-error">
+                        Your url must be valid. 
+                        </mat-error>
+                     </mat-error>
+                  </div>
+                        
+                  <div class="form-group">
+                     <mat-form-field class="full-wid">
+                        <input matInput placeholder="Number Range Between (5 to 9)" formControlName="range">
+                     </mat-form-field>
+                     <mat-error *ngIf="submitForm.controls['range'].touched && !submitForm.controls['range'].valid">
+                        <mat-error *ngIf="submitForm.controls['range'].hasError('required')" class="required alert-error">
+                        You must include a Range.
+                        </mat-error>    
+                        <mat-error *ngIf="submitForm.controls['range'].hasError('pattern')" class="pattern alert-error">
+                        Number should be between 5 and 9. 
+                        </mat-error>
+                     </mat-error>
+                  </div>
+                        
+                  <div class="form-group">
+                     <mat-form-field class="full-wid">
+                        <input matInput placeholder="Password" formControlName="password" type="password">
+                     </mat-form-field>
+                     <mat-error *ngIf="submitForm.controls['password'].touched && !submitForm.controls['password'].valid">
+                        <mat-error *ngIf="submitForm.controls['password'].hasError('required')" class="required alert-error">
+                        You must include a password.
+                        </mat-error> 
+                     </mat-error>
+                  </div>
+                        
+                  <div class="form-group">
+                     <mat-form-field class="full-wid">
+                        <input matInput placeholder="Confirm Password" formControlName="confirmPass" type="password">
+                     </mat-form-field>
+                     <mat-error *ngIf="submitForm.controls['confirmPass'].touched && !submitForm.controls['confirmPass'].valid">
+                       <mat-error *ngIf="submitForm.controls['confirmPass'].hasError('required')" class="required alert-error">
+                        You must include a confirm password.
+                      </mat-error>
+                     </mat-error>
+                  </div>
+
+                  <div class="form-group">
+                     <mat-form-field  class="full-wid">
+				  	         <mat-select placeholder="Items" formControlName="items">
+							    	<mat-option *ngFor="let item of items" value="item">{{item}}</mat-option>
+							  	</mat-select>
+							</mat-form-field>
+                     <mat-error *ngIf="submitForm.controls['items'].touched && !submitForm.controls['items'].valid">
+                        <mat-error *ngIf="submitForm.controls['items'].hasError('required')" class="required alert-error">
+                        You must include an item
+                        </mat-error>
+                     </mat-error>
+                  </div>   
+                  <div class="checkbox mb-3">
+                     <mat-checkbox formControlName="validate">Do You agree?</mat-checkbox>
+                    <mat-error *ngIf="submitForm.controls['validate'].touched && !submitForm.controls['validate'].valid">
+                        <mat-error *ngIf="submitForm.controls['validate'].hasError('required')" class="required alert-error">
+                        You must agree to continue!
+                        </mat-error>
+                     </mat-error>
+                  </div>
+                  <mat-card-actions>
+                     <button  mat-raised-button color="primary" (click)="onSubmit()" class="mr-2">Submit</button>
+                     <button mat-raised-button color="accent" (click)="onClear()" >Clear
+                     </button>
+                  </mat-card-actions>
+               </form>
+            </div>
+         </mat-card>
+      </div>
+   </div>            
+

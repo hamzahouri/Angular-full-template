@@ -1,0 +1,19 @@
+<div class="app-card-title mb-4">
+	<anglo-title-component title="Simple Line Icons"></anglo-title-component>
+</div>
+<div class="card-icon">
+	<div class="app-card" *ngIf="simpleLineIcon && simpleLineIcon.length>0">
+		<mat-card>
+			<div class="card-title">
+				<h3>{{'Simple Line Icons'|translate}}</h3>
+			</div>
+			<div class="card-content">
+				<mat-list fxLayout="row wrap">
+					<mat-list-item *ngFor="let simpleLineIcons of simpleLineIcon" fxLayoutAlign="center center"  fxFlex.xs="50" fxFlex.sm="20" fxFlex.md="20" fxFlex.lg="20" fxFlex.xl="20">
+						<mat-icon matListIcon class="icon {{ simpleLineIcons }}"></mat-icon>
+					</mat-list-item>
+				</mat-list>
+			</div>
+		</mat-card>
+	</div>
+</div>	

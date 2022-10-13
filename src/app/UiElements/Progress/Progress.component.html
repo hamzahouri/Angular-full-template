@@ -1,0 +1,118 @@
+<div class="app-card-title mb-3">
+   <anglo-title-component title="Progress"></anglo-title-component>
+</div>
+<div class="grid-wrapper" fxLayout="row wrap">
+	<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+		<mat-card>
+			<div class="card-title p-2">
+				<h3>{{'Default'|translate}}</h3>
+			</div>
+			<div class="card-content p-2">
+				<p class="mb-3">By default, progress circular uses the applications primary color.</p>
+				<mat-progress-spinner value="40" class="mb-1" color="primary"></mat-progress-spinner>
+				<mat-progress-spinner value="60" class="mb-1" color="accent"></mat-progress-spinner>
+				<mat-progress-spinner value="100" color="warn"></mat-progress-spinner>
+			</div>
+		</mat-card>		
+	</div>
+	<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+		<mat-card>
+			<div class="card-title p-2 mb-1">
+				<h3>{{'Colored'|translate}}</h3>
+			</div>
+			<div class="card-content p-2 mb-3">
+				<p class="mb-3">Alternate colors can be applied.</p>
+				<mat-progress-spinner value="40" class="mb-1" color="primary"></mat-progress-spinner>
+				<mat-progress-spinner value="60" class="mb-1" color="accent"></mat-progress-spinner>
+				<mat-progress-spinner value="100" class="mb-1" color="warn"></mat-progress-spinner>
+			</div>
+		</mat-card>
+	</div>
+</div>
+<div class="grid-wrapper" fxLayout="row wrap">
+	<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+		<mat-card>
+			<div class="card-title p-2">
+				<h3>{{'Indeterminate'|translate}}</h3>
+			</div>
+			<div class="card-content p-2">
+				<p>Just as with the progress circular component, progress linear has an indeterminate state.</p>
+				<mat-progress-bar mode="indeterminate"
+				color="accent"></mat-progress-bar>
+			</div>
+		</mat-card>	
+	</div>
+	<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+		<mat-card>
+			<div class="card-title p-2">
+				<h3>{{'Determinate'|translate}}</h3>
+			</div>
+			<div class="card-content p-2">
+				<p>The progress linear component can have a determinate state modified by <code class="warn-color">mat-progress-bar</code></p>
+				<mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+			</div>
+		</mat-card>	
+	</div>
+</div>	
+<div class="grid-wrapper" fxLayout="row wrap">
+	<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+		<mat-card>
+			<div class="card-title p-2">
+				<h3>{{'Query'|translate}}</h3>
+			</div>
+			<div class="card-content p-2">
+				<p class="mb-4">For situations where the user wants to indicate pre-loading (until the loading can actually be made), use the query indicator.</p>
+				<mat-progress-bar mode="query" value="40"></mat-progress-bar>
+			</div>
+		</mat-card>	
+	</div>
+	<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+		<mat-card>
+			<div class="card-title p-2">
+				<h3>{{'Buffer'|translate}}</h3>
+			</div>
+			<div class="card-content p-2">
+				<p class="mb-4">A buffer state represents two values simultaneously. The primary value is controlled by the model, whereas the buffer is controlled by the <code class="warn-color"> buffer-value </code>prop.</p>
+				<mat-progress-bar mode="buffer" color="warn"></mat-progress-bar>
+			</div>
+		</mat-card>	
+	</div>
+</div>	
+<div class="grid-wrapper" fxLayout="row wrap">
+	<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+		<mat-card>
+			<div class="card-title p-2">
+				<h3>{{'Indeterminate'|translate}}</h3>
+			</div>
+			<div class="card-content p-2">
+				<p class="mb-3">An indeterminate progress circular animates forever.</p>
+				<div>
+					<mat-spinner  class="mb-2" color="primary"></mat-spinner>
+					<mat-spinner  class="mb-2" color="accent"></mat-spinner>
+					<mat-spinner  class="mb-2" color="warn"></mat-spinner>
+				</div>	
+			</div>
+		</mat-card>	
+	</div>
+	<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+		<mat-card>
+			<div class="card-title p-2">
+		   	<h3>{{'Rotate'|translate}}</h3>
+		   </div>
+		   <div class="card-content p-2">	
+			   <p class="mb-3">The progress origin can be rotated.</p>
+			   <div class="mb-2">
+			      <div>
+			         <mat-progress-spinner class="mr-1 mb-1" mode="determinate" [value]="value" color="primary"></mat-progress-spinner>
+			         <mat-progress-spinner class="mr-1 mb-1" mode="determinate" [value]="value" color="accent"></mat-progress-spinner>
+			         <mat-progress-spinner class="mr-1 mb-1" mode="determinate" [value]="value" color="warn"></mat-progress-spinner>
+			      </div>
+			   </div>
+			   <div>
+				   <button mat-raised-button color="primary" (click)="step(10)">Increase</button>
+				   <button class="m-2" color="accent" mat-raised-button (click)="step(-10)">Decrease</button>
+				</div>
+			</div>   
+	   </mat-card>
+	</div>
+</div>

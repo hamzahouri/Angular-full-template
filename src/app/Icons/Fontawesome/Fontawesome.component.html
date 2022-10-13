@@ -1,0 +1,21 @@
+<div class="app-card-title mb-4">
+	<anglo-title-component title ="Font Awesome"></anglo-title-component>
+</div>
+<div class="card-wrapper">
+	<div class="app-card" *ngIf="fontawesome && fontawesome.length>0">
+		<mat-card>
+			<div class="card-content">
+				<mat-list fxLayout="row wrap">
+					<mat-list-item *ngFor="let fontawesomes of fontawesome" fxFlex.xs="50" fxFlex.sm="33.33" fxFlex.md="25" fxFlex.lg="25" fxFlex.xl="25">
+						<span class="icon-style" fxLayoutAlign="space-between center">
+							<div class="icon mr-2">
+								<mat-icon matListIcon class="fa fa-{{fontawesomes}}"></mat-icon>
+							</div>
+							<div class="icon-name">{{fontawesomes}}</div>
+						</span>
+					</mat-list-item>
+				</mat-list>
+			</div>
+		</mat-card>
+	</div>
+</div>

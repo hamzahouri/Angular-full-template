@@ -1,0 +1,63 @@
+<div fxlayout="column" class="sidebar-panel">
+   <perfect-scrollbar class="scrollbar" [config]="config">
+   <div class="sidebar-container">
+      <anglo-app-logo></anglo-app-logo>
+         <div class="sidenav-scrollbar-container" fxlayout="column">
+            <div class="sidebar-user-inner px-3 pt-2">
+               <div class="image-thumb-wrap">
+                  <img alt="Anglo Admin" class="img-fluid text-color radius-circle" src="/assets/img/user-13.jpg" width="50" height="50">
+               </div>
+               <div class="sidebar-user-info-wrap">
+                  <div class="sidebar-user-name">
+                     <span class="text-color">John Leider</span>
+                  </div>
+               </div>
+               <div class="user-profile-menu">
+                  <button mat-button [matMenuTriggerFor]="icon">
+                     <a href="javascript:void(0)" class="a-btn-content mat-icon-color"><mat-icon class="material-icons text-color fs-14">more_horiz</mat-icon></a>
+                  </button>
+                  <mat-menu #icon>
+                     <div class="dropdown-content drop-width">
+                        <div class="sidebar-dropdown-top p-3">
+                           <div>
+                              <span class="anglo-block author-name font-bold">John Leider</span>
+                           </div>
+                           <div>   
+                              <span class="mail-us anglo-block font-sz">info@example.com</span>
+                           </div>   
+                        </div>
+                        <div class="sidebar-list-content">
+                           <div class="content">
+                              <a href="javascript:void(0)" class="content-data p-2" fxLayoutAlign="start center" (click)="router.navigate(['/users/user-profile'])">
+                                 <mat-icon class="material-icons person_outline mr-3 primary-color">person_outline</mat-icon>
+                                 <span>User Profile</span>
+                              </a>
+                           </div>
+                           <div class="content">
+                              <a href="javascript:void(0)" class="content-data p-2" fxLayoutAlign="start center" (click)="router.navigate(['/inbox'])">
+                                 <mat-icon class="material-icons mail mr-3 accent-color">mail</mat-icon>
+                                 <span>Inbox</span>
+                              </a>
+                           </div>
+                           <div class="content">
+                              <a href="javascript:void(0)" class="content-data p-2" fxLayoutAlign="start center" (click)="router.navigate(['/users/users-list'])">
+                                 <mat-icon class="material-icons notifications_none mr-3 warn-color">notifications_none</mat-icon>
+                                 <span>Users List</span>
+                              </a>
+                           </div>
+                           <div class="content">
+                              <a href="javascript:void(0)" class="content-data p-2" fxLayoutAlign="start center"  (click)="logOut()">
+                                 <mat-icon class="material-icons create mr-3 success-color">power_settings_new</mat-icon>
+                                 <span>Log Out</span>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </mat-menu>
+               </div>
+            </div>
+            <app-menu-list-item></app-menu-list-item>
+         </div>     
+      </div>
+   </perfect-scrollbar>    
+</div>

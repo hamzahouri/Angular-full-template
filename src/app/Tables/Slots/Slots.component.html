@@ -1,0 +1,106 @@
+<div class="app-card-title mb-4">
+  <anglo-title-component title="Slots"></anglo-title-component>
+</div>
+<div class="table-slots-wrapper"> 
+   <div class="app-card items-wrapper mb-4">
+      <mat-card>
+      	<div class="card-title mb-3 p-2">
+      		<h3 class="text-capitalize">{{'Items And Headers'|translate}}</h3>
+      	</div>
+      	<div class="card-content p-2">
+            <div class="table-responsive overflow-hidden">
+         		<table mat-table [dataSource]="tableOnedataSource" class="mat-elevation-z8" matSort 
+         			matSortActive="Dessert(100g Saving)" matSortDirection="asc" matSortDisableClear>
+         			<ng-container matColumnDef="select">
+         			   <th mat-header-cell *matHeaderCellDef>
+         					<mat-checkbox (change)="$event ? masterToggle() : null"
+         					              [checked]="selection.hasValue() && isAllSelected()"
+         					              [indeterminate]="selection.hasValue() && !isAllSelected()">
+         					</mat-checkbox>
+         				</th>
+         				<td mat-cell *matCellDef="let row">
+         					<mat-checkbox (click)="$event.stopPropagation()"
+         					              (change)="$event ? selection.toggle(row) : null"
+         					              [checked]="selection.isSelected(row)">
+         					</mat-checkbox>
+         			  </td>
+         		   </ng-container>
+         		   <ng-container *ngFor="let column of tableOneHeaders; let i=index">
+         		   	<ng-container *ngIf="i > 0" matColumnDef="{{column}}">
+         	   				<th mat-sort-header mat-header-cell *matHeaderCellDef> {{column}} </th>
+         	   				<td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+         	  			</ng-container>
+         		   </ng-container>
+         			<tr mat-header-row *matHeaderRowDef="tableOneHeaders"></tr>
+           			<tr mat-row *matRowDef="let row; columns: tableOneHeaders;"
+               		(click)="selection.toggle(row)"></tr>
+          		</table>
+            </div>  
+       		<mat-paginator [pageSizeOptions]="[5, 10, 25]" ></mat-paginator>
+      	</div>
+      </mat-card>
+   </div>
+
+   <div class="app-card header-cell-wrapper mb-4">
+      <mat-card>
+         <div class="card-title p-2 mb-3">
+            <h3 class="text-capitalize">{{'Header Cell'|translate}}</h3>
+         </div>
+         <div class="card-content p-2">
+            <div class="table-responsive overflow-hidden">   
+               <table #secondTable #secondTableSort="matSort" mat-table [dataSource]="tableTwodataSource" class="mat-elevation-z8" matSort 
+                  matSortDirection="asc" matSortDisableClear>
+                   <ng-container matColumnDef="{{column}}" *ngFor="let column of headers">
+                        <th mat-sort-header matTooltip={{column}} mat-header-cell *matHeaderCellDef> {{column}} </th>
+                        <td mat-cell *matCellDef="let element2"> {{element2[column]}} </td>
+                  </ng-container>
+                  <tr mat-header-row *matHeaderRowDef="headers"></tr>
+                  <tr mat-row *matRowDef="let row; columns: headers;"></tr>
+               </table>
+            </div>   
+      		<mat-paginator #paginatorOne [pageSizeOptions]="[5, 10, 25]" ></mat-paginator>
+         </div>
+      </mat-card>   
+   </div>
+
+   <div class="app-card expend-table-wrapper">
+      <mat-card>
+         <div class="card-title mb-3 p-2">
+            <h3 class="text-capitalize">{{'Expand'|translate}}</h3>
+         </div>
+         <div class="card-content p-2">
+            <div class="table-responsive overflow-hidden">   
+               <table #thirdTable #thirdTableSort="matSort" mat-table [dataSource]="tableThirddataSource" class="mat-elevation-z8" matSort 
+                  matSortDirection="asc" matSortDisableClear multiTemplateDataRows>
+                  <ng-container matColumnDef="{{column}}" *ngFor="let column of headers">
+                     <th mat-sort-header mat-header-cell *matHeaderCellDef> {{column}} </th>
+                     <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+                  </ng-container>
+                  <ng-container matColumnDef="expandedDetail">
+                     <td mat-cell *matCellDef="let element" [attr.colspan]="headers.length">
+                        <div class="example-element-detail"
+                              [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                           <div class="example-element-description">
+                              <span>Peek-a-boo!</span>
+                           </div>
+                        </div>
+                     </td>
+                  </ng-container>
+                  <tr mat-header-row *matHeaderRowDef="headers"></tr>
+                  <tr mat-row *matRowDef="let element; columns: headers;"
+                       class="example-element-row"
+                       [class.example-expanded-row]="expandedElement === element"
+                       (click)="expandedElement = element">
+                  </tr>
+                  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+               </table> 
+            </div>      
+         </div>
+      </mat-card>   
+   </div>
+</div>   
+
+
+
+
+

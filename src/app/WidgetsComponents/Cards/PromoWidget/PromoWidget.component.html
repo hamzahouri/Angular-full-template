@@ -1,0 +1,22 @@
+<mat-card class="p-0">
+	<div class="{{promoWidget.className}} p-3" *ngFor="let promoWidget of promoWidgetData">
+		<mat-card-content class="mb-0">
+			<div class="promo-widget" fxLayoutAlign="center center" fxLayout="row wrap">
+				<div class="p-2" fxFlex.xs="25" fxFlex.sm="25" fxFlex.md="25" fxFlex.lg="25" fxFlex.xl="25">
+					<div fxLayoutAlign="center center">
+						<img class="img-responsive" alt="comment" src="{{promoWidget.img}}">
+					</div>
+				</div>
+				<div class="p-2" fxFlex.xs="75" fxFlex.sm="75" fxFlex.md="75" fxFlex.lg="75" fxFlex.xl="75">
+					<div class="content">
+						<h4>{{promoWidget.name}}</h4>
+						<p class="grey-text fs-12">{{promoWidget.para}}</p>
+						<mat-card-actions class="{{promoWidget.colorClass}}">
+							<button class="promo-btn " mat-raised-button >{{promoWidget.btn|translate}}</button>
+						</mat-card-actions>
+					</div>
+				</div>	
+			</div>		
+		</mat-card-content>
+	</div>
+</mat-card>

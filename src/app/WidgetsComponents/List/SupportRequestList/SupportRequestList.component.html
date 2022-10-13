@@ -1,0 +1,36 @@
+<div class="app-card">
+	<mat-card class="p-0"  *ngIf = "supportRequestVisible" id="supportRequest">
+		<div class="p-3" fxLayout="row wrap" fxLayoutAlign="space-between center">
+			<div class="card-title">
+				<h3 class="mb-0 text-capitalize">{{'Support Request'|translate}}</h3>
+			</div>
+			<div class="a-icon">	
+				<TopsideMenu (isCloseEvent) = "getCloseValue($event)" (isFullScreen)="showFullScreen('supportRequest')" (isShowSpinner)="spinnerShow('supportRequest')"></TopsideMenu>
+			</div>	
+		</div>
+		<div class="mat-card-content" [style.overflow]="'auto'" [style.height.px]="'350'">
+			<perfect-scrollbar class="scrollbar" [config]="config">
+				<div class="p-3 border-b-1" *ngFor="let supportRequest of supportRequestData" fxLayoutAlign="space-between center">
+					<div>
+						<h5 class="mb-1">{{supportRequest.name}}</h5>
+						<span class="action-text">
+							4 Jan 2017, 05:00PM
+						</span>
+						<p class="fs-12 grey-text mb-0">Opened by Timothy Owens today</p>
+					</div>	
+					<div>
+						<span class="radius-sm a-badge px-2 py-1 {{ supportRequest.color }}">{{supportRequest.action}}</span>
+					</div>
+				</div>
+			</perfect-scrollbar>	
+		</div>
+		<div class="p-3">
+			<mat-card-actions class="m-0 p-0">
+				<button class="px-3" mat-button-sm mat-raised-button color="primary">View All</button>
+			</mat-card-actions>
+		</div>	
+		<div class="card-spinner" [ngClass] = "{'reload' : supportRequestShowSpinner}" fxLayoutAlign="center center">
+			<mat-spinner *ngIf="supportRequestShowSpinner" mode="indeterminate" diameter="39"></mat-spinner>
+		</div>
+	</mat-card>
+</div>

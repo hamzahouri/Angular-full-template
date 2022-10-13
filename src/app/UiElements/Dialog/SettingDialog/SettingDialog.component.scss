@@ -1,0 +1,14 @@
+.a-card-text{
+	.a-subheader{
+		color: rgba(0,0,0,.54);
+	}
+	.a-list-subheader{
+		.mat-checkbox-inner-container{
+			margin-right:1rem !important;
+		}
+	}
+}
+.cdk-overlay-pane{
+	max-width: 0vw !important;
+	width:100%;
+}

@@ -1,0 +1,25 @@
+/*-------------------------------------------------------------
+9.5 Slider
+-------------------------------------------------------------*/ 
+.slider-wrapper {
+	.icons-content {
+		width:100%;
+	}
+	.card-content {
+		.mat-slider-horizontal {
+			width:100%;
+		}
+		.slider-color{
+		   width:100%;
+		   height:100px
+		}
+	}
+
+	.track-color {
+		.mat-slider-wrapper {
+			.mat-slider-track-wrapper {
+				background-color: $primary !important;
+			}	
+		}
+	}
+}	

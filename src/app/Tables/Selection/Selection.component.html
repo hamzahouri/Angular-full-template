@@ -1,0 +1,25 @@
+<div class="app-card-title mb-4">
+   <anglo-title-component title="Selection"></anglo-title-component>
+</div>
+<div class="app-card selection-list-wrapper"> 
+   <mat-card>
+      <div class="card-title mb-3 p-2">
+         <h3>{{'Table Selection'|translate}}</h3>
+      </div>
+      <div class="card-content p-2">  
+         <div class="table-responsive overflow-hidden">
+            <ngx-datatable
+               class="material selection-cell"
+               [rows]="rows"
+               [columnMode]="'force'"
+               [columns]="columns"
+               [headerHeight]="50"
+               [footerHeight]="50"
+               [rowHeight]="50"
+               [selected]="selected"
+               [selectionType]="'cell'">
+            </ngx-datatable>
+         </div>   
+      </div>
+   </mat-card>
+</div>

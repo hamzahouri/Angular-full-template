@@ -1,0 +1,43 @@
+<div class="app-card">
+	<mat-card class="p-0" *ngIf = "recentSaleVisible" id="recentSales"> 
+		<div class="p-3" fxLayout="row wrap"  fxLayoutAlign="space-between center">	
+			<div class="card-title">
+				<h3 class="mb-0 text-capitalize">{{'Recent Sale'|translate}}</h3>
+			</div>
+			<div class="a-icon">
+				<TopsideMenu (isCloseEvent) = "getCloseValue($event)" (isFullScreen)="showFullScreen('recentSales')" (isShowSpinner)="spinnerShow('recentSales')"></TopsideMenu>
+			</div>	
+		</div>
+		<div class="mat-card-content" [style.height.px]="'350'">
+			<perfect-scrollbar class="scrollbar" [config]="config">
+				<div class="border-b-1 p-3" *ngFor="let recentSale of recentSaleData" fxLayoutAlign="space-between start">
+					<div fxLayoutAlign="start center">
+						<img class="mr-4" height="55" width="55" src="{{recentSale.img}}">
+						<div>
+							<div>
+								<h5 class="mb-1">{{recentSale.name}}</h5>
+								<div class="grey-text fs-12" fxLayoutAlign="space-between center">
+									<span class="mr-3" fxLayoutAlign="space-between center">
+										<mat-icon class="mr-2">file_download</mat-icon>225 Sale
+									</span>
+									<span fxLayoutAlign="space-between center"><mat-icon class="mr-2">remove_red_eye</mat-icon>280 Views</span>
+								</div>
+							</div>	
+						</div>
+					</div>	
+					<div>
+						<h5 class="mb-0 primary-color font-bold">$59</h5>
+					</div>
+				</div>
+			</perfect-scrollbar>	
+		</div>
+		<div class="p-3">
+			<mat-card-actions class="m-0 p-0">
+				<button class="px-3" mat-raised-button mat-button-sm color="primary">View All</button>
+			</mat-card-actions>
+		</div>
+		<div class="card-spinner" [ngClass] = "{'reload' : recentSalesShowSpinner}" fxLayoutAlign="center center">
+			<mat-spinner *ngIf="recentSalesShowSpinner" mode="indeterminate" diameter="39"></mat-spinner>	
+		</div>
+	</mat-card>
+</div>

@@ -1,0 +1,38 @@
+<div class="app-card-title mb-4">
+	<anglo-title-component title="Cards"></anglo-title-component>
+</div>
+<div class="cards-wrapper ecommerce-wrapper">
+	<mat-card>	
+		<div class="add-card-button mb-3">
+			<button mat-raised-button color="primary" (click)="addNewCard()">
+				Add New Card
+			</button>
+		</div>
+		<div class="card-content">
+			<mat-card-content>
+				<ng-container *ngIf="(coreService.localStorageCard && coreService.localStorageCard.length>0); then data else elseBlock"></ng-container>
+					<ng-template #data>
+					<table class="a-table" mat-table [dataSource]="coreService.localStorageCard">
+						<ng-container matColumnDef="number">
+							<th mat-header-cell *matHeaderCellDef>Number</th>
+							<td mat-cell *matCellDef="let element">{{replaceCardNumber(element.number)}}</td>
+						</ng-container>
+						<ng-container matColumnDef="fullName">
+							<th mat-header-cell *matHeaderCellDef>Full Name</th>
+							<td mat-cell *matCellDef="let element">{{element.fullName}}</td>
+						</ng-container>
+						<ng-container matColumnDef="removeCard">
+							<th mat-header-cell *matHeaderCellDef>Remove</th>
+							<td mat-cell *matCellDef="let element"><button mat-icon-button (click)="onRemoveCard(element)"><mat-icon>close</mat-icon></button></td>
+						</ng-container>
+						<tr mat-header-row *matHeaderRowDef="['number','fullName','removeCard']"></tr>
+						<tr mat-row *matRowDef="let row; columns: ['number','fullName','removeCard'];"></tr>
+					</table>
+				</ng-template>
+				<ng-template #elseBlock>
+					No data available
+				</ng-template>
+			</mat-card-content>
+		</div>	
+	</mat-card>
+</div>	

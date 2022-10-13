@@ -1,0 +1,51 @@
+<div class="app-card-title mb-3">
+   <anglo-title-component title = "Dialog"></anglo-title-component>
+</div>
+<div class="a-dialog-wrapper">
+	<div class="grid-wrapper">
+		<div class="app-card">
+			<mat-card>
+				<div class="card-title p-2">
+					<h3>{{'Simple Dialogs'|translate}}</h3>
+				</div>
+				<div class="card-content p-2">
+					<p>Choosing an option immediately commits the option and closes the menu. Touching outside of the dialog, or pressing Back, cancels the action and closes the dialog.</p>
+					<button mat-raised-button class="m-2" (click)="openDialog1()" color="primary">OPEN DIALOG 1</button>
+					<button mat-raised-button class="m-2" (click)="openDialog2()" color="accent">OPEN DIALOG 2</button>
+					<button mat-raised-button class="m-2" (click)="openDialog3()" color="warn">OPEN DIALOG 3</button>
+					<button mat-raised-button class="m-2" [matMenuTriggerFor]="menu" color="primary">A MENU</button>
+					<mat-menu #menu>
+						<button mat-menu-item >Click Me 1</button>
+						<button mat-menu-item>Click Me 2</button>
+						<button mat-menu-item>Click Me 3</button>
+						<button mat-menu-item>Click Me 4</button>
+					</mat-menu>
+				</div>
+			</mat-card>
+		</div>
+	</div>	
+	<div class="grid-wrapper" fxLayout="row wrap">
+		<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+			<mat-card>
+				<div class="card-title p-2">
+					<h3>{{'Without Activator'|translate}}</h3>
+				</div>
+				<div class="card-content p-2">
+					<p class="mb-2">If for some reason you are unable to use the activator slot, be sure to add the  .stop modifier to the event that triggers the dialog.</p>
+					<button class="m-2" mat-raised-button (click)="googleDialog()" color="primary">OPEN DIALOG</button>
+				</div>
+			</mat-card>
+		</div>
+		<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+			<mat-card>
+				<div class="card-title p-2">
+					<h3>{{'Scrollable'|translate}}</h3>
+				</div>
+				<div class="card-content p-2">
+					<p class="mb-4">Example of a dialog with scrollable content.</p>
+					<button class="m-2" mat-raised-button (click)="scrollableDialog()" color="warn">OPEN DIALOG</button>
+				</div>
+			</mat-card>
+		</div>
+	</div>
+</div>	

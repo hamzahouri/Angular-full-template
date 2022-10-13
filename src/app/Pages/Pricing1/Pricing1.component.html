@@ -1,0 +1,84 @@
+<div class="app-card-title mb-4">
+	<anglo-title-component title="Pricing 1"></anglo-title-component>
+</div>
+<div class="pricing-wrapper">
+	<div class="text-align mb-70 pt-5">
+		<h2>{{'Choose the plan that works for you.'|translate}}</h2>
+		<div>
+			<span class="mr-3">Monthly</span>
+			<span class="mr-3"><mat-slide-toggle checked></mat-slide-toggle></span>
+			<span>Yearly ( get 2 month extra)</span>
+		</div>
+	</div>
+	<div class="grid-wrapper pricing-list" fxLayout="row wrap"> 
+		<div class="text-align" *ngFor="let price of pricing" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33">
+			<mat-card class="py-5 px-3">
+				<div class="mb-4 pricing-icon">
+					<img  width="134" height="79" class="img-responsive" src="{{price.pricing_img}}">
+				</div>	
+				<mat-card-content>
+					<h3 class="font-sz-md pricing-title {{price.title_color}}">{{price.pricing_title|translate}}</h3>
+					<p class="font-sz-sm">{{price.feature}}</p>
+					<div class="mb-3">
+						<h2 class="amount-title">{{price.amount_title}}<sub>{{price.amount_sub}}</sub></h2>
+						<span class="small">For {{price.howManyUser}} User</span>
+					</div>
+					<div class="mb-4">	
+						<p class="fs-14">{{price.storage}}</p>
+						<p class="fs-14">{{price.fileUpload}}</p>
+						<span class="fs-14">{{price.minUser}}, </span>
+						<span class="fs-14">{{price.maxUser}}</span>
+					</div>
+				</mat-card-content>
+				<mat-card-actions  class="mx-1">
+					<button mat-raised-button class="full-wid p-2" color="{{price.color}}">{{price.action}}</button>
+				</mat-card-actions>
+			</mat-card>
+		</div>
+	</div>
+	<div class="py-5">
+		<h2 class="mb-0 text-align">Compare Plans</h2>
+	</div>
+	<div class="fixed-pricing" fxLayout="row wrap">
+		<div class="pricing-box" *ngFor="let comparePlan of compare_plan" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33" >
+			<mat-card class="p-0">
+				<div>
+					<mat-card-title>
+						<div class="p-4">
+							<h2 class="{{comparePlan.title_color}} pricing-title">{{comparePlan.heading|translate}}</h2>
+						</div>
+					</mat-card-title>
+					<mat-card-subtitle>
+						<div class="plan-info">
+							<h4 class="mb-0">{{comparePlan.subHeading}}</h4>
+						</div>
+					</mat-card-subtitle>
+				</div>	
+				<div class="p-4">
+					<mat-card-content *ngFor="let data of comparePlan.plan_content">
+						<span fxLayoutAlign="start center">
+						<mat-icon class="mr-3 check-icon">check_box</mat-icon>
+						<span class="primary-color">{{data}}</span></span>
+					</mat-card-content>
+
+					<mat-card-actions>
+						<button mat-raised-button class="full-wid p-2" color="{{comparePlan.buttonType.buttonColor}}">{{comparePlan.buttonType.buttonName}}</button>
+					</mat-card-actions>
+				</div>
+			</mat-card>
+		</div>
+	</div>		
+	<div class="py-5">
+		<h3 class="mb-0 text-align">{{'Frequently Asked Questions'|translate}}</h3>
+	</div>
+	<div class="grid-wrapper faq-wrapper" fxLayout="row wrap">
+		<div class="text-align" *ngFor="let asked_question of frquently_asked_question" fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="33.33"  fxFlex.lg="33.33" fxFlex.xl="33.33">
+			<mat-card>
+				<mat-card-content>
+					<h4>{{asked_question.heading}}</h4>
+					<p>{{asked_question.subHeading}}</p>
+				</mat-card-content>
+			</mat-card>
+		</div>
+	</div>
+</div>

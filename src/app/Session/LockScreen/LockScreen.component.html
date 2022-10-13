@@ -1,0 +1,34 @@
+<div class="application-wrap">
+	<div class="lock-screen-wrapper">
+		<div class="lock-screen-block text-align">
+            <div fxLayout="row wrap" fxLayoutAlign="center center">
+                  <div class="card-content" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="100"  fxFlex.lg="30" fxFlex.xl="25">
+                        <mat-card class="p-5">
+                              <div class="site-logo mb-5" (click)="openAnglo()">
+                                 <img alt="Anglo logo" class="img-responsive" src="/assets/img/session.png" width="78" height="78">
+                              </div>
+                              <div class="user-img mb-4">
+                                 <img class="radius-circle" src="/assets/img/user-14.jpg" width="143" height="143">
+                              </div>	
+                              <h3>Jerry Cummings</h3>
+                              <form [formGroup]="lockScreenForm">
+                                 <div class="a-input-field">
+                                    <mat-form-field>
+                                       <input type="password" matInput placeholder="Password" formControlName="password">
+                                    </mat-form-field>
+                                    <mat-error *ngIf="lockScreenForm.controls['password'].touched && !lockScreenForm.controls['password'].valid">
+                                       <mat-error *ngIf="lockScreenForm.controls['password'].hasError('required')">
+                                          Password is required
+                                       </mat-error>
+                                       <mat-error *ngIf="lockScreenForm.controls['password'].hasError('minlength')">
+                                          Password must contain atleast 6 characters
+                                       </mat-error>
+                                    </mat-error>
+                                 </div>	
+                              </form>
+                           </mat-card>
+                  </div>
+            </div>
+		</div>	
+	</div>
+</div>	

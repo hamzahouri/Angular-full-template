@@ -1,0 +1,81 @@
+<div class="app-card-title mb-3">
+   <anglo-title-component title="Chips"></anglo-title-component>
+</div>
+<div class="a-chips-wrapper">
+	<div class="grid-wrapper" fxLayout="row wrap">
+		<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+			<mat-card>
+				<div class="card-title p-2">
+					<h3>{{'Label'|translate}}</h3>
+				</div>
+				<div class="card-content p-2">
+					<mat-chip-list>
+						<mat-chip class="fs-12" color="primary">Label</mat-chip>
+						<mat-chip class="fs-12" color="accent" selected><mat-icon  class="mr-2">label</mat-icon>Tags</mat-chip>
+						<mat-chip class="fs-12" color="warn">Outline</mat-chip>
+					</mat-chip-list>
+				</div>
+			</mat-card>
+		</div>
+		<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+			<mat-card>
+				<div class="card-title p-2">
+					<h3>{{'Outline'|translate}}</h3>
+				</div>
+				<div class="card-content p-2">
+					<mat-chip-list>
+						<mat-chip color="primary">Outline</mat-chip>
+						<mat-chip color="accent">Colored</mat-chip>
+						<mat-chip color="warn"><mat-icon class="mr-2">build</mat-icon>Icon</mat-chip>
+					</mat-chip-list>
+				</div>
+			</mat-card>	
+		</div>
+	</div>	
+	<div class="grid-wrapper" fxLayout="row wrap">
+		<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+			<mat-card>
+				<div class="card-title p-2">
+					<h3>{{'Colored With Icon'|translate}}</h3>
+				</div>
+				<div class="card-content p-2">
+					<mat-chip-list class="mat-chip-list-stacked">
+							<mat-chip *ngFor="let chip of availabelColors" selected [color]="chip.color"><mat-icon class="mr-2">{{chip.icon}}</mat-icon>	 		
+								{{chip.name}}
+							</mat-chip>
+					</mat-chip-list>
+				</div>
+			</mat-card>
+		</div>
+		<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+			<mat-card>
+				<div class="card-title p-2">
+					<h3>{{'Colored'|translate}}</h3>
+				</div>
+				<div class="card-content p-2">
+					<mat-chip-list class="mat-chip-list-stacked">
+						<mat-chip *ngFor="let chip of availabelColors" selected [color]="chip.color">{{chip.name}}
+						</mat-chip>
+					</mat-chip-list>
+				</div>
+			</mat-card>
+		</div>
+	</div>	
+	<div class="grid-wrapper">
+		<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+			<mat-card>
+				<div class="card-title p-2">
+					<h3>{{'Default'|translate}}</h3>
+				</div>
+				<div class="card-content p-2">
+					<mat-chip-list #chipList>
+						<mat-chip>Example chip</mat-chip>
+						<mat-chip fxLayoutAlign="space-between center">Example chip<mat-icon>cancel</mat-icon></mat-chip>
+						<mat-chip><div class="a-chip text-color primary-bg mr-2 radius-circle" fxLayoutAlign="center center">A</div> ANZ Bank</mat-chip>
+						<mat-chip fxLayoutAlign="space-between center"><img class="img-circle mr-2" width="24" height="24" src="/assets/img/user-3.jpg"  alt="Photo of a Shiba Inu">Trevor Hansen<mat-icon class="ml-2">cancel</mat-icon></mat-chip>
+					</mat-chip-list>
+				</div>	
+			</mat-card>	
+		</div>
+	</div>	
+</div>

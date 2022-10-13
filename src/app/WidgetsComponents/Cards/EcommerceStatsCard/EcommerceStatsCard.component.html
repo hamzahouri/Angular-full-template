@@ -1,0 +1,14 @@
+<mat-card class="p-0" id="target">
+	<div class="p-4" *ngFor="let data of statCardData ">
+		<div>
+			<h3 class="font-bold mb-1">${{data.amount}}</h3>
+		</div>
+		<div>
+			<p class="fs-12 grey-text m-0">{{data.heading}}</p>
+		</div>
+	</div>	
+	<div class="p-4">
+		<anglo-line-chart
+		 [color]="color" [data]="data" [label]="label"></anglo-line-chart>
+	</div>
+</mat-card>	

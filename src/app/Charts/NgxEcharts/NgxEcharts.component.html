@@ -1,0 +1,60 @@
+<div class="app-card-title mb-3">
+   <anglo-title-component title="Ngx Echarts"></anglo-title-component>
+</div>   
+   <div class="ngx-echart-wrapper grid-wrapper" fxLayout="row wrap">
+      <div class="app-card-content" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+         <mat-card>
+            <div class="card-title">
+               <h3>{{'Bar Chart'|translate}}</h3>
+            </div>
+            <div class="card-content">
+               <div echarts [options]="barChartOptions" class="bar-chart"></div>
+            </div>
+         </mat-card>
+      </div>
+      <div class="app-card-content" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+         <mat-card>
+            <div class="card-title">
+               <h3>{{'Doughnut Chart'|translate}}</h3>
+            </div>
+            <div class="card-content">
+               <div echarts [options]="doughnutChartOptions" class="doughnut-chart"></div>
+            </div>
+         </mat-card>
+      </div>
+   </div>
+   <div class="ngx-echart-wrapper grid-wrapper" fxLayout="row wrap">
+      <div class="app-card-content" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+         <mat-card>
+            <div class="card-title">
+               <h3>{{'Line Chart'|translate}}</h3>
+            </div>
+            <div class="card-content">
+               <div echarts [options]="lineChartOptions" class="line-chart"></div>
+            </div>
+         </mat-card>
+      </div>
+      <div class="app-card-content" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+         <mat-card>
+            <div class="card-title">
+               <h3>{{'Pie Chart'|translate}}</h3>
+            </div>
+            <div class="card-content">
+                <div echarts [options]="pieChartOptions" class="pie-chart"></div>
+            </div>
+         </mat-card>
+      </div>
+   </div>
+   <div class="ngx-echart-wrapper grid-wrapper" fxLayout="row wrap">
+      <div class="app-card-content" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="100" fxFlex.lg="100" fxFlex.xl="100">
+         <mat-card>
+            <div class="anglo-block-title">
+               <h3 class="text-capitalize">{{'Funnel Chart'|translate}}</h3>
+            </div>
+            <div class="anglo-block-content over-hidden">
+               <div echarts [options]="funnelChartOptions" class="funnel-chart"></div>
+            </div>
+         </mat-card>
+      </div>
+   </div>   
+   

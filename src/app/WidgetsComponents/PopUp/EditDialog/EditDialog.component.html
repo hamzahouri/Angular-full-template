@@ -1,0 +1,20 @@
+<form [formGroup]="form" (ngSubmit)="onFormSubmit()">
+	<h2 mat-dialog-title>Edit User</h2>
+
+	<mat-dialog-content>
+		<mat-form-field>
+			<label>Name</label>
+			<input matInput  formControlName="userName" type="text" ngControl="userName">
+		</mat-form-field> 
+
+		<mat-form-field>
+			<label>Email</label>
+			<input matInput formControlName="email" type="text" ngControl="email">
+		</mat-form-field> 
+	</mat-dialog-content>
+
+	<mat-dialog-actions align="right">
+		<button mat-raised-button type="button" (click)="dialogRef.close()" color="primary">CANCEL</button>
+		<button mat-raised-button type="submit" color="warn">UPDATE</button>
+	</mat-dialog-actions>
+</form>

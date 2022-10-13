@@ -1,0 +1,25 @@
+<div class="chatsidebar-wrapper full-hght">
+	<div class="px-3 a-toolbar primary-bg" fxLayoutAlign="space-between center">
+		<div class="card-title">
+			<h4 class="text-color">Chat</h4>
+		</div>
+		<div>
+			<mat-icon class="text-color">search</mat-icon>
+		</div>	
+	</div>
+	<div class="chatsidebar-content" [style.overflow]="'auto'" >		
+		<perfect-scrollbar class="scroll-bar" [config]="config">
+			<div *ngFor="let chat of chatData; let i = index" (click)="openChat(chat, i+'-chat')">
+				<a id="{{i}}-chat" [ngClass]="{'grayish-blue': i == 0 }" class="p-3 a-list" fxLayoutAlign="start center">
+					<div class="a-list-img">
+						<img class="radius-circle" src="{{chat.avatar}}" width="40" height="40">
+					</div>
+					<div class="list-title">	
+						<h6 class="mb-1">{{chat.name}}</h6>
+						<p class="grey-text fs-12">{{chat.chats.slice(-1)[0].body}}</p>
+					</div>
+				</a>		
+			</div>
+		</perfect-scrollbar>
+	</div>	
+</div>	

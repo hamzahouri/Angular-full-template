@@ -1,0 +1,45 @@
+/*-------------------------------------------------------------
+9.6 Snackbar
+-------------------------------------------------------------*/
+.snackbar-wrapper {
+	.selection-control-btn {
+	   p {
+	      margin-bottom:0px;
+	   }
+	}
+}
+.mat-snack-bar-container.primary {
+	background:$primary !important;
+	.mat-button-wrapper {
+		color: $text-color;
+	}
+}
+.mat-snack-bar-container.accent {
+	background:$accent !important;
+	.mat-button-wrapper {
+		color:$text-color;
+	}
+}
+.mat-snack-bar-container.warn {
+	background:$warn !important;
+	.mat-button-wrapper {
+		color:$text-color;
+	}
+}
+.mat-snack-bar-container.multi-line {
+	height:80px;
+}
+.mat-snack-bar-container.vertical {
+ 	height: 112px;
+
+}
+
+@media (max-width: 600px){
+	.snackbar-wrapper {
+		.card-content {
+			.content {
+				display: block !important;
+			}
+		}
+	}	
+}	

@@ -1,0 +1,128 @@
+<div class="app-card-title mb-3">
+	<anglo-title-component title="Slider"></anglo-title-component>
+</div>	
+<div class="grid-wrapper slider-wrapper" fxLayout="row wrap">	
+	<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.lg="50" fxFlex.xl="50">
+		<mat-card>
+			<div class="card-title p-2">
+				<h3>{{'Continuous'|translate}}</h3>
+			</div>
+			<div class="card-content p-2">
+				<div>
+					<mat-slider  min="1" max="100" step="0.5" value="1.5"></mat-slider>
+				</div>
+				<div>
+					<mat-slider disabled></mat-slider>
+				</div>
+			</div>
+		</mat-card>	
+	</div>
+	<div class="app-card mb-4" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+		<mat-card>
+			<div class="card-title p-2">
+				<h3>{{'Discrete'|translate}}</h3>
+			</div>
+			<div class="card-content p-2">
+				<div>
+					<mat-slider  min="0" max="100" step="10" value="1" tickInterval="1" thumbLabel></mat-slider>
+				</div>
+				<div>
+					<mat-slider  min="0" max="100" step="10" value="1" tickInterval="1" thumbLabel></mat-slider>
+				</div>
+			</div>	
+		</mat-card>
+	</div>
+</div>	
+<div class="grid-wrapper slider-wrapper" fxLayout="row wrap">
+	<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+		<mat-card>
+			<div class="card-title p-2">
+				<h3>{{'Custom Colors'|translate}}</h3>
+			</div>
+			<div class="card-content p-2">
+				<div>
+					<label>color</label>
+					<mat-slider color="primary" value="50" aria-label="Primary color slider"></mat-slider>
+				</div>
+				<div class="track-color">
+					<label>track-color</label>
+					<mat-slider color="accent" value="50" aria-label="Accent color slider"></mat-slider>
+				</div>
+				<div>
+					<label>thumb-color</label>
+					<mat-slider thumbLabel tickInterval="1" color="warn" value="50"  aria-label="Warn color slider"></mat-slider>
+				</div>
+			</div>
+		</mat-card>
+	</div>
+	<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+		<mat-card>
+			<div class="card-title p-2">
+				<h3>{{'Icons'|translate}}</h3>
+			</div>
+			<div class="card-content p-2">
+				<div class="mb-3 p-2" fxLayoutAlign="space-between center">
+					<div>
+						<span>Media volume</span>
+					</div>
+					<div class="icons-content" fxLayoutAlign="flex-start center">	
+						<mat-icon>volume_up</mat-icon>
+						<mat-slider></mat-slider>
+					</div>
+				</div>		
+				<div class="mb-3 p-1" fxLayoutAlign="space-between center">
+					<div>
+						<span>Alarm volume</span>
+					</div> 
+					<div class="icons-content" fxLayoutAlign="flex-start center">	
+						<mat-slider></mat-slider>
+						<mat-icon>alarm</mat-icon>
+					</div>
+				</div>
+				<div class="mb-3 p-1" fxLayoutAlign="space-between center">
+					<div>
+						<span>Shutter speed</span>
+					</div>
+					<div class="icons-content" fxLayoutAlign="flex-start center">	
+							<mat-icon>shutter_speed</mat-icon>
+						<mat-slider></mat-slider>
+					</div>
+				</div>
+			</div>		
+		</mat-card>
+	</div>
+</div>	
+<div class="grid-wrapper slider-wrapper" fxLayout="row wrap">
+	<div class="app-card" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="100" fxFlex.xl="100">
+		<mat-card>
+			<div class="card-title p-2">
+				<h3 class="text-capitalize">{{'Editable Numeric Value'|translate}}</h3>
+			</div>
+			<div class="card-content p-2">
+				<div class="slider-color mb-3" [ngStyle]="{'background':  getRGBColorString()}"></div>
+				<div>
+					<span>R</span>
+					<mat-slider  [(ngModel)]="red" min="0" max="255" #matSlider></mat-slider>
+					<mat-form-field>
+						<input matInput type="number" [(ngModel)]="red">
+					</mat-form-field>
+				</div>
+				<div>
+					<span>G</span>
+					<mat-slider  [(ngModel)]="green" min="0" max="255" #matSlider></mat-slider>
+					<mat-form-field>
+						<input matInput type="number" [(ngModel)]="green" >
+					</mat-form-field>
+				</div>
+				<div>
+					<span>B</span>
+					<mat-slider  [(ngModel)]="blue" min="0" max="255" #matSlider></mat-slider>
+					<mat-form-field>
+						<input matInput type="number" [(ngModel)]="blue" >
+					</mat-form-field>
+				</div>
+			</div>
+		</mat-card>
+	</div>	
+</div>
+

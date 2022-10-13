@@ -1,0 +1,52 @@
+<div class="app-card">
+	<mat-card class="p-0" *ngIf = "toDoListVisible" id="todoList">
+		<div class="p-3" fxLayout="row wrap" fxLayoutAlign="space-between center">
+			<div class="card-title">
+				<h3 class="mb-0 text-capitalize">{{'To Do List'|translate}}</h3>
+			</div>
+			<div class="a-icon">
+				<TopsideMenu (isCloseEvent) = "getCloseValue($event)" (isFullScreen)="showFullScreen('todoList')" (isShowSpinner)="spinnerShow('todoList')"></TopsideMenu>
+			</div>	
+		</div>
+		<mat-card-content [style.overflow]="'auto'" [style.height.px]="'350'">
+			<perfect-scrollbar class="scrollbar" [config]="config">
+				<div class="p-3 border-b-1 list" *ngFor="let list of TodoListData; let i=index">
+					<div>
+						<div fxLayout="row wrap" fxLayoutAlign="space-between center">
+							<div fxLayoutAlign="start center">
+								<div class="input-slot">
+									<mat-checkbox (change)="markedList(list)" [checked]="list.status"></mat-checkbox>
+								</div>	
+								<div (click)="markedList(list)">
+									<div [ngClass]="{'strike': list.status}">
+										<h5 class="mb-2">{{list.title}}</h5>
+									</div>	
+									<div>
+										<div *ngIf="list.date">{{list.date|date}}</div>
+										<div *ngIf="!list.date">
+											<span class="fs-12 action-text">Today 10:35 | By Admin</span>
+										</div>
+									</div>
+								</div>
+							</div>			
+							<div>
+								<ng-template #elseBlock></ng-template>
+								<button class="delete-btn" mat-mini-fab mat-mini-fab-sm mat-icon-button color="accent" (click)="onDeleteToDoList(i)">
+					    			<mat-icon aria-label="Example icon-button with a heart icon">delete</mat-icon>
+					  			</button>
+			  				</div>
+			  			</div>	
+			  		</div>
+			  	</div>		
+			</perfect-scrollbar>
+		</mat-card-content>
+		<div class="p-3">
+			<mat-card-actions class="m-0 p-0">
+				<button class="px-3" mat-raised-button mat-button-sm color="primary" (click)="addToDoList()"><mat-icon class="mr-2">add</mat-icon>Add New</button>
+			</mat-card-actions>
+		</div>	
+		<div class="card-spinner" [ngClass] = "{'reload' : todoListShowSpinner}" fxLayoutAlign="center center">
+			<mat-spinner *ngIf="todoListShowSpinner" mode="indeterminate" diameter="39"></mat-spinner>
+		</div>
+	</mat-card>
+</div>	

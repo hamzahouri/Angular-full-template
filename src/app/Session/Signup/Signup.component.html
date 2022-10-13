@@ -1,0 +1,105 @@
+<div class="application-wrapper full-hght">
+	<div class="session-wrapper">	
+		<div>
+			<anglo-session-slider [Reviews_slides]="ReviewsSlides"></anglo-session-slider>
+		</div>
+		<div>
+			<div class="session-right full-hght">
+				<div class="session-table">
+					<div class="session-content text-align">
+						<div class="anglo-logo inline-block mb-3">
+					   	<img alt="Anglo logo" src="/assets/img/session.png" width="78" height="78">
+					   </div>
+					   <div>	
+					   	<h2 mb-3>{{'Sign Up'|translate}}</h2>
+					   	<p class="fs-14">Having an account ?
+					   	<a class="primary-color" [routerLink]="['/session/login']" routerLinkActive="active">Login</a></p>
+					   </div>	
+						<form class="mb-4" [formGroup]="signupForm">
+							<div>
+								<div class="form-wrapper">
+									<mat-form-field>
+										<input type="text" matInput placeholder="First Name" formControlName="firstName" (keyup)="onFirstName($event)">
+									</mat-form-field>
+									<div class="length-wrapper">
+										<div class="name-length" *ngIf= "userNameLength>10; else userName">
+											<h5 class="primary-color">{{userNameLength}}/10</h5>
+										</div>
+										<ng-template #userName>
+											<h5>{{userNameLength}}/10</h5>
+										</ng-template>
+									</div>	
+								</div>	
+								<mat-error *ngIf="signupForm.controls['firstName'].touched && !signupForm.controls['firstName'].valid">
+							   	<mat-error *ngIf="signupForm.controls['firstName'].hasError('required')">  
+						       		Name is required
+						        	</mat-error>  
+						        	<mat-error *ngIf="signupForm.controls['firstName'].hasError('maxlength')">
+						        		Name must be less than 10 characters	
+						        	</mat-error>
+								</mat-error>
+							</div>
+							<div>
+								<div class="form-wrapper">
+									<mat-form-field>
+										<input type="text" matInput placeholder="Last Name" formControlName="lastName" (keyup)="onLastName($event)">
+									</mat-form-field>
+									<div class="length-wrapper">
+										<div  class="name-length" *ngIf= "lastNameLength>10; else lastName">
+											<h5 class="primary-color">{{lastNameLength}}/10</h5>
+										</div>
+										<ng-template #lastName>
+											<h5>{{lastNameLength}}/10</h5>
+										</ng-template>
+									</div>
+								</div>	
+								<mat-error *ngIf="signupForm.controls['lastName'].touched && !signupForm.controls['lastName'].valid">
+							   	<mat-error *ngIf="signupForm.controls['lastName'].hasError('required')">  
+						       		Name is required
+						        	</mat-error> 
+						         <mat-error *ngIf="signupForm.controls['firstName'].hasError('maxlength')">
+						        		Name must be less than 10 characters	
+						        	</mat-error>
+								</mat-error>
+							</div>
+							<div>
+								<mat-form-field>
+									<input type="email" matInput placeholder="Email ID" formControlName="email">
+								</mat-form-field>
+								<mat-error *ngIf="signupForm.controls['email'].touched && !signupForm.controls['email'].valid">
+									<mat-error *ngIf="signupForm.controls['email'].hasError('required')">
+										E-mail is required
+									</mat-error>
+									<mat-error *ngIf="signupForm.controls['email'].hasError('pattern')">
+										E-mail must be valid
+									</mat-error>
+								</mat-error>
+							</div>
+							<div class="mb-2">
+								<mat-form-field>
+									<input type="password" matInput placeholder="Password" formControlName="password">
+								</mat-form-field>
+								<mat-error *ngIf="signupForm.controls['password'].touched && !signupForm.controls['password'].valid">
+									<mat-error *ngIf="signupForm.controls['password'].hasError('required')">
+										Password is required
+									</mat-error>
+									<mat-error *ngIf="signupForm.controls['password'].hasError('minlength')">
+										Password must contain atleast 6 characters 
+									</mat-error>
+								</mat-error>
+							</div>
+							<mat-card-actions>
+								<button class="signup-btn btn py-1 mb-3" type="submit" mat-raised-button color="primary" (click)="onSignup(signupForm.value)">SIGN UP</button>
+							</mat-card-actions>
+							<p>By signing up you agree to Anglo</p>
+							<a class="primary-color cursor-pointer">Terms of Service</a>
+						</form>
+						<div class="session-icon">
+							<anglo-social-icons [socialIcon]="social_icon" targetNew = "new"></anglo-social-icons>
+						</div>	
+					</div>
+				</div>
+			</div>	
+		</div>			
+	</div>
+</div>	

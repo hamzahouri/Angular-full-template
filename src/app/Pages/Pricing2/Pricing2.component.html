@@ -1,0 +1,34 @@
+<div class="app-card-title mb-3">
+	<anglo-title-component title = "Pricing 2"></anglo-title-component>
+</div>
+<div class="pricing-wrapper grid-wrapper" fxLayout="row wrap">	
+	<div  class="pricing-v2" *ngFor="let pricing of pricing2" fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="25" fxFlex.lg="25" fxFlex.xl="25">
+		<mat-card class="p-0">
+			<mat-card-title>
+				<div class="{{pricing.bg_color}} p-3 text-color" fxLayout="row wrap" fxLayoutAlign="space-between center">
+					<div>
+						<h5 class="mb-0">{{pricing.heading.title|translate}}</h5>
+					</div>
+					<div>
+						<p class="font-sz mb-0">{{pricing.heading.subTitle|translate}}</p>
+					</div>	
+				</div>	
+			</mat-card-title>
+				<div class="text-align">
+					<div>
+						<h3 class="font-sz-lg mb-3">{{pricing.price}}<sub>{{pricing.sub}}</sub></h3>
+					</div>
+					<mat-card-content class="m-0">
+						<div>
+							<mat-list class="p-0" *ngFor ="let data of pricing.plan">
+								<mat-list-item class="border-b-1 text-align" fxLayoutAlign="center center">{{data}}</mat-list-item>
+							</mat-list>
+						</div>
+					</mat-card-content>
+					<div class="p-3">
+						<button class="full-wid p-1" mat-raised-button color="{{pricing.color}}">CHOOSE PLAN</button>
+					</div>
+				</div>	
+		</mat-card>
+	</div>	
+</div>

@@ -1,0 +1,76 @@
+/*-------------------------------------------------------------
+11.1 Drag And Drop
+-------------------------------------------------------------*/
+// Dragable Wrapper
+.dragable-wrapper{
+   .img-thumb-wrap{
+   	border:2px solid $primary;
+    	width: 50px;
+    	height: 50px;
+   }
+   .card-content{
+   	display:flex;
+   	align-items:center;
+   	height:4.5rem;
+   	cursor:pointer;
+   	padding:0.625rem 1rem;
+   	transition: all 0.5s ease-in-out;
+   	 
+   	&:hover {
+   	 	background: $content-hover;
+   	}
+   	.title{
+   		margin-bottom:0px;
+   	}
+   }  
+} 
+
+// Dragable-resize Wrapper 
+.dragable-resize-wrapper{
+   .card-content{
+   	height: 500px;
+      width: 100%;
+      .card-text{
+      	border:1px solid rgba(0,0,0,.14);
+         height:100%;
+         top:0;
+         left:0;
+         bottom:0;
+         right:0;
+      	code{
+      		background-color: $secondary-color;
+      		color: #bd4147;
+      		box-shadow: 0 1px 1px 0 rgba(0,0,0,.14);
+
+      	}
+      }
+   }
+   .ng-resizable{
+      width:200px;
+   }
+}   
+
+// Dragula Wrapper
+  
+.dragula-wrapper{
+   .dragula-container1,.dragula-container2 { 
+      background: rgba(93,146,244,.4);
+      color: $text-color;
+      height:100%;
+   }
+   .list{
+      color: $text-color;
+      cursor: no-drop;
+      transition: opacity .4s ease-in-out;
+   }
+   .dragula-list-wrapper{
+      .layout{
+         padding:10px;
+      }
+   }
+} 
+    
+.drag-content{
+   width:calc(100% - 70px);
+}
+

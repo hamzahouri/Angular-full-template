@@ -1,0 +1,58 @@
+/*-------------------------------------------------------------
+13.3 Font
+-------------------------------------------------------------*/
+//
+// Text
+//
+// Alignment
+
+.text-justify {
+    text-align: justify !important;
+}
+.text-nowrap {
+    white-space: nowrap !important;
+}
+.text-right {
+    text-align: right;
+}
+.text-align {
+    text-align: center;
+}
+.text-left{
+    text-align: left;
+}
+
+// Text transform classes
+
+.text-lowercase {
+    text-transform: lowercase !important;
+}
+
+.text-uppercase {
+    text-transform: uppercase !important;
+}
+
+.text-capitalize {
+    text-transform: capitalize !important;
+}
+
+// Font weight
+
+.font-normal {
+    font-weight: normal!important;
+}
+
+.font-bold {
+    font-weight: 700!important;
+}
+.fw-semi-bold {
+    font-weight: $font-weight-medium !important;
+}
+
+.text-inverse {
+    color: $text-color;
+}
+
+.mat-white {
+    background:$text-color;
+}

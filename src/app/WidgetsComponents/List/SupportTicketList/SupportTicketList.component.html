@@ -1,0 +1,55 @@
+<mat-card class="p-0" *ngIf = "supportTicketVisible" id="supportTicket">
+	<div class="mb-4 p-3" fxLayoutAlign="space-between center">
+		<div class="card-title">
+			<h3 class="mb-0 text-capitalize">{{title|translate}}</h3>
+		</div>
+		<div class="a-icon">	
+			<TopsideMenu (isCloseEvent) = "getCloseValue($event)" (isFullScreen)= "showFullScreen('supportTicket')" (isShowSpinner)="spinnerShow('supportTicket')"></TopsideMenu>
+		</div>	
+	</div>
+	<mat-card-content [style.overflow]="'auto'" [style.height.px]="'310'">
+		<perfect-scrollbar class="scrollbar" [config]="config">	
+			<div class="a-list p-3 border-b-1" *ngFor="let support of supportData">	
+				<div fxLayoutAlign="space-between start">
+					<div class="mr-3 list-img-md">
+						<img class="radius-circle" src="{{support.img}}" height="50" width="50">
+					</div>
+					<div class="list-msg-box"> 
+						<div class="mb-2" fxLayoutAlign="start center">
+							<div>	
+								<h5 class="fs-14 mb-0 mr-2">{{support.heading}}</h5>
+							</div>
+							<div>	
+								<span class="a-badge {{support.color}}">{{support.action}}</span>
+							</div>	
+						</div>
+						<p class="font-sz grey-text">{{support.data}}</p>
+						<div fxLayoutAlign="start center">
+							<a class="cursor-pointer"><mat-icon class="font-sz" color="primary">remove_red_eye</mat-icon></a>
+							<a class="cursor-pointer"><mat-icon class="font-sz" color="accent">edit</mat-icon></a>
+							<a class="cursor-pointer"><mat-icon class="font-sz" color="warn">delete</mat-icon></a>
+						</div>
+					</div>
+					<div class="text-right">
+						<span class="grey-text fs-12">{{support.date | date: 'd/M/y'}}</span>
+					</div>
+				</div>	
+			</div>
+		</perfect-scrollbar>
+	</mat-card-content>	
+	<div class="p-3">
+		<mat-card-actions class="m-0 p-0">
+			<div fxLayoutAlign="space-between center">
+				<div>
+					<button class="px-3" mat-button-sm mat-raised-button color="primary">View All</button>
+				</div>
+				<div class="grey-text fs-12" fxLayoutAlign="space-between center">
+					<mat-icon class="update-list">replay</mat-icon><span>Updated 10 min ago</span>
+				</div>
+			</div>		
+		</mat-card-actions>
+	</div>	
+	<div class="card-spinner" [ngClass] = "{'reload' : supportTicketShowSpinner}" fxLayoutAlign="center center">
+		<mat-spinner *ngIf="supportTicketShowSpinner" mode="indeterminate" diameter="39"></mat-spinner>
+	</div>			
+</mat-card>

@@ -1,0 +1,364 @@
+/*-------------------------------------------------------------
+12.2 sidebar
+-------------------------------------------------------------*/
+.mat-sidenav {
+   .sidebar-overlay {
+      background-color:$sidebar-bg-color;     
+   }
+   .sidebar-panel {
+      position:relative;
+      &:before {
+         bottom: 0;
+         content: "";
+         display: block;
+         left: 0;
+         position: absolute;
+         top: 0;
+         width: 100%;
+         z-index: -9;
+      }
+      height: 100vh;
+      width:$sidebar-width;
+      overflow:hidden;
+      .scrollbar {
+         max-height: auto;
+         .ps__rail-y {
+            background: none !important;
+         }
+      }  
+      .material-icons {
+         font-size: 1rem;
+      }
+     .app {
+         height: 100%;
+      }
+      .sidebar-list-wrapper {
+         color: $sidebar-text-color;
+         font-size: $sidebar-font-size;
+         cursor:pointer;
+         .content-bold {
+            font-weight:$font-weight-bold;
+         }
+      }
+      .anglo-logo {
+         height:64px;  
+         .title {
+            color: $text-color;
+            margin:0px;
+         }
+      }
+   }
+   .sidebar-user-inner {
+      display: flex;
+      >div{
+         align-self: center;
+      }
+      .mat-button {
+         min-width:0px;
+         padding:0px;
+      } 
+      .image-thumb-wrap {
+         min-width: 45px;
+      }
+
+      .sidebar-user-info-wrap {
+         .sidebar-user-name {
+            color: $text-color;
+            text-align: center;
+            margin: 0 5px;
+            span {
+               font-size:1rem;
+            }
+         }
+      }
+      .a-btn-content {
+         font-size:1rem;
+      }
+      .sidebar-user-menu {
+         background-color: $text-color;
+         box-shadow: 0 5px 8px 1px rgba(0, 0, 0, 0.2);
+         right: 20%;
+         opacity: 0;
+         overflow: hidden;
+         padding: 0.5rem 0.7rem;
+         position: absolute;
+         border-radius: 0.3125rem;
+         -webkit-transform: translateY(20px);
+         transform: translateY(20px);
+         transition: all 0.3s ease 0s;
+         visibility: hidden;
+         width: 11.25rem;
+         z-index: 999;
+
+         ul {
+            list-style: outside none none;
+            margin: 0;
+            padding: 0;
+            text-align: left;
+         }
+
+         ul li a {
+            color: #414658;
+            display: block;
+            padding: 0.625rem;
+            font-size: 0.8125rem;
+            display: flex;
+            transition: padding 0.2s linear 0s;
+         } 
+      } 
+   }
+   .anglo-container {
+      height: 100%;
+   }
+
+   .sidebar-container {
+      height: calc(100% - 64px);
+      padding-bottom: 4rem;
+      .mat-nav-list .mat-list-item .mat-list-item-content {
+         height: auto;
+         display: block;
+         padding: 0;
+         width:100%;
+      }    
+   }
+
+   .search-bar {
+      flex: 0 0 auto !important;
+   }
+   .mat-input-container {
+      font-size: 0.875rem;
+   } 
+   .mat-button {
+      font-size: 1rem;
+      min-width:0px;
+      padding:0px;
+      line-height:1.875rem;
+   }
+   .mat-menu-content {
+      .mat-menu-item {
+         font-size: 0.875rem !important;
+         height: 38px !important;
+         line-height: 38px !important;
+      }
+   }  
+}
+
+
+ .mat-sidenav{
+   .sidebar-panel{
+      .mat-nav-list {
+         a {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            height: 3.25rem;
+            padding: 0 2.7rem;
+            outline:0; 
+         }   
+         .sub-menu{ 
+            max-height: 0;
+            padding-top: 0;
+            overflow: hidden;
+            transition: 0.5s cubic-bezier(0.35, 0, 0.25, 1);
+            transition-property: max-height;
+            a {
+               padding-left: 4rem !important;
+               margin: 0;
+               padding-top: .25rem;
+               padding-bottom: .25rem;   
+            }
+         }
+         .mat-list-item{
+            height:auto;
+            .menu-caret{
+               transition: all .3s ease-in-out 0s;
+            }
+            &.open{
+               .nav-item .list-name, .active-link .list-name{
+                  font-weight:$font-weight-bold;
+               } 
+               .menu-caret {
+                  transition: all .3s ease-in-out 0s;
+                  margin-right: 0 !important;
+                  transform: rotate(90deg);
+               }
+            } 
+            &:hover{
+               background:none;
+            }  
+         }      
+         .mat-icon{
+            height:auto;  
+         }
+          .nav-item:before {
+            background-color: rgba(0,0,0,.2);
+            border-radius: 0 100px 100px 0;
+            bottom: 0;
+            box-shadow: 0 4px 15px 0 rgba(0,0,0,.09);
+            content: "";
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .4s ease-in-out;
+            transition: transform .4s ease-in-out;
+            width: 210px;
+            z-index: -1;
+         }
+         .nav-item {
+            position:relative;
+            padding: 0rem 0.5rem;
+           
+         }
+         .nav-item:hover:before {
+            transform: scaleX(1);
+         }
+         .anglo-relative {
+            position:relative;
+         }
+      }
+      .navigation .open > .mat-list-item-content > .sub-menu {
+         max-height: 1000px;
+      }
+      .sidebar-list-wrapper{
+         .list-name {
+            font-weight:$font-weight-base;
+            font-size: 14px;
+         }
+         .sidebar-title span{
+            font-size: 12px;  
+            font-weight:$font-weight-base;
+            margin-bottom: .625rem;
+            display: block;
+         } 
+      } 
+      .mat-list-base .mat-list-item .mat-list-item-ripple{
+         display:none;
+      } 
+      .sidebar-user-inner{
+         padding-left:1.25rem;
+         padding-right:1.25rem;
+      }  
+   }
+} 
+
+
+
+.app-main {     
+   .mat-drawer-side {
+      border-right: none !important;
+   }
+   .mat-drawer {
+      background-color: none !important;
+   }
+   .background-none {
+      background-image: none !important;
+   }
+   .sidebar-area.background-none .sidebar-panel:before {
+      opacity:1 !important;
+   }   
+   .sidebar-select-1 {
+      background: $sidebar-bg-color;
+   }
+   .sidebar-select-2 {
+      background: $sidebar-style-2;
+   }
+   .sidebar-select-3{
+      background: $sidebar-style-3;
+   }
+   .sidebar-select-4{
+      background: $sidebar-style-4; 
+   }
+   .sidebar-select-5{
+      background: $sidebar-style-5;
+   }
+   .sidebar-select-6{
+      background: $sidebar-style-6;
+   }
+   .sidebar-select-7{
+      background: $sidebar-style-7;
+   }
+}  
+.sidebar-overlay-light .mat-sidenav .sidebar-panel .sidebar-list-wrapper{
+   color:$font-color !important; 
+}
+.sidebar-overlay-light .mat-sidenav .sidebar-panel .sidebar-user-name span {
+   color:$font-color !important;
+}
+.sidebar-overlay-light .mat-sidenav .sidebar-panel  .a-btn-content .mat-icon {
+   color:$font-color !important;
+}
+.sidebar-overlay-light .mat-sidenav .sidebar-panel .site-logo .title {
+   color:$font-color !important;
+}
+
+.sidebar-panel:before {
+   opacity:0.9;
+}
+.sidebar-overlay-light .sidebar-panel  {
+   color: #464d69 !important;
+}
+
+.sidebar-overlay-dark .sidebar-panel:before{
+   background: $sidebar-style-1;
+ 
+} 
+.sidebar-overlay-light .sidebar-panel:before {
+   background: $sidebar-style-2;
+   color: #464d69 !important;
+}
+.sidebar-overlay-pink .sidebar-panel:before {
+   background: $sidebar-style-3;
+ 
+}
+.sidebar-overlay-primary .sidebar-panel:before {
+   background: $sidebar-style-4;
+ 
+}
+.sidebar-overlay-warning .sidebar-panel:before {
+   background: $sidebar-style-5;
+  
+}
+.sidebar-overlay-success .sidebar-panel:before {
+   background: $sidebar-style-6;
+  
+}
+.sidebar-overlay-purple .sidebar-panel:before {
+   background: $sidebar-style-6;    
+}
+.sidebar-overlay-yellow .sidebar-panel:before {
+   background: $sidebar-style-7;    
+}
+.mat-sidenav .sidebar-panel .material-icons {
+	font-size: 22px;
+	margin-right: 0;
+	width: 36px;
+	text-align: left;
+}
+.user-profile-menu mat-icon {
+	font-size: 18px !important;
+	text-align: right !important;
+}
+.mat-sidenav .sidebar-panel .menu-caret {
+	font-size: 13px;
+	text-align: center !important;
+	min-width: 17px;
+}
+.collapsed-sidebar .anglo-logo {
+	padding-left: 1.6rem !important;
+}
+
+/*=============== Sidebar-Light ================*/
+
+.sidebar-overlay-light .sidebar-panel {
+   *,
+   i,
+   a,
+   span,
+   .v-icon,
+   .v-list-item__title {
+      color: $font-color !important;
+   }
+}

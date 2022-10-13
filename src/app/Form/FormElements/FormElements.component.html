@@ -1,0 +1,527 @@
+<div class="app-card-title mb-3">
+   <anglo-title-component title="Form Elements"></anglo-title-component>
+</div>
+<div class="grid-wrapper form-element-wrapper" fxLayout="row wrap">
+	<div class="card-wrapper" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+		<div class="app-card mb-4">
+			<mat-card>
+				<div class="card">
+					<div class="card-title mb-3">
+						<h3>{{'Default Bootstrap Elements'|translate}}</h3>
+					</div>
+					<mat-divider></mat-divider>
+					<div class="card-content">
+						<div class="form-group">
+							<mat-form-field class="full-wid"> 
+	                     <input matInput placeholder="Enter Email" type="email">
+	                 </mat-form-field>
+							<div class="small">We'll never share your email with anyone else.</div>
+						</div>
+
+						<div class="form-group">
+							<mat-form-field class="full-wid">
+	                     <input matInput placeholder="Password" type="password">
+	                  </mat-form-field>
+						</div>
+
+						<div class="form-group">
+							<mat-form-field  class="full-wid">
+							  	<mat-select placeholder="Example Select" >
+							    	<mat-option value="1">1</mat-option>
+							    	<mat-option value="2">2</mat-option>
+							    	<mat-option value="3">3</mat-option>
+							    	<mat-option value="4">4</mat-option>
+							    	<mat-option value="5">5</mat-option>
+							  	</mat-select>
+							</mat-form-field>
+						</div>
+					
+						<div class="form-group">
+							<mat-form-field class="full-wid">
+							   <mat-select placeholder="Multiple Select"  multiple>
+							      <mat-option>1</mat-option>
+							    	<mat-option>2</mat-option>
+							    	<mat-option>3</mat-option>
+							    	<mat-option>4</mat-option>
+							    	<mat-option>5</mat-option>
+							   </mat-select>
+							</mat-form-field>
+						</div>
+
+						<div class="form-group">
+							<mat-form-field class="full-wid">
+	    						<textarea matInput placeholder="Leave a comment"></textarea>
+	  						</mat-form-field>
+						</div>
+
+						<div class="form-group mb-3">
+							<input class="form-control mb-2" type="file">
+							<div class="input-content small">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.
+							</div>
+						</div>
+
+						<div class="radio-btn text-wrap">
+							<div class="card-title mb-3">
+								<h3>{{'Radio-button'|translate}}</h3>
+							</div>		
+							<mat-radio-group>
+								<div class="radio-btn-option mb-2">
+									<mat-radio-button  value="1">Option one is this and that—be sure
+									</mat-radio-button>
+								</div>
+								<div class="radio-btn-option mb-2">	
+									<mat-radio-button value="2" checked>Option two
+									</mat-radio-button>
+								</div>
+								<div class="radio-btn-option mb-2">	
+									<mat-radio-button value="3" disabled="disabled">Option three is disabled</mat-radio-button>
+								</div>
+							</mat-radio-group>
+						</div>
+
+						<div class="form-group mb-3">
+							<mat-checkbox>Check me out</mat-checkbox>
+						</div>
+						<button mat-raised-button type="button" color="primary" class="btn btn-primary">Submit</button>
+					</div>
+				</div>
+			</mat-card>
+		</div>
+		<div class="app-card mb-4">
+			<mat-card>
+				<div class="card-title mb-3">
+					<h3>{{'Textual Inputs'|translate}}</h3>
+				</div>
+				<mat-divider></mat-divider>
+				<div class="card-content">
+					<div class="form-group-row">
+						<mat-form-field class="full-wid"> 
+	                  <input matInput placeholder="Artisanal kale" class="form-control" type="text">
+	               </mat-form-field>
+					</div>
+
+					<div class="form-group-row">
+						<mat-form-field class="full-wid"> 
+	                  <input matInput placeholder="How do I shoot web" class="form-control" type="text">
+	               </mat-form-field>
+					</div>
+
+					<div class="form-group-row">
+						<mat-form-field class="full-wid"> 
+	                  <input matInput placeholder="Bootstrap@example.com" class="form-control" type="email">
+	               </mat-form-field>
+					</div>
+
+					<div class="form-group-row">
+						<mat-form-field class="full-wid">
+	                  <input matInput placeholder="Website Address (https://www.google.com)" type="url">
+	               </mat-form-field>
+					</div>
+
+					<div class="form-group-row">
+						<mat-form-field class="full-wid"> 
+	                  <input matInput placeholder="1-(555)-555-5555" class="form-control" type="text">
+	               </mat-form-field>
+					</div>
+
+					<div class="form-group-row">
+						<mat-form-field class="full-wid">
+	                  <input matInput placeholder="Password" class="form-control"  type="password">
+	               </mat-form-field>
+					</div>
+
+					<div class="form-group-row">
+						<mat-form-field class="full-wid">
+	                  <input matInput placeholder="42" type="number" class="form-control">
+	               </mat-form-field>
+					</div>
+
+					<div class="form-group-row">
+						<mat-form-field class="full-wid mb-4">
+	                  <input matInput  type="date">
+	               </mat-form-field>
+					</div>
+				</div>
+			</mat-card>
+		</div>
+		<div class="app-card mb-4">
+			<mat-card>
+				<div class="card-title mb-3">
+					<h3>{{'Form Group'|translate}}</h3>
+				</div>
+				<mat-divider></mat-divider>
+				<div class="card-content">
+					<form>
+						<div class="exampleLabel">
+							<mat-form-field class="full-wid"> 
+	                  	<input matInput placeholder="Example input" class="form-control" type="text">
+	               	</mat-form-field>
+						</div>
+						<div class="anotherLabel">
+							<mat-form-field class="full-wid"> 
+	                  	<input matInput placeholder="Another input" class="form-control" type="text">
+	               	</mat-form-field>
+						</div>
+					</form>	
+				</div>
+			</mat-card>
+		</div>
+		<div class="app-card mb-4">
+			<mat-card>
+				<div class="card-title mb-3">
+					<h3>{{'Inline Forms'|translate}}</h3>
+				</div>
+				<mat-divider></mat-divider>
+				<div class="card-content">
+					<form>
+						<div class="name">
+							<mat-form-field class="full-wid">
+							<label class="sr-only">Name</label> 
+	                  	<input matInput placeholder="Example input" class="form-control" class="Jane Doe" type="text">
+	               	</mat-form-field>
+						</div>
+
+						<div class="input-name">
+							<mat-form-field class="full-wid"> 
+	                  	<input matInput placeholder="Username" class="form-control" type="text">
+	               	</mat-form-field>
+						</div>
+						
+						<div class="check-remember mb-3">
+							<mat-checkbox type="checkbox">Remember me</mat-checkbox>
+						</div>
+						<button mat-raised-button class="btn btn-primary" color="primary">Submit</button>
+					</form>	
+				</div>
+			</mat-card>	
+		</div>
+		<div class="app-card mb-4">
+			<mat-card>
+				<div class="card-title mb-3">
+					<h3>{{'Custom Controls'|translate}}</h3>
+				</div>
+				<mat-divider></mat-divider>
+				<div class="card-content pt-3">
+					<p>Custom form controls and selects are also supported.</p>
+					<label>Preference</label>
+					<mat-form-field class="full-wid">
+					   <mat-select placeholder="Choose..">
+					      <mat-option value="One">One</mat-option>
+					    	<mat-option value="Two">Two</mat-option>
+					    	<mat-option value="Three">Three</mat-option>
+					    	<mat-option value="Four">Four</mat-option>
+					   </mat-select>
+					</mat-form-field>
+					<div class="check-remember-preference mb-3">			
+						<mat-checkbox type="checkbox">Remember my preference</mat-checkbox>
+					</div>			
+					<button mat-raised-button type="button" class="btn btn-primary" color="primary">Submit</button>
+				</div>
+			</mat-card>	
+		</div>
+		<div class="app-card mb-4">
+			<mat-card>
+				<div class="card-title mb-3">
+					<h3>{{'Checkboxes & Radios'|translate}}</h3>
+				</div>
+				<mat-divider></mat-divider>
+				<div class="card-content pt-3">
+					<h5>Default (stacked)</h5>
+					<div class="form-check mb-2">
+						<mat-checkbox type="checkbox">Option one is this and that—be sure
+						</mat-checkbox>
+					</div>
+					<div class="form-check mb-2">
+						<mat-checkbox type="checkbox" disabled="disabled">Option two is disabled</mat-checkbox>
+					</div>
+					<div class="radio-btn mb-3">	
+						<mat-radio-group>
+							<div class="radio-btn-option mb-2">
+								<mat-radio-button  value="1">Option one is this and that—be sure
+								</mat-radio-button>
+							</div>
+							<div class="radio-btn-option mb-2 text-wrap">	
+								<mat-radio-button value="2" checked>Option two
+								</mat-radio-button>
+							</div>
+							<div class="radio-btn-option mb-2">	
+								<mat-radio-button value="3" disabled="disabled">Option three is disabled</mat-radio-button>
+							</div>
+						</mat-radio-group>
+					</div>
+					<div class="title mb-3">
+						<h5>{{'Inline'|translate}}</h5>
+					</div>	
+					<div class="inline-checkbox mb-4">
+						<mat-checkbox type="checkbox" class="mr-3">1</mat-checkbox>
+						<mat-checkbox type="checkbox" class="mr-3">2</mat-checkbox>
+						<mat-checkbox type="checkbox" class="mr-3">3</mat-checkbox>	
+					</div>
+					<div class="inline-radio-btn" fxLayoutAlign="start center">
+						<mat-radio-group>
+							<mat-radio-button value="1" class="mr-3">1</mat-radio-button>
+							<mat-radio-button value="2" class="mr-3">2</mat-radio-button>
+							<mat-radio-button value="3" class="mr-3" disabled="disabled">3</mat-radio-button>
+						</mat-radio-group>
+					</div>	
+				</div>
+			</mat-card>	
+		</div>
+	</div>
+	<div class="form-element-wrapper" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">	
+		<div class="app-card mb-4">
+			<mat-card>
+				<div class="card-title mb-3">
+					<h3>{{'Disabled States'|translate}}</h3>
+				</div>
+				<mat-divider></mat-divider>
+				<div class="card-content">
+					<form>
+						<div class="disabled-field">
+							<mat-form-field class="full-wid"> 
+		                  <input matInput disabled placeholder="Disabled input" type="text">
+		              </mat-form-field>
+						</div>
+						<div class="disabled-option">
+							<mat-form-field class="full-wid">
+							   <mat-select placeholder="Disabled select" disabled="disabled">
+							      <mat-option value="" >Disabled select</mat-option>
+							   </mat-select>
+							</mat-form-field>
+						</div>
+						<div class="checkbox-disabled mb-3">
+							<mat-checkbox type="checkbox" disabled="disabled" class="mr-2"></mat-checkbox>Can't check this
+						</div>
+						<div class="button">
+							<button mat-raised-button type="button" color="primary" disabled>Submit</button>
+						</div>
+					</form>
+				</div>
+			</mat-card>	
+		</div>
+		<div class="app-card mb-4">
+			<mat-card>
+				<div class="card-title mb-3">
+					<h3>{{'Readonly Inputs'|translate}}</h3>
+				</div>
+				<mat-divider></mat-divider>
+				<div class="paragraph pt-3">
+					<p>Add the readonly boolean attribute on an input to prevent modification of the input’s value. Read-only inputs appear lighter (just like disabled inputs), but retain the standard cursor.</p>
+				</div>
+				<div>
+					<mat-form-field class="full-wid">
+						<input matInput type="text" readonly placeholder="Readonly input here…">
+					</mat-form-field>	
+				</div>
+			</mat-card>	
+		</div>
+		<div class="app-card mb-4">
+			<mat-card>
+				<div class="card-title mb-3">
+					<h3>{{'Static Controls'|translate}}</h3>
+				</div>
+				<mat-divider></mat-divider>
+				<form>
+					<div class="form-group-row pt-3" fxLayout="row wrap">
+						<label class="mrgn-r-lg">Email</label>
+						<div >
+							<p>email@example.com</p>
+						</div>
+					</div>
+
+					<div class="form-group-row">
+						<mat-form-field class="full-wid"> 
+	                  <input matInput placeholder="Password" type="Password">
+	               </mat-form-field>
+					</div>
+
+					<div class="form-group-row">
+						<mat-form-field class="full-wid"> 
+	                  <input matInput placeholder="Email" type="email">
+	               </mat-form-field>
+					</div>
+				</form>
+				<button mat-raised-button type="button" color="primary">Confirm Identity</button>
+			</mat-card>		
+		</div>
+		<div class="app-card mb-4">
+			<mat-card>
+				<div class="card-title mb-3">
+					<h3>{{'Help Text'|translate}}</h3>
+				</div>
+				<mat-divider></mat-divider>
+				<div class="card-content">
+					<mat-form-field class="full-wid">
+						<input matInput type="password" placeholder="Password">
+					</mat-form-field>
+					<p>Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.</p>
+
+					<div class="form-field">
+						<div class="" fxLayout="row wrap">
+							<div class="" fxFlex.gt-sm="60" fxFlex="100">
+								<mat-form-field class="full-wid">
+									<input matInput type="password" placeholder="Password">
+								</mat-form-field>
+							</div>
+							<div fxFlex.gt-sm="40" fxFlex="100">
+								<p>Must be 8-20 character</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</mat-card>	
+		</div>
+		<div class="app-card mb-4">
+			<mat-card>
+				<div class="card-title mb-3">
+					<h3>{{'Validation'|translate}}</h3>
+				</div>
+				<mat-divider></mat-divider>
+				<div class="card-content">
+					<div class="input-success">
+						<mat-form-field class="full-wid">
+							<input matInput type="text" placeholder="Name@example.com" type="email">
+						</mat-form-field>
+						<div>Success! You've done it.</div>
+						<div class="small">Example help text that remains unchanged</div>
+					</div>
+
+					<div>
+						<mat-form-field class="full-wid">
+							<input matInput type="text" placeholder="Name@example.com" type="email">
+						</mat-form-field>
+						<div>Shucks, check the formatting of that and try again.</div>
+						<div class="small">Example help text that remains unchanged.</div>
+					</div>
+
+					<div>
+						<mat-form-field class="full-wid">
+							<input matInput type="text" placeholder="Name@example.com" type="email">
+						</mat-form-field>
+						<div>Sorry, that username's taken. Try another?</div>
+						<div class="small"> Example help text that remains unchanged</div>
+					</div>
+				</div>
+			</mat-card>	
+		</div>
+		<div class="app-card mb-4">
+			<mat-card>
+				<div class="card-title mb-3">
+					<h3>{{'Checkboxes & Radios'|translate}}</h3>
+				</div>
+				<mat-divider></mat-divider>
+				<div class="checkbox-container pt-3">
+					<div class="form-check mb-3">
+						<mat-checkbox type="checkbox">Checkbox with success</mat-checkbox>
+					</div>
+					<div class="form-check mb-3">
+						<mat-checkbox type="checkbox">Checkbox with warning</mat-checkbox>
+					</div>
+					<div class="form-check mb-3">
+						<mat-checkbox type="checkbox">Checkbox with danger</mat-checkbox>
+					</div>
+				</div>
+			</mat-card>	
+		</div>
+		<div class="app-card mb-4">
+			<mat-card>
+				<div class="card-title mb-3">
+					<h3>{{'Custom Forms'|translate}}</h3>
+				</div>
+				<mat-divider></mat-divider>
+				<div class="card-content">
+					<div class="checkbox-field-content mb-2 pt-2 pt-3">
+						<p class="text-muted">Checkboxes</p>
+						<mat-checkbox type="checkbox">Check this custom checkbox</mat-checkbox>
+					</div>
+					<div class="radio-btn mb-3 pt-2">
+						<p class="text-muted">Radios</p>
+						<mat-radio-group>
+							<div class="radio mb-2">
+								<mat-radio-button value="1" checked>Toggle this custom radio</mat-radio-button>
+							</div>
+							<div class="radio-btn">
+								<mat-radio-button value="2">Or toggle this other custom radio</mat-radio-button>
+							</div>
+						</mat-radio-group>
+					</div>
+					<div>
+						<p class="text-muted">Disabled</p>
+						<div class="checkbox-disabled-field mb-2">
+							<mat-checkbox type="checkbox" disabled="disabled">Check this custom checkbox</mat-checkbox>
+						</div>
+						<div class="radio-disabled-field">
+							<mat-radio-group>
+								<div class="radio-btn">
+									<mat-radio-button value="1" disabled="disabled">Toggle this custom radio</mat-radio-button>
+								</div>
+							</mat-radio-group>
+						</div>
+					</div>
+				</div>
+			</mat-card>	
+		</div>
+		<div class="app-card mb-4">
+			<mat-card>
+				<div class="card-title mb-3">
+					<h3>{{'Custom Validation States'|translate}}</h3>
+				</div>
+				<mat-divider></mat-divider>
+				<div class="card-content pt-3">
+					<div class="checkbox-field mb-2">
+						<mat-checkbox >Check this custom checkbox</mat-checkbox>
+					</div>
+					<div class="checkbox-field mb-2">
+						<mat-checkbox >Check this custom checkbox</mat-checkbox>
+					</div>
+					<div class="checkbox-field mb-2">
+						<mat-checkbox>Check this custom checkbox</mat-checkbox>
+					</div>
+				</div>
+			</mat-card>	
+		</div>
+		<div class="app-card mb-4">
+			<mat-card>
+				<div class="card-title mb-3">
+					<h3>{{'Stacked'|translate}}</h3>
+				</div>
+				<mat-divider></mat-divider>
+				<div class="card-content">
+					<form>
+						<div class="radio-btn mb-2 pt-3">
+							<p>Radios</p>
+							<mat-radio-group>
+								<div class="radio mb-2">
+									<mat-radio-button value="1" checked>Toggle this custom radio</mat-radio-button>
+								</div>
+								<div class="radio-btn">
+									<mat-radio-button value="2">Or toggle this other custom radio</mat-radio-button>
+								</div>
+							</mat-radio-group>
+						</div>
+						
+						<div class="form-control">
+							<mat-form-field class="full-wid">
+								<mat-select placeholder="Open with select menu">
+									<mat-option value="One">One</mat-option>
+									<mat-option value="Two">Two</mat-option>
+									<mat-option value="Three">Three</mat-option>
+								</mat-select>
+							</mat-form-field>	
+						</div>
+					</form>
+				</div>
+			</mat-card>	
+		</div>
+	</div>
+</div>				
+
+			
+			
+
+			
+
+			
+			
+
+		
