@@ -1,9 +1,9 @@
 <div class="application-wrapper">
 	<div class="session-wrapper">
 		<div class="full-hght mb-0">	
-			<div class="testimonial-section">
+			<!-- <div class="testimonial-section">
 				<anglo-session-slider [Reviews_slides]="ReviewsSlides"></anglo-session-slider>
-			</div>
+			</div> -->
 			<div class="login-sec">		
 				<app-nav-bar></app-nav-bar>
 
@@ -41,7 +41,7 @@
 											Password is required
 										</mat-error>
 										<mat-error *ngIf="loginForm.controls['password'].hasError('minlength')">
-											Password must contain atleast 6 characters 
+											Password must contain at least 6 characters 
 										</mat-error>
 									</mat-error>
 								</div>

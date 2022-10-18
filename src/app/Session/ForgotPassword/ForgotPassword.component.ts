@@ -51,7 +51,7 @@ export class ForgotPasswordComponent implements OnInit {
 	 */
 	resetPasswordFormOpen(value){
 		if(this.forgotPassword.valid){
-			this.authService.resetPassword(value);
+			//this.authService.resetPassword(value);
 		}	
 		else
 		{

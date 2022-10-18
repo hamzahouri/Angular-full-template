@@ -109,7 +109,7 @@ export class SignupComponent implements OnInit {
 	  */
 	onSignup(value){
 		if(this.signupForm.valid){
-			this.authService.signupUserProfile(value);
+			//this.authService.signupUserProfile(value);
 		}
 		else{
 			for( let i in this.signupForm.controls){

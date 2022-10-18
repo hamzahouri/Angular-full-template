@@ -16,8 +16,8 @@ export const AppRoutes: Routes = [{
    {
       path: '',
       component: VerticalLayoutComponent,
-      canActivate: [AuthGuard],
-      runGuardsAndResolvers: 'always',
+      //canActivate: [AuthGuard],
+      //runGuardsAndResolvers: 'always',
       children: [
          {
             path: 'dashboard',loadChildren:()=>import('./Dashboard/Dashboard.module').then(m => m.DashboardModule)
