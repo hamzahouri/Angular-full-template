@@ -187,6 +187,8 @@ export class VerticalLayoutComponent implements OnInit {
 			$(".app-main").addClass("side-panel-opened");
 		},100)
 
+		// this line is added recently to test the backround color that is fixed added 19/10
+		//document.getElementById('main-app').classList.add(this.headerFilterClass[2].colorSelect);
 	}
 
 	onActivate(e) {
@@ -277,7 +279,10 @@ export class VerticalLayoutComponent implements OnInit {
 			header[i].classList.remove('active-theme');
 		}
 		document.getElementById(id).classList.add('active-theme');
+		
 	}
+
+	
 
 	/**
 	  * sidebarFilter function filter the color for sidebar section.

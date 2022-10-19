@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes } from '@angular/router';
 import { AuthGuard } from './Core/Guards/auth.guard';
+import { CourtierGrossiteComponent } from './courtier-grossite/courtier-grossite.component';
+import { CourtierSimpleComponent } from './courtier-simple/courtier-simple.component';
 
 import { VerticalLayoutComponent }   from './Layouts/VerticalLayout/VerticalLayout.component';
 
@@ -93,8 +95,19 @@ export const AppRoutes: Routes = [{
          {
             path: 'video-player',
             loadChildren:()=> import('./VideoPlayer/VideoPlayer.module').then(m => m.VideoPlayerModule)
-         }
+         },
+
+         
       ]
+   },
+   // new route for components added here
+   {
+      path: 'courtierSimple',
+      component : CourtierSimpleComponent
+   },
+   {
+      path: 'courtierGrossite',
+      component : CourtierGrossiteComponent
    },
    {
       path: '**',

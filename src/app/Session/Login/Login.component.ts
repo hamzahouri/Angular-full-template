@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
 	loginForm 				: FormGroup;
 	newTarget	   		    : string = "new";
  	emailPattern 			: string = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$";
+	userRoles : any [] = [];
 	
 
 	constructor(private router : Router,
@@ -24,8 +25,8 @@ export class LoginComponent implements OnInit {
 		
 		 	ngOnInit() {
 		 		this.loginForm=this.formBuilder.group({
-		 			email		: ["demo@example.com",[Validators.required,Validators.pattern(this.emailPattern)]],
-		 			password	: ["0123456789",[Validators.required,Validators.minLength(6)]],
+		 			email		: ["h.fatima@gmail.com",[Validators.required,Validators.pattern(this.emailPattern)]],
+		 			password	: ["12345678",[Validators.required,Validators.minLength(6)]],
 		 			validate	: ""
 		 		})
 		 	}
@@ -38,17 +39,28 @@ export class LoginComponent implements OnInit {
 								next : data => {
 									console.log('data returned',data);
 									console.log('--------------------');
+									
 									console.log('data returned',data.roles);
+									
 									if(data.roles.includes('ADMIN')) {
 										console.log("after if is calld ?")
 										console.log("the user is admin ?")
-										this.router.navigate(['/dashboard/ecommerce']);
+										this.router.navigate(['/courtierGrossite']);
 									} else{
 										console.log("after if is calld ?")
 										console.log("the user is normal user ?")
-										this.router.navigate(['/session/sign-up']);
+										this.router.navigate(['/courtierSimple']);
 
 									}
+									for (var i =0;i<data.roles.length;i++){
+										this.userRoles.push(data.roles[i]);
+									}
+									// this.userRoles.concat(data.roles);
+									//this.userRoles.push(role);
+									//console.log('array', this.userRoles)
+									//console.log("data roles is ",data.roles)
+									//console.log(Array.isArray(this.userRoles))
+									console.log(this.userRoles);
 								}
 							});
 						 }

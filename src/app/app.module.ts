@@ -61,6 +61,8 @@ import { WidgetsComponentsModule } from './WidgetsComponents/WidgetsComponents.m
 
 import { AuthService } from './Services/Auth.service';
 import { AuthGuard } from './Core/Guards/auth.guard';
+import { CourtierSimpleComponent } from './courtier-simple/courtier-simple.component';
+import { CourtierGrossiteComponent } from './courtier-grossite/courtier-grossite.component';
 
 export const firebaseConfig = {
 	apiKey				: "AIzaSyAUFEc78X3b4wwIae46ctFSSee7eE-0VIs",
@@ -141,7 +143,10 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 						MenuListItemComponent,
 						HeaderComponent,
 						SidebarComponent,
-						AppLogoComponent
+						AppLogoComponent,
+      CourtierSimpleComponent,
+      CourtierGrossiteComponent,
+      
 	],
 	bootstrap: [AppComponent],
 	providers:[
